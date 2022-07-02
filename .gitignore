@@ -1,0 +1,8 @@
+.env
+*.swp
+www/
+db_data/
+**/*.zip
+**/*-lock.json
+**/node_modules/
+.DS_Store

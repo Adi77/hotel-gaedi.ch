@@ -1,0 +1,15 @@
+{
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "wpackagist-plugin/svg-support":"*",
+        "wpackagist-plugin/duplicate-page":"*",
+        "wpackagist-plugin/simple-history":"*",
+        "wpackagist-plugin/duracelltomi-google-tag-manager":"*",
+        "wpackagist-plugin/wordpress-seo":"*"
+    }
+}

@@ -1,0 +1,307 @@
+.et_header_style_fullscreen {
+  .et_slide_in_menu_container {
+    padding-top: 0;
+  }
+}
+#et-top-navigation {
+  .mobile_menu_bar {
+    display: inline-block;
+    transform: rotate(9deg);
+    &.et_pb_header_toggle {
+      width: 50px;
+    }
+    &::before {
+      font-size: 56px;
+      font-weight: bold;
+    }
+  }
+}
+
+header {
+  #wink-mainnav {
+    height: 100px;
+    padding: 20px 30px;
+    @include diviBreakpoint(980) {
+      padding: 20px;
+      &.stickyBg {
+        background-color: $wink-beige !important;
+      }
+    }
+
+    .menu-row {
+      overflow: auto;
+      background-color: $wink-beige;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+
+      top: -100%;
+      left: 0;
+      right: -100%;
+      bottom: 0;
+
+      transition: all 0.3s ease-in-out;
+      transform: scale(0);
+
+      &.active {
+        padding: 10vh 10% 0;
+        @include diviBreakpoint(980) {
+          padding: 13vh 30px 0;
+        }
+        top: 0;
+        right: 0;
+
+        display: block;
+        transform: scale(1);
+      }
+      .et_pb_column {
+        @include diviBreakpoint(980) {
+          margin-bottom: 10px;
+        }
+        .et_pb_module {
+          margin-right: 2.4vw;
+          @include diviBreakpoint(980) {
+            margin-right: 0;
+          }
+          text-align: right;
+          .et_pb_toggle {
+            border-bottom: $wink-horizontal-border-size $wink-black;
+            margin-bottom: 0;
+            padding-bottom: 25px;
+            @include diviBreakpoint(980) {
+              padding-bottom: 15px;
+              padding-left: 0;
+            }
+            &.et_pb_toggle_close,
+            &.et_pb_toggle_open {
+              @include diviBreakpoint(980) {
+                padding-top: 15px;
+              }
+            }
+            .et_pb_toggle_title {
+              font-family: $wink-CabinetGroteskExtrabold;
+              font-size: 5vw;
+              @include diviBreakpoint(980) {
+                font-size: 50px;
+              }
+              &::before {
+                display: block !important;
+                @include diviBreakpoint(980) {
+                  top: 34px;
+                }
+              }
+              &::after {
+                display: block !important;
+                @include diviBreakpoint(980) {
+                  top: 18px;
+                }
+              }
+            }
+            .et_pb_toggle_content {
+              @include winkTag();
+              a {
+                @include diviBreakpoint(480) {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+
+        &.et-last-child {
+          .et_pb_module {
+            text-align: left;
+            margin-left: 5vw;
+            @include diviBreakpoint(980) {
+              margin-left: 0;
+            }
+            a {
+              font-family: $wink-CabinetGroteskLight;
+              border: $wink-tag-border-size transparent;
+              padding: 6px 18px;
+              border-radius: 100px;
+              &:hover {
+                background-color: transparent;
+                border: $wink-tag-border-size $wink-black;
+                color: $wink-black;
+                @include diviBreakpoint(980) {
+                  border: $wink-tag-border-size transparent !important;
+                }
+              }
+              &.active {
+                color: inherit;
+                background-color: inherit;
+                border: $wink-tag-border-size $wink-black;
+                &:hover {
+                  background-color: transparent;
+                }
+              }
+            }
+            &:first-child {
+              a {
+                font-size: 110px;
+                @include diviBreakpoint(1580) {
+                  font-size: 5vw;
+                }
+                @include diviBreakpoint(980) {
+                  font-size: 50px;
+                }
+                line-height: 1.4;
+              }
+            }
+            &:last-child {
+              a {
+                font-family: $wink-SwitzerRegular;
+                font-size: 18px;
+                text-transform: uppercase;
+                margin-right: 0;
+                @include diviBreakpoint(1580) {
+                  margin-right: 10px;
+                }
+                &::after {
+                  font-family: ETmodules;
+                  font-size: 40px;
+                  content: '\24';
+                  position: relative;
+                  top: 12px;
+                }
+              }
+            }
+            &.et_pb_text_2_tb_header {
+              @include diviBreakpoint(980) {
+                text-align: right;
+                margin-bottom: 10px;
+              }
+              a {
+                @include diviBreakpoint(980) {
+                  font-size: 3em;
+                  padding-right: 0;
+                  &.active {
+                    padding-right: 18px;
+                  }
+                }
+              }
+            }
+            &.et_pb_text_3_tb_header {
+              @include diviBreakpoint(980) {
+                padding-top: 10px;
+                text-align: right;
+              }
+              a {
+                @include diviBreakpoint(980) {
+                  padding-left: 10px;
+                  padding-right: 0;
+                  margin-right: 0;
+                  &:after {
+                    top: 8px;
+                    font-size: 30px;
+                  }
+                  &:first-child {
+                    padding-left: 0;
+                  }
+                  &.active {
+                    padding-right: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .et_pb_row {
+      width: 100%;
+      min-width: 100%;
+      padding: 17px 0 0;
+      .et_pb_column_0_tb_header,
+      .et_pb_column_1_tb_header {
+        @include diviBreakpoint(980) {
+          width: 49% !important;
+        }
+      }
+      .wink-mainmenu-toggle-container {
+        @include diviBreakpoint(980) {
+          width: initial;
+          right: 0;
+          position: absolute;
+        }
+
+        .et_pb_text_inner {
+          text-align: right;
+        }
+        #wink-mainmenu-toggle {
+          font-size: 55px;
+          color: $wink-black;
+          transform: rotate(9deg);
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.mainnav-active {
+  header {
+    z-index: 999;
+  }
+}
+/* set blog menuitem to active state if on blog post detailpage */
+.single-post {
+  header #wink-mainnav .menu-row .et_pb_column.et-last-child .et_pb_module {
+    a {
+      &[href*='blog'] {
+        color: inherit;
+        background-color: inherit;
+        border: $wink-tag-border-size $wink-black;
+        padding-right: 18px;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.dark-mode {
+  header {
+    #wink-mainnav {
+      .menu-row {
+        background-color: $wink-black !important;
+
+        .et_pb_column {
+          .et_pb_module {
+            .et_pb_toggle {
+              border-bottom: $wink-horizontal-border-size $wink-beige;
+              &.et_pb_toggle_close {
+                .et_pb_toggle_title {
+                  &:before {
+                    color: $wink-beige;
+                  }
+                }
+              }
+              .et_pb_toggle_content {
+                a {
+                  color: $wink-beige;
+                  border-color: $wink-beige !important;
+                  &:hover {
+                    border-color: transparent !important;
+                    color: $wink-black !important;
+                  }
+                }
+              }
+            }
+            .et_pb_text_inner {
+              a {
+                color: $wink-beige;
+                &:hover {
+                  color: $wink-beige;
+                  border: $wink-tag-border-size $wink-beige;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,368 @@
+/* Global styles */
+
+body {
+  background-color: $wink-beige;
+  color: $wink-black;
+}
+.et_pb_section {
+  background-color: transparent;
+}
+
+.et_pb_section {
+  .et_pb_row {
+    width: 80%;
+    max-width: 80%;
+    @include diviBreakpoint(980) {
+      width: 90%;
+      max-width: 90%;
+    }
+  }
+}
+
+/* a-tag href content */
+
+a {
+  color: $wink-black;
+  border-bottom: 1px solid $wink-darkgreen;
+  &:hover {
+    border-bottom: 0;
+  }
+}
+
+/* form input */
+input[type='radio'],
+input[type='checkbox'] {
+  position: absolute;
+  left: -999em;
+}
+
+input[type='checkbox'] + label {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+input[type='checkbox'] + label::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 0;
+  margin-right: 10px;
+}
+input[type='checkbox']:checked + label::after {
+  content: '';
+  position: absolute;
+  width: 1ex;
+  height: 0.5ex;
+  top: 10px;
+  left: 9px;
+  border: 3px solid $wink-green;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+
+/* text formatting */
+
+/* headings  */
+
+h1,
+h2,
+h3,
+h4 {
+  color: $wink-black;
+}
+
+h1 {
+  font-size: 100px;
+  @include diviBreakpoint(980) {
+    font-size: 40px;
+  }
+}
+h2 {
+  font-size: 65px;
+  @include diviBreakpoint(980) {
+    font-size: 35px;
+  }
+}
+h3 {
+  font-size: 40px;
+}
+.et_pb_column h4 {
+  font-size: 25px;
+}
+h5 {
+  font-size: 20px;
+}
+
+/* paragraph */
+
+p {
+  font-size: 40px;
+  font-weight: $wink-light;
+  line-height: 1.4;
+  @include diviBreakpoint(1405) {
+    font-size: 20px;
+  }
+}
+
+/* Table font-sizes */
+
+table {
+  tr {
+    th {
+      font-size: 45px;
+      @include diviBreakpoint(1405) {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+/* lists style */
+
+.et_pb_text_inner {
+  p ~ ul {
+    padding-top: 30px;
+  }
+  ul {
+    list-style-type: none !important;
+    li {
+      font-size: 30px;
+      line-height: 1.4;
+      font-weight: $wink-light;
+      @include diviBreakpoint(1580) {
+        font-size: 26px;
+      }
+      @include diviBreakpoint(1100) {
+        font-size: 20px;
+      }
+      &:before {
+        content: '-';
+        position: absolute;
+        margin-left: -11px;
+      }
+    }
+  }
+}
+
+/* divi accordion */
+
+.et_pb_toggle {
+  border: 0;
+  padding-bottom: 35px;
+  padding-right: 0;
+  background-color: transparent;
+  .et_pb_toggle_title {
+    color: $wink-black;
+    &::before {
+      content: '' !important;
+      position: absolute;
+      display: none;
+      right: 0;
+      top: 53px;
+      width: 20px;
+      height: 3px;
+      background-color: $wink-black;
+    }
+    &::after {
+      content: '' !important;
+      position: absolute;
+      display: none;
+      top: 37px;
+      right: 9px;
+      width: 20px;
+      height: 3px;
+      background-color: $wink-black;
+    }
+  }
+  &.et_pb_toggle_open {
+    .et_pb_toggle_title {
+      color: $wink-black;
+      &:after {
+        width: 3px;
+        height: 20px;
+      }
+    }
+  }
+  &.et_pb_toggle_close {
+    .et_pb_toggle_title {
+      color: $wink-black;
+      &:after {
+        width: 3px;
+        height: 20px;
+      }
+    }
+  }
+  &.et_pb_toggle_plus {
+    .et_pb_toggle_title {
+      &:after {
+        transform: scale(1);
+        transition: all 0.3s linear;
+      }
+    }
+  }
+  &.et_pb_toggle_minus {
+    .et_pb_toggle_title {
+      &:after {
+        transform: scale(0);
+        transition: all 0.3s linear;
+      }
+    }
+  }
+}
+
+.dark-mode {
+  .et_pb_toggle {
+    .et_pb_toggle_title {
+      color: $wink-beige;
+      &::before {
+        background-color: $wink-beige;
+      }
+      &::after {
+        background-color: $wink-beige;
+      }
+    }
+  }
+}
+
+/* wink divider row */
+
+.wink-divider-row {
+  width: 100% !important;
+  max-width: 100% !important;
+  @include diviBreakpoint(980) {
+    width: 90% !important;
+    max-width: 90% !important;
+  }
+  .et_pb_divider {
+    &::before {
+      border-top-color: $wink-black;
+      height: 3px;
+      border-top-width: 3px;
+    }
+  }
+}
+
+.dark-mode {
+  .wink-divider-row {
+    .et_pb_divider {
+      &::before {
+        border-top-color: $wink-beige;
+      }
+    }
+  }
+}
+
+/* social icons */
+
+html .et_pb_social_icon {
+  a.icon {
+    top: -8px;
+    position: relative;
+    background-color: transparent !important;
+    &:before {
+      color: $wink-black !important;
+      font-size: 26px !important;
+    }
+  }
+}
+
+/* back to top link */
+
+.et_pb_scroll_top {
+  &.et-pb-icon {
+    background: transparent;
+    bottom: 15px;
+    right: 8px;
+  }
+  &:before {
+    content: '\21';
+    color: $wink-black;
+  }
+}
+
+.dark-mode .et_pb_scroll_top {
+  &:before {
+    color: $wink-beige;
+  }
+}
+
+/* cursor shadow */
+
+.cursor-shadow {
+  display: none;
+  position: fixed;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  //mix-blend-mode: difference;
+  background-color: $wink-yellow;
+  z-index: 9999;
+  height: 160px;
+  width: 160px;
+  transition: all 200ms ease-out;
+  box-shadow: 0 0 34px 35px $wink-yellow;
+  opacity: 0.2;
+  @include diviBreakpoint(980) {
+    display: none;
+  }
+}
+
+/* dark mode switch */
+
+.dark-mode-switch {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 30px;
+  height: 30px;
+  z-index: 999;
+  a {
+    border: 0;
+  }
+}
+
+/* dark-mode */
+.dark-mode {
+  background-color: $wink-black !important;
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $wink-beige !important;
+  }
+  #wink-mainmenu-toggle {
+    color: $wink-beige !important;
+    &:hover {
+      color: $wink-yellow !important;
+    }
+  }
+
+  svg {
+    path {
+      fill: $wink-beige !important;
+    }
+  }
+
+  .et_pb_social_icon {
+    a.icon {
+      &:before {
+        color: $wink-beige !important;
+      }
+    }
+  }
+}
+
+/* fix divi backend dialog windows styles */
+
+.et-core-modal-content {
+  p {
+    font-size: inherit;
+  }
+}

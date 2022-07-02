@@ -1,0 +1,87 @@
+// divi grid mediaQuery breakpoint mixin
+@mixin diviBreakpoint($breakpoint) {
+  @if $breakpoint==480 {
+    @media only screen and (max-width: 479px) {
+      @content;
+    }
+  }
+  @if $breakpoint==768 {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint==980 {
+    @media only screen and (max-width: 980px) {
+      @content;
+    }
+  }
+  @if $breakpoint==1100 {
+    @media only screen and (max-width: 1100px) {
+      @content;
+    }
+  }
+  @if $breakpoint==1405 {
+    @media only screen and (max-width: 1405px) {
+      @content;
+    }
+  }
+  @if $breakpoint==1580 {
+    @media only screen and (max-width: 1580px) {
+      @content;
+    }
+  }
+}
+
+@mixin winkButton() {
+  .et_pb_button,
+  .button {
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 0 !important;
+    border-radius: 0;
+    padding: 10px 20px 10px 0 !important;
+    color: $wink-black;
+
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: none;
+    &:hover {
+      transition: none;
+      background-color: transparent;
+    }
+    &::after {
+      font-family: ETmodules;
+      font-size: 30px;
+      content: '\24';
+      position: relative;
+      top: 7px;
+      margin-left: 10px;
+      opacity: 1;
+    }
+  }
+}
+@mixin winkTag() {
+  a {
+    font-family: $wink-CabinetGroteskExtrabold;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    border: 0;
+    border: $wink-tag-border-size $wink-black;
+    border-radius: 100px;
+    padding: 6px 10px;
+    margin: 0 0 20px 30px;
+    @include diviBreakpoint(1580) {
+      margin-left: 5px;
+    }
+    display: inline-block;
+    &:hover {
+      border: $wink-tag-border-size $wink-yellow;
+      background-color: $wink-yellow;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
