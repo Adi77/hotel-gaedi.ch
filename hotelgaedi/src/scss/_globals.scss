@@ -5,6 +5,13 @@ body {
   color: $gaedi-black;
 }
 
+.content-wrapper {
+  margin-top: toRem(238);
+  @include media($until: 'xl') {
+    margin-top: toRem(194);
+  }
+}
+
 /* a-tag href content */
 
 a {
@@ -78,8 +85,11 @@ h5 {
 
 p {
   font-size: 40px;
-  font-weight: $gaedi-light;
+  font-weight: $gaedi-lato-regular-weight;
   line-height: 1.4;
+}
+strong {
+  font-weight: $gaedi-lato-bold-weight;
 }
 
 /* Table font-sizes */
@@ -98,15 +108,5 @@ section,
 footer {
   ul {
     list-style-type: none;
-  }
-}
-section,
-footer {
-  ul {
-    li {
-      font-size: 30px;
-      line-height: 1.4;
-      font-weight: $gaedi-light;
-    }
   }
 }

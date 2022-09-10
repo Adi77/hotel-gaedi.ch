@@ -12,7 +12,7 @@
 			{% block header %}
 				<nav class="navbar navbar-expand-xl fixed-top navbar-light">
 
-					<div class="container-fluid justify-content-center ">
+					<div class="justify-content-center ">
 						<a class="gaedi-logo-main navbar-brand" href="{{site.url}}" rel="home">
 				
 
@@ -36,19 +36,19 @@
 			{% endblock %}
 		</header>
 
-		<section id="content" role="main" class="content-wrapper">
+		<main id="content" role="main" class="content-wrapper">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
 			<div class="wrapper {{sidebar_class}}">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
 			</div>
-			{% if sidebar %}
+			{# {% if sidebar %}
 				<aside class="layout-sidebar">
 					{{sidebar}}
 				</aside>
-			{% endif %}
-		</section>
+			{% endif %} #}
+			</main>
 
 		{% block footer %}
 			<footer id="footer">

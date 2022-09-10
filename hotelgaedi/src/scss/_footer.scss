@@ -1,0 +1,73 @@
+footer {
+  color: white;
+  background-color: $gaedi-brown;
+  padding-top: toRem(96);
+  .container-fluid {
+    padding-left: 5%;
+    padding-right: 5%;
+    p,
+    a {
+      font-size: toRem(20);
+    }
+    a {
+      color: white;
+      &:hover {
+        color: black;
+      }
+    }
+    .menu {
+      .menu-item {
+        a {
+          &:before {
+            content: '';
+            background-image: escape-svg($arrow-right-white);
+            width: 38px;
+            height: 24px;
+            display: block;
+            background-repeat: no-repeat;
+            background-size: 30px;
+            position: absolute;
+            margin-left: -38px;
+          }
+          &:hover {
+            &:before {
+              content: '';
+              background-image: escape-svg($arrow-right-black);
+            }
+          }
+        }
+      }
+    }
+    .footerwidgetcol3 {
+      text-align: right;
+      .widget_text {
+        padding-top: toRem(20);
+      }
+    }
+    .footer-bottom {
+      border-top: 2px solid white;
+      margin-top: toRem(30);
+      padding: toRem(30) 0 0;
+      .wp-container-1 {
+        p {
+          margin-top: toRem(20);
+        }
+      }
+      .wp-container-2 {
+        text-align: right;
+        svg {
+          &.insta {
+            margin-top: toRem(6);
+            width: toRem(47);
+          }
+          &.facebook {
+            width: toRem(40);
+          }
+          path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}

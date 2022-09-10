@@ -2,10 +2,23 @@
   position: absolute;
   top: 0;
   right: 5%;
+  @include media($until: 'xl') {
+    position: relative;
+    top: inherit;
+    right: inherit;
+    margin: inherit;
+  }
   ul {
     margin-top: inherit;
+    @include media($until: 'xl') {
+      margin: 0;
+      padding: 0;
+    }
     li {
       display: inline-block;
+      @include media($until: 'xl') {
+        display: block;
+      }
       a {
         position: relative;
         top: toRem(23);
@@ -20,6 +33,10 @@
             color: transparent;
           }
         }
+        @include media($until: 'xl') {
+          font-size: toRem(20);
+          line-height: 2.2;
+        }
       }
       &:not(:last-child) {
         a {
@@ -27,6 +44,9 @@
             content: '|';
             position: absolute;
             margin-left: 20px;
+            @include media($until: 'xl') {
+              content: '';
+            }
           }
         }
       }

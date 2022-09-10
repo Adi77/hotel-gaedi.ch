@@ -6,22 +6,39 @@ header {
   }
   .navbar {
     flex-wrap: wrap;
-    .navbar-toggler {
-      border: 0;
-      color: transparent !important;
-      &:focus,
-      &:focus-visible,
-      &:focus-within {
-        color: transparent !important;
+    @include media($until: 'xl') {
+      padding-top: 0;
+    }
+    .justify-content-center {
+      width: 100%;
+      text-align: center;
+      background-color: $gaedi-beige;
+      padding-bottom: toRem(5);
+      @include media($until: 'xl') {
+        padding-top: toRem(10);
+        padding-bottom: toRem(30);
       }
-    }
-    .navbar-collapse {
-      flex-basis: 100%;
-    }
-    .navbar-nav {
-      .nav-item {
-        .nav-link {
+      .navbar-brand {
+        @include media($until: 'xl') {
+          margin: 0;
         }
+      }
+      .navbar-toggler {
+        border: 0;
+        color: transparent !important;
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+          color: transparent !important;
+        }
+        @include media($until: 'xl') {
+          position: absolute;
+          top: toRem(20);
+          right: toRem(15);
+        }
+      }
+      .navbar-collapse {
+        flex-basis: 100%;
       }
     }
   }

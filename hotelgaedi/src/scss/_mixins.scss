@@ -71,56 +71,10 @@ $breakpoints: (
   @return $remValue;
 }
 
-@mixin winkButton() {
-  .et_pb_button,
-  .button {
-    font-size: 18px;
-    text-transform: uppercase;
-    background-color: transparent;
-    border: 0 !important;
-    border-radius: 0;
-    padding: 10px 20px 10px 0 !important;
-    color: $gaedi-black;
-
-    text-decoration: none;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: none;
-    &:hover {
-      transition: none;
-      background-color: transparent;
-    }
-    &::after {
-      font-family: ETmodules;
-      font-size: 30px;
-      content: '\24';
-      position: relative;
-      top: 7px;
-      margin-left: 10px;
-      opacity: 1;
-    }
-  }
-}
-@mixin winkTag() {
-  a {
-    font-family: $gaedi-CabinetGroteskExtrabold;
-    font-size: 18px;
-    letter-spacing: 1.2px;
-    border: 0;
-    border: $gaedi-tag-border-size $gaedi-black;
-    border-radius: 100px;
-    padding: 6px 10px;
-    margin: 0 0 20px 30px;
-    @include diviBreakpoint(1580) {
-      margin-left: 5px;
-    }
-    display: inline-block;
-    &:hover {
-      border: $gaedi-tag-border-size $gaedi-bordeaux;
-      background-color: $gaedi-bordeaux;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-  }
+@mixin make-container($padding-x: $container-fluid-padding-x) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
 }

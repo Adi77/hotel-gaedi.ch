@@ -124,6 +124,10 @@ class StarterSite extends Timber\Site
         $context['notes'] = 'These values are available everytime you call Timber::context();';
         $context['metamenu']  = new Timber\Menu('Metanav');
         $context['mainmenu']  = new Timber\Menu('main');
+        $context['footerwidgetcol1'] = Timber::get_widgets('footerwidgetcol1');
+        $context['footerwidgetcol2'] = Timber::get_widgets('footerwidgetcol2');
+        $context['footerwidgetcol3'] = Timber::get_widgets('footerwidgetcol3');
+        $context['copyrightrow'] = Timber::get_widgets('copyrightrow');
         $context['site']  = $this;
         return $context;
     }
@@ -207,3 +211,73 @@ class StarterSite extends Timber\Site
 }
 
 new StarterSite();
+
+
+
+
+/**
+ * Register footer widgets.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function hotel_gaedi_widgets_init()
+{
+    register_sidebar(
+        array(
+            'name'          => __('Footer 1', 'hotel_gaedi'),
+            'id'            => 'footerwidgetcol1',
+            'description'   => __('Add widgets here to appear in your footer.', 'hotel_gaedi'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __('Footer 2', 'hotel_gaedi'),
+            'id'            => 'footerwidgetcol2',
+            'description'   => __('Add widgets here to appear in your footer.', 'hotel_gaedi'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __('Footer 3', 'hotel_gaedi'),
+            'id'            => 'footerwidgetcol3',
+            'description'   => __('Add widgets here to appear in your footer.', 'hotel_gaedi'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __('Copyright Row', 'hotel_gaedi'),
+            'id'            => 'copyrightrow',
+            'description'   => __('Add widgets here to appear in your footer.', 'hotel_gaedi'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+}
+add_action('widgets_init', 'hotel_gaedi_widgets_init');
+
+
+
+
+// Remove Block vorlagen
+add_action('after_setup_theme', 'fire_theme_support');
+function fire_theme_support()
+{
+    remove_theme_support('core-block-patterns');
+}
