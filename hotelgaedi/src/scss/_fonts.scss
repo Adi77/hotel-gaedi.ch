@@ -1,15 +1,19 @@
-/* @font-face {
-  font-family: 'CabinetGroteskExtrabold';
-  src: url('../fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
-    url('../fonts/CabinetGrotesk-Extrabold.woff') format('woff');
-} 
+@font-face {
+  font-family: 'shadowsIntoLightTwo';
+  src: url('../fonts/ShadowsIntoLightTwo-Regular.woff2') format('woff2'),
+    url('../fonts/ShadowsIntoLightTwo-Regular.woff') format('woff');
+}
+body {
+  font-family: $gaedi-lato-regular;
+  font-weight: 400;
+}
+h1,
+h2 {
+  font-family: $gaedi-shadowsIntoLightTwo;
+}
 
-
-
-h1 {
-  font-family: $wink-CabinetGroteskLight;
-  strong {
-    font-family: $wink-CabinetGroteskExtrabold;
+header {
+  a {
+    font-weight: 700;
   }
 }
-*/

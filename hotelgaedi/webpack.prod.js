@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
-    publicPath: '/wp-content/themes/hotelgaedi/dist/',
+    publicPath: '/wp-content/themes/dieprojektfabrik/dist/',
   },
   module: {
     rules: [

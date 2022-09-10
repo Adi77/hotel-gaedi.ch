@@ -1,10 +1,41 @@
 @import 'debug';
 @import 'variables';
-@import 'bootstrap';
+
+// Bootstrap
+//@import 'bootstrap';
+// Configuration
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/transitions';
+
+// Layout & components
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/dropdown';
+
+// Helpers
+@import 'bootstrap/scss/helpers';
+
+// Utilities
+@import 'bootstrap/scss/utilities/api';
+
+// end bootstrap
+
 @import 'fonts';
 @import 'loading-spinner';
 @import 'mixins';
 @import 'globals';
 @import 'footer';
 @import 'main-header';
-@import 'main-navigation';
+@import 'metamenu';
+@import 'mainmenu';

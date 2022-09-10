@@ -1,0 +1,42 @@
+.meta-menu {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  ul {
+    margin-top: inherit;
+    li {
+      display: inline-block;
+      a {
+        position: relative;
+        top: toRem(23);
+        color: $gaedi-brown;
+        text-transform: uppercase;
+        padding: toRem(30) toRem(20) toRem(20);
+
+        &:hover {
+          color: white;
+          background-color: $gaedi-brown;
+          &:after {
+            color: transparent;
+          }
+        }
+      }
+      &:not(:last-child) {
+        a {
+          &:after {
+            content: '|';
+            position: absolute;
+            margin-left: 20px;
+          }
+        }
+      }
+      &.hidePipe {
+        a {
+          &:after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}

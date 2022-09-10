@@ -1,40 +1,35 @@
-/* debug viewports of divi gridsystem */
+/* debug viewports of bootstrap gridsystem */
 
 body {
   &:after {
-    @media only screen and (max-width: 479px) {
-      content: 'Phones < 480px';
+    @media only screen and (max-width: 575px) {
+      content: 'Phones xs < 540px';
       background-color: red;
       color: white;
     }
-    @media only screen and (min-width: 480px) and (max-width: 767px) {
-      content: 'Tablets sm < 768px';
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      content: 'Tablets sm < 720px';
       background-color: brown;
       color: white;
     }
-    @media only screen and (min-width: 768px) and (max-width: 979px) {
-      content: 'Tablets lg < 980px';
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      content: 'Tablets md < 960px';
       background-color: darkgreen;
       color: white;
     }
-    @media only screen and (min-width: 980px) and (max-width: 1099px) {
-      content: 'Laptop < 1100px';
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      content: 'Laptop lg < 1140px';
       background-color: darkblue;
       color: white;
     }
-    @media only screen and (min-width: 1100px) and (max-width: 1404px) {
-      content: 'Desktop sm < 1405px';
+    @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+      content: 'Desktop xl < 1400px';
       background-color: darkslategrey;
       color: white;
     }
-    @media only screen and (min-width: 1405px) and (max-width: 1579px) {
-      content: 'Desktop lg < 1580px';
-      background-color: darkmagenta;
-      color: white;
-    }
-    @media only screen and (min-width: 1580px) {
-      content: 'Desktop xl > 1580px';
-      background-color: darkcyan;
+    @media only screen and (min-width: 1400px) {
+      content: 'Desktop xxl > 1400px';
+      background-color: rgb(75, 47, 79);
       color: white;
     }
     position: fixed;

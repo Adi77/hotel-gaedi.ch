@@ -1,0 +1,43 @@
+<!-- main menu -->
+
+{% if mainmenu %}
+
+<ul class="navbar-nav">
+  {% for item in items %}
+
+  <!-- if has submenu -->
+  {% if item.get_children %}
+
+  <li class="nav-item dropdown {{ item.classes | join(' ') }}">
+    <a
+      target="{{ item.target }}"
+      href="{{ item.link }}"
+      id="navbarDropdown"
+      class="nav-link dropdown-toggle"
+      data-bs-toggle="dropdown"
+      href="#"
+      role="button"
+      aria-expanded="false"
+      >{{ item.title }}</a
+    >
+
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      {% for child in item.children %}
+      <li>
+        <a class="dropdown-item" href="{{ child.link }}">{{ child.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </li>
+
+  {% else %}
+
+  <li class="nav-item {{ item.classes | join(' ') }}">
+    <a target="{{ item.target }}" href="{{ item.link }}" class="nav-link">{{
+      item.title
+    }}</a>
+  </li>
+
+  {% endif %} {% endfor %}
+</ul>
+{% endif %}

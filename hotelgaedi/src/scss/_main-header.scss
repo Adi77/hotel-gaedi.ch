@@ -1,35 +1,28 @@
-.logo-link {
-  a {
-    border: 0;
-  }
-}
-
-#main-header {
-  background-color: transparent;
-  box-shadow: none;
-  &.et-fixed-header {
-    box-shadow: none !important;
-  }
-}
-
 header {
-  //mix-blend-mode: difference;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 100;
-  background-color: transparent;
-}
-
-.logged-in {
-  header {
-    z-index: 1;
+  .gaedi-logo-main {
+    svg {
+      width: toRem(170);
+    }
   }
-}
-
-.dark-mode {
-  header {
-    // background-color: $wink-black;
+  .navbar {
+    flex-wrap: wrap;
+    .navbar-toggler {
+      border: 0;
+      color: transparent !important;
+      &:focus,
+      &:focus-visible,
+      &:focus-within {
+        color: transparent !important;
+      }
+    }
+    .navbar-collapse {
+      flex-basis: 100%;
+    }
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+        }
+      }
+    }
   }
 }

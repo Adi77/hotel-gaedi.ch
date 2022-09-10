@@ -1,35 +1,74 @@
-// divi grid mediaQuery breakpoint mixin
-@mixin diviBreakpoint($breakpoint) {
-  @if $breakpoint==480 {
-    @media only screen and (max-width: 479px) {
-      @content;
+// Custom Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Media-Query Mixin
+@mixin media($from: false, $until: false, $and: false, $media-type: all) {
+  $min-width: 0;
+  $max-width: 0;
+  $query: '';
+
+  //FROM: this breakpoint (inclusive)
+  @if $from {
+    @if type-of($from) == number {
+      $min-width: $from;
+    } @else {
+      $min-width: map-get($breakpoints, $from);
     }
   }
-  @if $breakpoint==768 {
-    @media only screen and (max-width: 768px) {
-      @content;
+
+  //UNTIL: this breakpoint (exclusive)
+  @if $until {
+    @if type-of($until) == number {
+      $max-width: $until - 1px;
+    } @else {
+      $max-width: map-get($breakpoints, $until) - 1px;
     }
   }
-  @if $breakpoint==980 {
-    @media only screen and (max-width: 980px) {
-      @content;
-    }
+
+  @if $min-width != 0 {
+    $query: '#{$query} and (min-width: #{$min-width})';
   }
-  @if $breakpoint==1100 {
-    @media only screen and (max-width: 1100px) {
-      @content;
-    }
+  @if $max-width != 0 {
+    $query: '#{$query} and (max-width: #{$max-width})';
   }
-  @if $breakpoint==1405 {
-    @media only screen and (max-width: 1405px) {
-      @content;
-    }
+  @if $and {
+    $query: '#{$query} and (#{$and})';
   }
-  @if $breakpoint==1580 {
-    @media only screen and (max-width: 1580px) {
-      @content;
-    }
+
+  @if ($media-type == 'all' and $query != '') {
+    $media-type: '';
+    $query: str-slice(unquote($query), 6);
   }
+
+  /*   // hover: none
+  @if ($media-type == 'mobile') {
+    $media-type: '';
+    $query: ' and (hover: none)';
+  }
+ */
+  @media #{$media-type + $query} {
+    @content;
+  }
+}
+
+/* Usage:
+.foo-bar {
+  width: 50%;
+  @include media($from: "sm", $until: 900px, $and:"orientation: landscape"){
+      width: 100%;
+  }
+} */
+
+@function toRem($value) {
+  $remValue: (calc($value / 16)) + rem;
+  @return $remValue;
 }
 
 @mixin winkButton() {
@@ -41,7 +80,7 @@
     border: 0 !important;
     border-radius: 0;
     padding: 10px 20px 10px 0 !important;
-    color: $wink-black;
+    color: $gaedi-black;
 
     text-decoration: none;
     white-space: nowrap;
@@ -64,11 +103,11 @@
 }
 @mixin winkTag() {
   a {
-    font-family: $wink-CabinetGroteskExtrabold;
+    font-family: $gaedi-CabinetGroteskExtrabold;
     font-size: 18px;
     letter-spacing: 1.2px;
     border: 0;
-    border: $wink-tag-border-size $wink-black;
+    border: $gaedi-tag-border-size $gaedi-black;
     border-radius: 100px;
     padding: 6px 10px;
     margin: 0 0 20px 30px;
@@ -77,8 +116,8 @@
     }
     display: inline-block;
     &:hover {
-      border: $wink-tag-border-size $wink-yellow;
-      background-color: $wink-yellow;
+      border: $gaedi-tag-border-size $gaedi-bordeaux;
+      background-color: $gaedi-bordeaux;
     }
     &:last-child {
       margin-right: 0;
