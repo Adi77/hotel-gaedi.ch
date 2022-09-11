@@ -5,6 +5,7 @@ header {
     }
   }
   .navbar {
+    background-color: $gaedi-beige;
     flex-wrap: wrap;
     @include media($until: 'xl') {
       padding-top: 0;
@@ -12,7 +13,7 @@ header {
     .justify-content-center {
       width: 100%;
       text-align: center;
-      background-color: $gaedi-beige;
+
       padding-bottom: toRem(5);
       @include media($until: 'xl') {
         padding-top: toRem(10);

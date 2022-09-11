@@ -1,0 +1,116 @@
+html :where(.wp-block) {
+  max-width: 100%;
+  margin: 0;
+}
+
+body.page-editor-page .editor-post-title__block,
+body.page-editor-page .editor-default-block-appender,
+body.page-editor-page .editor-block-list__block {
+  max-width: none !important;
+}
+.block-editor__container .wp-block {
+  max-width: none !important;
+}
+
+.block-editor__container
+  .wp-block
+  .cases-carousel-multicol
+  .uagb-slick-carousel
+  .uagb-post__items {
+  height: 500px !important;
+}
+
+html .wp-block .wp-block-column {
+  //display: inherit;
+  //margin: inherit !important;
+  box-sizing: inherit !important;
+  flex-wrap: inherit !important;
+  align-items: inherit !important;
+}
+
+.uagb-editor-preview-mode-desktop {
+  &.images-gallery-with-links
+    .wp-block-columns:not(.is-not-stacked-on-mobile)
+    > .wp-block-column {
+    flex-basis: inherit !important;
+  }
+}
+
+/* html .wp-block p {
+  margin-bottom: 0 !important;
+}
+
+html .wp-block h2 {
+  margin-bottom: inherit !important;
+} */
+
+/* 
+* gutenberg frontend reset 
+*/
+
+.wp-block-columns {
+  flex-wrap: wrap !important;
+}
+
+/* buttons */
+
+.wp-block-button__link {
+  padding: toRem(14) toRem(20) toRem(10);
+  cursor: pointer;
+}
+
+/* disable default styling */
+
+.content-wrapper {
+  .wp-block-columns {
+    &:not(.is-not-stacked-on-mobile) {
+      > .wp-block-column {
+        flex-basis: inherit !important;
+        flex-grow: inherit;
+      }
+    }
+  }
+}
+
+/* colors */
+.has-orange-color {
+  color: $orange;
+}
+.has-yellow-background-color {
+  background-color: $yellow;
+}
+
+html .wp-block h2 {
+  &.has-text-color {
+    margin-bottom: 0 !important;
+    + h2 {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+.wp-block-columns {
+  margin-bottom: 0;
+}
+.wp-block-image {
+  margin: 0;
+}
+
+.wp-block-uagb-section {
+  &.uagb-section__wrap {
+    padding-top: inherit;
+    padding-bottom: inherit;
+  }
+  .uagb-section__inner-wrap {
+    max-width: inherit;
+  }
+}
+
+/* image captions */
+
+.wp-block-image figcaption {
+  margin-top: -40px;
+  position: absolute;
+  margin-left: 20px;
+  color: $white;
+}

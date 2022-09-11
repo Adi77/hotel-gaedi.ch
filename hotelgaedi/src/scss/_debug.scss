@@ -3,22 +3,22 @@
 body {
   &:after {
     @media only screen and (max-width: 575px) {
-      content: 'Phones xs < 540px';
+      content: 'Phones xs < 576px';
       background-color: red;
       color: white;
     }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
-      content: 'Tablets sm < 720px';
+      content: 'Tablets sm < 768px';
       background-color: brown;
       color: white;
     }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      content: 'Tablets md < 960px';
+      content: 'Tablets md < 992px';
       background-color: darkgreen;
       color: white;
     }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      content: 'Laptop lg < 1140px';
+      content: 'Laptop lg < 1200px';
       background-color: darkblue;
       color: white;
     }

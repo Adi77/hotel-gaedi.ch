@@ -1,3 +1,47 @@
 .header-fullwidth-bg-image-overlay-text {
   @include make-container();
+  .wp-block-cover {
+    .wp-block-cover__inner-container {
+      .container {
+        @include media($until: 'sm') {
+          padding-right: toRem(10);
+          padding-left: toRem(10);
+          margin-top: 100%;
+        }
+        p {
+          margin: 0;
+          line-height: 1.2;
+          &:first-child {
+            font-family: $gaedi-shadowsIntoLightTwo;
+            font-size: toRem(80);
+            @include media($until: 'sm') {
+              font-size: toRem(40);
+            }
+          }
+          &:nth-child(2) {
+            font-size: toRem(70);
+            @include media($until: 'sm') {
+              font-size: toRem(30);
+            }
+            margin-bottom: toRem(40);
+          }
+          &:last-child {
+            font-size: toRem(20);
+            background-color: $gaedi-brown;
+            padding: toRem(20);
+            position: absolute;
+            right: 0;
+            bottom: -30px;
+            text-transform: uppercase;
+            &::before {
+              content: '\2713';
+            }
+          }
+        }
+        .wp-bootstrap-blocks-button {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }

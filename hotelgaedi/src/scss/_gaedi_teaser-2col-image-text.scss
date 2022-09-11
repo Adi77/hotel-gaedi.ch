@@ -1,0 +1,85 @@
+.teaser-2col-image-text {
+  &:last-child {
+    .row {
+      .col-xl-7 {
+        padding-bottom: 0;
+      }
+    }
+  }
+  @include media($from: 'xl') {
+    &:nth-child(even) {
+      .row {
+        .col-xl-7 {
+          padding-right: toRem(40);
+          padding-left: toRem(120);
+        }
+      }
+    }
+    &:nth-child(odd) {
+      .row {
+        .col-xl-7 {
+          padding-left: toRem(40);
+          padding-right: toRem(120);
+        }
+      }
+    }
+  }
+  .row {
+    > div {
+      @include media($until: 'xl') {
+        &:last-child {
+          order: 6;
+        }
+        img {
+          width: 100vw;
+        }
+      }
+      @include media($until: 'sm') {
+        padding-right: 5%;
+        padding-left: 5%;
+      }
+    }
+    .col-xl-7 {
+      @include media($until: 'sm') {
+        padding-right: 5%;
+        padding-left: 5%;
+      }
+      @include media($until: 'xl') {
+        padding-top: toRem(40);
+        padding-bottom: toRem(80);
+      }
+      @include media($from: 'xl', $until: 'xxl') {
+        padding-top: 0;
+      }
+      @include media($from: 'xl') {
+        display: grid;
+        align-content: center;
+      }
+    }
+  }
+
+  @include media($from: 'xl') {
+    + .teaser-2col-image-text {
+      margin-top: toRem(80);
+    }
+  }
+  @include media($from: 'sm') {
+    + .teaser-2col-image-text {
+      .row {
+        > div {
+          &:first-child {
+            order: 6;
+          }
+        }
+      }
+    }
+  }
+  @include media($from: 'xl') {
+    + .wp-bootstrap-blocks-container {
+      margin-top: toRem(120);
+    }
+    + .teaser-carousel-image-text {
+      margin-top: toRem(160);
+    }
+  }
+}

@@ -22,6 +22,7 @@
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 @import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/carousel';
 
 // Helpers
 @import 'bootstrap/scss/helpers';
@@ -42,3 +43,9 @@
 
 // gaedi specific
 @import 'gaedi_header-fullwidth-bg-image-overlay-text';
+@import 'gaedi_introtext-centered-sun-icon-title';
+@import 'gaedi_teaser-2col-image-text';
+@import 'gaedi_teaser-carousel-image-text';
+
+// Gutenberg editor
+@import 'gutenberg-editor';

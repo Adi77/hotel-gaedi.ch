@@ -5,18 +5,56 @@ body {
   color: $gaedi-black;
 }
 
-.content-wrapper {
-  margin-top: toRem(238);
-  @include media($until: 'xl') {
-    margin-top: toRem(194);
+@include media($from: 1550px, $until: 1800px) {
+  .container {
+    max-width: 90%;
   }
 }
+@include media($from: 1801px) {
+  .container {
+    max-width: toRem(1700);
+  }
+}
+
+// .content-wrapper {
+//   margin-top: toRem(238);
+//   @include media($until: 'xl') {
+//     margin-top: toRem(194);
+//   }
+// }
 
 /* a-tag href content */
 
 a {
   color: $gaedi-black;
   text-decoration: none;
+}
+
+/* buttons */
+
+.btn-primary {
+  font-size: toRem(20);
+  text-transform: uppercase;
+  outline: none;
+  background-color: $gaedi-brown;
+  border: 0;
+  border-radius: 0;
+  color: white;
+  padding: toRem(10) toRem(15);
+  margin-right: toRem(13);
+  &:hover,
+  &:active {
+    background-color: white;
+    color: $gaedi-black;
+    border-color: transparent;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+*:focus {
+  outline: 0 !important;
 }
 
 /* form input */
@@ -62,29 +100,33 @@ h1,
 h2,
 h3,
 h4 {
-  color: $gaedi-black;
+  color: $gaedi-brown;
+  margin-bottom: toRem(15);
 }
 
 h1 {
-  font-size: 100px;
+  font-size: 70px;
+  @include media($until: 'sm') {
+    font-size: 50px;
+  }
 }
 h2 {
-  font-size: 65px;
+  font-size: 60px;
+  @include media($until: 'sm') {
+    font-size: 40px;
+  }
 }
 h3 {
   font-size: 40px;
-}
-.et_pb_column h4 {
-  font-size: 25px;
-}
-h5 {
-  font-size: 20px;
+  @include media($until: 'sm') {
+    font-size: 20px;
+  }
 }
 
 /* paragraph */
 
 p {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: $gaedi-lato-regular-weight;
   line-height: 1.4;
 }

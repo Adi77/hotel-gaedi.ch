@@ -1,0 +1,138 @@
+.teaser-carousel-image-text {
+  @include media($until: 'xl') {
+    .wp-bootstrap-blocks-row {
+      &:first-child {
+        .col-12 {
+          h2 {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .wp-bootstrap-blocks-row {
+    &:last-child {
+      margin-right: -11vw;
+      @include media($from: 'sm', $until: 'lg') {
+        margin-right: -22vw;
+      }
+      @include media($until: 'sm') {
+        margin-right: initial;
+      }
+    }
+  }
+
+  @include media($until: 'sm') {
+    .wp-bootstrap-blocks-row {
+      &:first-child {
+        .col-12 {
+          padding-left: 23px;
+          h2 {
+            padding: 0;
+          }
+        }
+      }
+      &:last-child {
+        .carousel {
+          margin: auto 15px;
+          .carousel-inner {
+            .carousel-item {
+              > div {
+                width: 100%;
+                display: none;
+                &:first-child {
+                  display: block;
+                }
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .carousel-item {
+    .wp-block-image {
+      img {
+        border-right: 10px solid $gaedi-beige;
+      }
+    }
+    p {
+      margin-top: toRem(10);
+      font-size: toRem(17);
+    }
+  }
+
+  .carousel-inner {
+    .carousel-item {
+      &.active {
+        display: flex;
+      }
+    }
+    .carousel-item-next,
+    .carousel-item-prev {
+      display: flex;
+    }
+  }
+
+  @include media($from: 'sm') {
+    .carousel-inner {
+      .carousel-item-end {
+        &.active {
+          transform: translateX(20%);
+        }
+      }
+      .carousel-item-next {
+        transform: translateX(20%);
+      }
+
+      .carousel-item-start {
+        &.active {
+          transform: translateX(-20%);
+        }
+      }
+      .carousel-item-prev {
+        transform: translateX(-20%);
+      }
+    }
+  }
+
+  .carousel-inner {
+    .carousel-item-end,
+    .carousel-item-start {
+      transform: translateX(0);
+    }
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    left: inherit;
+    top: -61px;
+    @include media($until: 'sm') {
+      top: -50px;
+    }
+    bottom: inherit;
+    opacity: 1;
+    width: 33px;
+  }
+  .carousel-control-prev {
+    right: 165px;
+    @include media($until: 'sm') {
+      right: toRem(60);
+    }
+    .carousel-control-prev-icon {
+      background-image: escape-svg($arrow-left-black);
+    }
+  }
+  .carousel-control-next {
+    right: 125px;
+    @include media($until: 'sm') {
+      right: toRem(20);
+    }
+    .carousel-control-next-icon {
+      background-image: escape-svg($arrow-right-black);
+    }
+  }
+}

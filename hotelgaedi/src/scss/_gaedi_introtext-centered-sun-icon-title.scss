@@ -1,0 +1,27 @@
+.introtext-centered-sun-icon-title {
+  @include make-container(250px);
+  @include media($from: 'xl', $until: 'xxl') {
+    @include make-container(180px);
+  }
+  @include media($from: 'md', $until: 'xl') {
+    @include make-container(100px);
+  }
+  @include media($until: 'md') {
+    @include make-container();
+  }
+  margin-top: toRem(50);
+  padding-bottom: toRem(145);
+  @include media($until: 'sm') {
+    padding-bottom: toRem(60);
+  }
+  text-align: center;
+  img {
+    width: toRem(100);
+    @include media($until: 'xl') {
+      margin-top: toRem(30);
+    }
+  }
+  h1 {
+    margin-top: toRem(45);
+  }
+}
