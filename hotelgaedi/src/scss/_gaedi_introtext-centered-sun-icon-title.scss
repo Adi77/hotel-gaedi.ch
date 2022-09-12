@@ -1,5 +1,5 @@
 .introtext-centered-sun-icon-title {
-  @include make-container(250px);
+  @include make-container(20%);
   @include media($from: 'xl', $until: 'xxl') {
     @include make-container(180px);
   }
@@ -9,14 +9,13 @@
   @include media($until: 'md') {
     @include make-container();
   }
-  margin-top: toRem(50);
+  margin-top: toRem(60);
   padding-bottom: toRem(145);
   @include media($until: 'sm') {
     padding-bottom: toRem(60);
   }
   text-align: center;
   img {
-    width: toRem(100);
     @include media($until: 'xl') {
       margin-top: toRem(30);
     }

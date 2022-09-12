@@ -1,6 +1,6 @@
 .teaser-carousel-image-text {
   @include media($until: 'xl') {
-    .wp-bootstrap-blocks-row {
+    .wp-block-columns {
       &:first-child {
         .col-12 {
           h2 {
@@ -11,7 +11,7 @@
     }
   }
 
-  .wp-bootstrap-blocks-row {
+  .wp-block-columns {
     &:last-child {
       margin-right: -11vw;
       @include media($from: 'sm', $until: 'lg') {
@@ -24,7 +24,7 @@
   }
 
   @include media($until: 'sm') {
-    .wp-bootstrap-blocks-row {
+    .wp-block-columns {
       &:first-child {
         .col-12 {
           padding-left: 23px;
@@ -57,7 +57,7 @@
   .carousel-item {
     .wp-block-image {
       img {
-        border-right: 10px solid $gaedi-beige;
+        border-right: 30px solid $gaedi-beige;
       }
     }
     p {
@@ -134,5 +134,9 @@
     .carousel-control-next-icon {
       background-image: escape-svg($arrow-right-black);
     }
+  }
+
+  + .wp-block-group {
+    margin-top: toRem(120);
   }
 }

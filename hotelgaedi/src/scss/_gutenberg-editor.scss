@@ -12,14 +12,6 @@ body.page-editor-page .editor-block-list__block {
   max-width: none !important;
 }
 
-.block-editor__container
-  .wp-block
-  .cases-carousel-multicol
-  .uagb-slick-carousel
-  .uagb-post__items {
-  height: 500px !important;
-}
-
 html .wp-block .wp-block-column {
   //display: inherit;
   //margin: inherit !important;
@@ -28,21 +20,11 @@ html .wp-block .wp-block-column {
   align-items: inherit !important;
 }
 
-.uagb-editor-preview-mode-desktop {
-  &.images-gallery-with-links
-    .wp-block-columns:not(.is-not-stacked-on-mobile)
-    > .wp-block-column {
-    flex-basis: inherit !important;
-  }
+.block-editor-block-list__block .carousel-item {
+  display: inline-block;
+  margin-right: inherit;
+  width: inherit;
 }
-
-/* html .wp-block p {
-  margin-bottom: 0 !important;
-}
-
-html .wp-block h2 {
-  margin-bottom: inherit !important;
-} */
 
 /* 
 * gutenberg frontend reset 
@@ -60,13 +42,14 @@ html .wp-block h2 {
 }
 
 /* disable default styling */
-
-.content-wrapper {
-  .wp-block-columns {
-    &:not(.is-not-stacked-on-mobile) {
-      > .wp-block-column {
-        flex-basis: inherit !important;
-        flex-grow: inherit;
+@include media($until: 'xl') {
+  .content-wrapper {
+    .wp-block-columns {
+      &:not(.is-not-stacked-on-mobile) {
+        > .wp-block-column {
+          flex-basis: inherit !important;
+          flex-grow: inherit;
+        }
       }
     }
   }
@@ -80,30 +63,11 @@ html .wp-block h2 {
   background-color: $yellow;
 }
 
-html .wp-block h2 {
-  &.has-text-color {
-    margin-bottom: 0 !important;
-    + h2 {
-      margin-top: 0 !important;
-    }
-  }
-}
-
 .wp-block-columns {
   margin-bottom: 0;
 }
 .wp-block-image {
   margin: 0;
-}
-
-.wp-block-uagb-section {
-  &.uagb-section__wrap {
-    padding-top: inherit;
-    padding-bottom: inherit;
-  }
-  .uagb-section__inner-wrap {
-    max-width: inherit;
-  }
 }
 
 /* image captions */

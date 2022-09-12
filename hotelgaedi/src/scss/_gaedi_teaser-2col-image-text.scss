@@ -55,6 +55,9 @@
         display: grid;
         align-content: center;
       }
+      .wp-block-button__link {
+        @include gaedi-button();
+      }
     }
   }
 

@@ -74,14 +74,15 @@ footer {
       padding: 0;
       .wp-block-column {
         flex-basis: auto !important;
-      }
-      .wp-container-1 {
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
         p {
           margin-top: toRem(20);
         }
-      }
-      .wp-container-2 {
-        text-align: right;
         svg {
           &.insta {
             margin-top: toRem(6);

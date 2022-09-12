@@ -1,0 +1,35 @@
+.teaser-centered-beige-dark-bg {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    top: toRem(120);
+    left: 0;
+    right: 0;
+    background: url('../img/bg-beige-dark.png') repeat;
+  }
+  .wp-block-columns {
+    .container {
+      @include make-container(26vw);
+      @include media($until: 'xl') {
+        @include make-container();
+      }
+      .wp-block-image {
+        text-align: center;
+        img {
+          width: toRem(300);
+          margin-bottom: toRem(50);
+        }
+      }
+      .wp-block-buttons {
+        text-align: center;
+        margin-top: toRem(40);
+        .wp-block-button__link {
+          @include gaedi-button();
+        }
+      }
+    }
+  }
+}

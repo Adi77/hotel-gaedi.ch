@@ -78,3 +78,17 @@ $breakpoints: (
   margin-right: auto;
   margin-left: auto;
 }
+
+/* buttons */
+
+@mixin gaedi-button() {
+  background-color: $gaedi-brown;
+  text-transform: uppercase;
+  border: 0;
+  padding: toRem(15);
+  border-radius: 0;
+  &:hover {
+    background-color: white;
+    color: $gaedi-black;
+  }
+}

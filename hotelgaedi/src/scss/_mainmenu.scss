@@ -7,6 +7,13 @@ header {
         &:not(:last-child) {
           margin-right: 15px;
         }
+
+        @include media($from: 'xl') {
+          &:hover .dropdown-menu {
+            display: block;
+          }
+        }
+
         @include media($until: 'xl') {
           margin-left: toRem(15);
         }
@@ -17,6 +24,7 @@ header {
           text-transform: uppercase;
           letter-spacing: toRem(0.8);
           color: $gaedi-black;
+          padding-bottom: toRem(25);
           &:hover {
             color: $gaedi-brown;
           }
@@ -32,7 +40,8 @@ header {
             padding: toRem(25);
             box-shadow: 0px 9px 12px -3px rgba(0, 0, 0, 0.2);
             @include media($until: 'xl') {
-              margin: 0;
+              margin-right: 0;
+              margin-bottom: toRem(25);
               text-align: center;
             }
             li {

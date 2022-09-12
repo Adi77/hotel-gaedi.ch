@@ -286,3 +286,24 @@ function fire_theme_support()
 {
     remove_theme_support('core-block-patterns');
 }
+
+// Remove block suggestions if searching in add block dialog in Gutenberg Backend
+function tomjn_remove_block_directory()
+{
+    wp_add_inline_script(
+        'wp-block-editor',
+        "wp.domReady( () => wp.plugins.unregisterPlugin( 'block-directory' ) )"
+    );
+}
+add_action('admin_enqueue_scripts', 'tomjn_remove_block_directory');
+
+
+
+add_filter('block_type_metadata', 'my_remove_experimental_layout', 10, 1);
+function my_remove_experimental_layout($metadata)
+{
+    if (!empty($metadata['supports']['__experimentalLayout'])) {
+        $metadata['supports']['__experimentalLayout'] = false;
+    }
+    return $metadata;
+}

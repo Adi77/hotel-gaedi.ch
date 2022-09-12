@@ -13,8 +13,6 @@ header {
     .justify-content-center {
       width: 100%;
       text-align: center;
-
-      padding-bottom: toRem(5);
       @include media($until: 'xl') {
         padding-top: toRem(10);
         padding-bottom: toRem(30);

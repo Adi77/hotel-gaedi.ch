@@ -2,13 +2,14 @@
   @include make-container();
   .wp-block-cover {
     .wp-block-cover__inner-container {
+      margin-bottom: -15%;
       .container {
         @include media($until: 'sm') {
           padding-right: toRem(10);
           padding-left: toRem(10);
-          margin-top: 100%;
         }
         p {
+          color: white;
           margin: 0;
           line-height: 1.2;
           &:first-child {
@@ -38,8 +39,13 @@
             }
           }
         }
-        .wp-bootstrap-blocks-button {
-          display: inline-block;
+        .wp-block-button {
+          &:first-child {
+            margin-right: toRem(15);
+          }
+          .wp-block-button__link {
+            @include gaedi-button();
+          }
         }
       }
     }
