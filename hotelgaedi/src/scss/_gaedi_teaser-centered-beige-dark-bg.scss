@@ -32,4 +32,17 @@
       }
     }
   }
+  + .wp-block-group {
+    margin-top: toRem(120);
+  }
+}
+/* gutenberg backend */
+.is-layout-default {
+  &.teaser-centered-beige-dark-bg {
+    .wp-block-columns {
+      .container {
+        @include make-container(1px);
+      }
+    }
+  }
 }

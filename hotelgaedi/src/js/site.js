@@ -20,22 +20,60 @@ $(document).ready(function ($) {
 });
 
 $.fn.teasersCarousel = function () {
-  let items = document.querySelectorAll('.carousel .carousel-item');
+  const carousels = document.querySelectorAll('.carousel');
+  for (const carousel of carousels.values()) {
+    let items = document.querySelectorAll(
+      '#' + carousel.id + ' .carousel-item'
+    );
 
-  if (items.length != 0) {
-    $('html, body').css('overflow-x', 'hidden');
-  }
-  items.forEach((el) => {
-    const minPerSlide = 5;
-    let next = el.nextElementSibling;
-    for (var i = 1; i < minPerSlide; i++) {
-      if (!next) {
-        // wrap carousel by using first child
-        next = items[0];
-      }
-      let cloneChild = next.cloneNode(true);
-      el.appendChild(cloneChild.children[0]);
-      next = next.nextElementSibling;
+    let minPerSlide = document.querySelector('#' + carousel.id).dataset
+      .perslideitems;
+
+    let translateX = 100 / minPerSlide;
+
+    document
+      .querySelector('#' + carousel.id + ' .carousel-inner')
+      .classList.add(carousel.id);
+
+    let style = document.createElement('style');
+    style.innerHTML =
+      `
+    @media screen and (min-width: 576px) {
+      .` +
+      carousel.id +
+      ` .carousel-item-end.active { transform: translateX(` +
+      translateX +
+      `%);}
+      .` +
+      carousel.id +
+      ` .carousel-item-next { transform: translateX(` +
+      translateX +
+      `%);}
+      .` +
+      carousel.id +
+      ` .carousel-item-start.active { transform: translateX(-` +
+      translateX +
+      `%);}
+      .` +
+      carousel.id +
+      ` .carousel-item-prev { transform: translateX(-` +
+      translateX +
+      `%);}
     }
-  });
+      `;
+    document.body.appendChild(style);
+
+    items.forEach((el) => {
+      let next = el.nextElementSibling;
+      for (var i = 1; i < minPerSlide; i++) {
+        if (!next) {
+          // wrap carousel by using first child
+          next = items[0];
+        }
+        let cloneChild = next.cloneNode(true);
+        el.appendChild(cloneChild.children[0]);
+        next = next.nextElementSibling;
+      }
+    });
+  }
 };
