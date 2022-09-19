@@ -10,17 +10,17 @@
     @include make-container();
   }
   margin-top: toRem(60);
-  padding-bottom: toRem(145);
   @include media($until: 'sm') {
     padding-bottom: toRem(60);
   }
   text-align: center;
   img {
+    margin-bottom: toRem(45);
     @include media($until: 'xl') {
       margin-top: toRem(30);
     }
   }
-  h1 {
-    margin-top: toRem(45);
+  + .wp-block-group {
+    margin-top: toRem(140);
   }
 }

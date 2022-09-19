@@ -96,14 +96,23 @@ input[type='checkbox']:checked + label::after {
 
 /* headings  */
 
+/* margins */
 h1,
 h2,
 h3,
 h4 {
-  color: $gaedi-brown;
   margin-bottom: toRem(15);
 }
-
+/* colors */
+h1,
+h2,
+h3 {
+  color: $gaedi-brown;
+}
+h4 {
+  color: $gaedi-black;
+}
+/* sizes */
 h1 {
   font-size: 70px;
   @include media($until: 'sm') {
@@ -120,6 +129,12 @@ h3 {
   font-size: 40px;
   @include media($until: 'sm') {
     font-size: 20px;
+  }
+}
+h4 {
+  font-size: 35px;
+  @include media($until: 'sm') {
+    font-size: 18px;
   }
 }
 

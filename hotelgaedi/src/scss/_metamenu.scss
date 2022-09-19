@@ -44,6 +44,8 @@
             content: '|';
             position: absolute;
             margin-left: 20px;
+            margin-top: 27px;
+            top: 0;
             @include media($until: 'xl') {
               content: '';
             }

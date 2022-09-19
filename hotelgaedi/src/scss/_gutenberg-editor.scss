@@ -55,6 +55,19 @@ html .wp-block .wp-block-column {
   }
 }
 
+@include media($from: 'md') {
+  .content-wrapper {
+    .wp-block-columns {
+      &:not(.is-not-stacked-on-mobile) {
+        > .wp-block-column {
+          flex-basis: inherit !important;
+          flex-grow: inherit;
+        }
+      }
+    }
+  }
+}
+
 /* colors */
 .has-orange-color {
   color: $orange;

@@ -1,4 +1,4 @@
-.header-fullwidth-bg-image-overlay-text {
+.fullwidth-bg-image-overlay-text {
   @include make-container();
   .wp-block-cover {
     .wp-block-cover__inner-container {
@@ -45,6 +45,26 @@
           }
           .wp-block-button__link {
             @include gaedi-button();
+          }
+        }
+      }
+    }
+  }
+  &.flowtext {
+    .wp-block-cover {
+      .wp-block-cover__inner-container {
+        .container {
+          p {
+            &:first-child {
+              @include media($until: 'xl') {
+                font-size: toRem(60);
+              }
+            }
+            &:nth-child(2) {
+              font-size: toRem(20);
+              margin-top: toRem(20);
+              margin-bottom: toRem(30);
+            }
           }
         }
       }
