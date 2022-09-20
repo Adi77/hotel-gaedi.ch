@@ -114,7 +114,7 @@ h4 {
 }
 /* sizes */
 h1 {
-  font-size: 70px;
+  font-size: 75px;
   @include media($until: 'sm') {
     font-size: 50px;
   }
