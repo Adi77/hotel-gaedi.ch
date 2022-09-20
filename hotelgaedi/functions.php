@@ -61,18 +61,18 @@ function hotelgaedi_theme_scripts()
 {
     switch (wp_get_environment_type()) {
         case 'local':
-        case 'development':
+            case 'development':
             // load assets (dev)
                 wp_enqueue_script('hotelgaedi_theme-scripts-dev', 'http://'. getenv('VIRTUAL_HOST'). ':8080/site.js', array(), null, true);
                 //wp_enqueue_script('hotelgaedi_theme-admin-scripts-dev', 'http://localhost:8080/admin.js');
           break;
-        case 'staging':
+          case 'staging':
             // load assets (staging)
             wp_enqueue_style('hotelgaedi_theme-style', get_stylesheet_directory_uri() . '/dist/site.css');
             wp_enqueue_script('hotelgaedi_theme-scripts', get_stylesheet_directory_uri() . '/dist/site.js', array(), null, true);
             //wp_enqueue_script('hotelgaedi_theme-admin-scripts', get_stylesheet_directory_uri() . '/dist/admin.js');
           break;
-        case 'production':
+          case 'production':
         default:
             // load assets (prod)
                 wp_enqueue_style('hotelgaedi_theme-style', get_stylesheet_directory_uri() . '/dist/site.css');
@@ -107,7 +107,131 @@ class StarterSite extends Timber\Site
     /** This is where you can register custom post types. */
     public function register_post_types()
     {
+
+
+
+        $labels = array(
+            'name'                  => _x('Zimmer', 'Post Type General Name', 'text_domain'),
+            'singular_name'         => _x('Zimmer', 'Post Type Singular Name', 'text_domain'),
+            'menu_name'             => __('Zimmer', 'text_domain'),
+            'name_admin_bar'        => __('Zimmer', 'text_domain'),
+            'archives'              => __('Zimmer Archiv', 'text_domain'),
+            'attributes'            => __('Zimmer Attribute', 'text_domain'),
+            'parent_item_colon'     => __('Parent Zimmer:', 'text_domain'),
+            'all_items'             => __('Alle Zimmer', 'text_domain'),
+            'add_new_item'          => __('Neuer Zimmer hinzufügen', 'text_domain'),
+            'add_new'               => __('Neuer Zimmer', 'text_domain'),
+            'new_item'              => __('Neues Element', 'text_domain'),
+            'edit_item'             => __('Zimmer bearbeiten', 'text_domain'),
+            'update_item'           => __('Zimmer aktualisieren', 'text_domain'),
+            'view_item'             => __('Zimmer anzeigen', 'text_domain'),
+            'view_items'            => __('Elemente anzeigen', 'text_domain'),
+            'search_items'          => __('Zimmer suchen', 'text_domain'),
+            'not_found'             => __('Kein Zimmer gefunden', 'text_domain'),
+            'not_found_in_trash'    => __('Kein Zimmer gefunden im Papierkorb', 'text_domain'),
+            'featured_image'        => __('Featured Image', 'text_domain'),
+            'set_featured_image'    => __('Set featured image', 'text_domain'),
+            'remove_featured_image' => __('Entferne featured image', 'text_domain'),
+            'use_featured_image'    => __('Use as featured image', 'text_domain'),
+            'insert_into_item'      => __('Insert into item', 'text_domain'),
+            'uploaded_to_this_item' => __('Uploaded to this item', 'text_domain'),
+            'items_list'            => __('Items list', 'text_domain'),
+            'items_list_navigation' => __('Items list navigation', 'text_domain'),
+            'filter_items_list'     => __('Filter items list', 'text_domain'),
+        );
+        $args = array(
+            'label'                 => __('Zimmer', 'text_domain'),
+            'description'           => __('Zimmer information.', 'text_domain'),
+            'labels'                => $labels,
+            'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'taxonomies'            => array( 'category', 'post_tag', 'location', 'type' ),
+            'hierarchical'          => false,
+            'public'                => true,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'menu_position'         => 5,
+            'menu_icon'             => 'dashicons-calendar-alt',
+            'show_in_admin_bar'     => true,
+            'show_in_nav_menus'     => true,
+            'can_export'            => true,
+            'has_archive'           => true,
+            'exclude_from_search'   => false,
+            'publicly_queryable'    => true,
+            'capability_type'       => 'page',
+            'show_in_rest'          => true,
+        );
+        register_post_type('zimmer', $args);
+
+
+
+
+
+        $labels = array(
+            'name'                  => _x('Packages', 'Post Type General Name', 'text_domain'),
+            'singular_name'         => _x('Package', 'Post Type Singular Name', 'text_domain'),
+            'menu_name'             => __('Packages', 'text_domain'),
+            'name_admin_bar'        => __('Package', 'text_domain'),
+            'archives'              => __('Package Archiv', 'text_domain'),
+            'attributes'            => __('Package Attribute', 'text_domain'),
+            'parent_item_colon'     => __('Parent Package:', 'text_domain'),
+            'all_items'             => __('Alle Packages', 'text_domain'),
+            'add_new_item'          => __('Neuer Package hinzufügen', 'text_domain'),
+            'add_new'               => __('Neuer Package', 'text_domain'),
+            'new_item'              => __('Neues Element', 'text_domain'),
+            'edit_item'             => __('Package bearbeiten', 'text_domain'),
+            'update_item'           => __('Package aktualisieren', 'text_domain'),
+            'view_item'             => __('Package anzeigen', 'text_domain'),
+            'view_items'            => __('Elemente anzeigen', 'text_domain'),
+            'search_items'          => __('Packages suchen', 'text_domain'),
+            'not_found'             => __('Kein Package gefunden', 'text_domain'),
+            'not_found_in_trash'    => __('Kein Package gefunden im Papierkorb', 'text_domain'),
+            'featured_image'        => __('Featured Image', 'text_domain'),
+            'set_featured_image'    => __('Set featured image', 'text_domain'),
+            'remove_featured_image' => __('Entferne featured image', 'text_domain'),
+            'use_featured_image'    => __('Use as featured image', 'text_domain'),
+            'insert_into_item'      => __('Insert into item', 'text_domain'),
+            'uploaded_to_this_item' => __('Uploaded to this item', 'text_domain'),
+            'items_list'            => __('Items list', 'text_domain'),
+            'items_list_navigation' => __('Items list navigation', 'text_domain'),
+            'filter_items_list'     => __('Filter items list', 'text_domain'),
+        );
+        $args = array(
+            'label'                 => __('Package', 'text_domain'),
+            'description'           => __('Package information.', 'text_domain'),
+            'labels'                => $labels,
+            'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'taxonomies'            => array( 'category', 'post_tag', 'location', 'type' ),
+            'hierarchical'          => false,
+            'public'                => true,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'menu_position'         => 5,
+            'menu_icon'             => 'dashicons-forms',
+            'show_in_admin_bar'     => true,
+            'show_in_nav_menus'     => true,
+            'can_export'            => true,
+            'has_archive'           => true,
+            'exclude_from_search'   => false,
+            'publicly_queryable'    => true,
+            'capability_type'       => 'page',
+            'show_in_rest'          => true,
+        );
+        register_post_type('packages', $args);
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
     /** This is where you can register custom taxonomies. */
     public function register_taxonomies()
     {
