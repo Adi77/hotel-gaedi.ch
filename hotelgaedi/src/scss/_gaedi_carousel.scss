@@ -89,6 +89,9 @@
     // }
     .wp-block-group__inner-container {
       margin-right: 30px;
+      @include media($until: 'xl') {
+        margin-right: 0;
+      }
       .wp-block-image {
         img {
         }

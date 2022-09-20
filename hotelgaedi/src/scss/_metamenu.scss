@@ -1,12 +1,16 @@
 .meta-menu {
   position: absolute;
   top: 0;
+  @include media($from: 'xl') {
+    top: toRem(20);
+  }
   right: 5%;
   @include media($until: 'xl') {
     position: relative;
     top: inherit;
     right: inherit;
     margin: inherit;
+    padding-bottom: toRem(40);
   }
   ul {
     margin-top: inherit;
@@ -16,16 +20,19 @@
     }
     li {
       display: inline-block;
+      top: toRem(23);
       @include media($until: 'xl') {
         display: block;
       }
       a {
         position: relative;
-        top: toRem(23);
+        font-size: toRem(20);
         color: $gaedi-brown;
         text-transform: uppercase;
-        padding: toRem(30) toRem(20) toRem(20);
-
+        padding: toRem(30) toRem(20) toRem(15);
+        @include media($until: 'xl') {
+          padding: 0;
+        }
         &:hover {
           color: white;
           background-color: $gaedi-brown;

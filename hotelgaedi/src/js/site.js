@@ -75,13 +75,5 @@ $.fn.teasersCarousel = function () {
         next = next.nextElementSibling;
       }
     });
-    $('.carousel-control-next').click(function () {
-      $('.carousel').carousel('next');
-      return false;
-    });
-    $('.carousel-control-prev').click(function () {
-      $('.carousel').carousel('prev');
-      return false;
-    });
   }
 };
