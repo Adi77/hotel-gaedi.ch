@@ -81,14 +81,26 @@ $breakpoints: (
 
 /* buttons */
 
-@mixin gaedi-button() {
-  background-color: $gaedi-brown;
+@mixin gaedi-button($invert: false) {
+  @if $invert {
+    color: $gaedi-black;
+    border: 1px solid $gaedi-black;
+    background-color: transparent;
+    &:hover {
+      border: 1px solid transparent;
+    }
+  } @else {
+    background-color: $gaedi-brown;
+    border: 1px solid $gaedi-brown;
+    &:hover {
+      background-color: white;
+      color: $gaedi-black;
+      border: 1px solid white;
+    }
+  }
+
   text-transform: uppercase;
-  border: 0;
+
   padding: toRem(15);
   border-radius: 0;
-  &:hover {
-    background-color: white;
-    color: $gaedi-black;
-  }
 }

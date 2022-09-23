@@ -1,0 +1,57 @@
+.custom-posttype-filtered-list {
+  .wp-block-categories {
+    padding-left: 0;
+    margin-bottom: toRem(60);
+    .cat-item {
+      display: inline-block;
+      margin-right: toRem(40);
+      a {
+        font-size: toRem(20);
+        font-weight: $gaedi-lato-bold-weight;
+        text-transform: uppercase;
+        letter-spacing: toRem(0.44);
+        &:hover {
+          color: black;
+          border-bottom: 2px solid $gaedi-black;
+        }
+        &.active {
+          border-bottom: 2px solid $gaedi-black;
+        }
+        @include media($until: 'lg') {
+          line-height: 2.5;
+        }
+      }
+    }
+  }
+  .wp-block-post-template {
+    .wp-block-post {
+      margin-bottom: toRem(60);
+      .wp-block-post-title {
+        margin-top: toRem(40);
+      }
+      .wp-block-post-excerpt {
+        margin-bottom: toRem(30);
+      }
+      .wp-block-read-more {
+        color: white;
+        margin-right: toRem(15);
+        font-size: toRem(18);
+      }
+      .wp-block-read-more,
+      .wp-block-buttons {
+        display: inline-block;
+      }
+
+      .wp-block-read-more {
+        @include gaedi-button(true);
+      }
+      .wp-block-buttons .wp-block-button__link {
+        @include gaedi-button();
+      }
+      @include media($until: 'lg') {
+        display: block;
+        width: 100% !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.teaser-centered {
+  position: relative;
+  .wp-block-columns {
+    .container {
+      @include make-container(26vw);
+      @include media($until: 'xl') {
+        @include make-container();
+      }
+      .wp-block-image {
+        text-align: center;
+        img {
+          width: toRem(300);
+          margin-bottom: toRem(50);
+        }
+      }
+      .wp-block-buttons {
+        text-align: center;
+        margin-top: toRem(40);
+        .wp-block-button {
+          .wp-block-button__link {
+            @include gaedi-button();
+          }
+        }
+        &.two-btn {
+          .wp-block-button {
+            &:first-child {
+              margin-right: toRem(15);
+              .wp-block-button__link {
+                @include gaedi-button(true);
+              }
+            }
+            &:last-child {
+              .wp-block-button__link {
+                @include gaedi-button();
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.beige-dark-bg {
+    background: url('../img/bg-beige-dark.png') repeat;
+    padding-top: toRem(65);
+    padding-bottom: toRem(16);
+    .wp-block-columns {
+      .container {
+        .wp-block-image {
+          img {
+            margin-top: toRem(20);
+            margin-bottom: toRem(20);
+            @include media($until: 'md') {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    &.btn-overlap {
+      .wp-block-buttons {
+        bottom: -46px;
+        position: relative;
+        .wp-block-button__link {
+          width: 25vw;
+          @include media($until: 'md') {
+            width: 50vw;
+          }
+        }
+      }
+    }
+  }
+  &.beige-dark-bg-after {
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      top: toRem(120);
+      left: 0;
+      right: 0;
+      background: url('../img/bg-beige-dark.png') repeat;
+    }
+  }
+  + .wp-block-group {
+    margin-top: toRem(120);
+  }
+}
+/* gutenberg backend */
+.is-layout-default {
+  &.teaser-centered {
+    .wp-block-columns {
+      .container {
+        @include make-container(1px);
+      }
+    }
+  }
+}

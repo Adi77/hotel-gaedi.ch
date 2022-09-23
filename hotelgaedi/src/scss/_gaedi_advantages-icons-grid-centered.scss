@@ -1,0 +1,47 @@
+.advantages-icons-grid-centered {
+  margin-top: toRem(60);
+  @include media($until: 'sm') {
+    padding-bottom: toRem(60);
+  }
+  text-align: center;
+  .icons-row {
+    &:nth-child(2) {
+      margin-top: toRem(60);
+    }
+    &:not(:last-child) {
+      @include media($from: 'xl') {
+        margin-bottom: toRem(80);
+      }
+    }
+    &:last-child {
+      margin-bottom: toRem(140);
+      @include media($until: 'lg') {
+        margin-bottom: 0;
+      }
+    }
+    .wp-block-column {
+      @include media($until: 'lg') {
+        margin-bottom: toRem(80);
+      }
+      figure {
+        text-align: center;
+        img {
+          min-width: 100%;
+        }
+        figcaption {
+          position: relative;
+          top: toRem(40);
+          color: $gaedi-black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: inherit;
+        }
+      }
+    }
+  }
+
+  + .wp-block-group {
+    margin-top: toRem(140);
+  }
+}

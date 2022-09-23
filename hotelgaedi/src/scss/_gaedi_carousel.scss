@@ -89,7 +89,10 @@
     // }
     .wp-block-group__inner-container {
       margin-right: 30px;
-      @include media($until: 'xl') {
+      @include media($until: 'md') {
+        margin-right: toRem(15);
+      }
+      @include media($until: 'sm') {
         margin-right: 0;
       }
       .wp-block-image {

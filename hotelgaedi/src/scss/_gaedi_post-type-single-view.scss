@@ -1,0 +1,25 @@
+.single-zimmer {
+  .article-h1 {
+    margin-top: toRem(80);
+    text-align: center;
+  }
+  .teaser-centered {
+    .wp-block-columns {
+      .container {
+        h4 {
+          display: none;
+        }
+      }
+    }
+    &::after {
+      background: none;
+    }
+  }
+  .gaedi-carousel {
+    &.three-items-fullwidth {
+      &::before {
+        background: none;
+      }
+    }
+  }
+}

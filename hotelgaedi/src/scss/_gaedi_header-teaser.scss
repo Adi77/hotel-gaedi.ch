@@ -4,6 +4,7 @@
     background-color: $gaedi-beige;
 
     @include media($until: 'xl') {
+      padding-left: 0;
       background-color: $gaedi-beige-dark;
     }
     background-image: url('../img/bg-beige-dark.png');
@@ -40,6 +41,9 @@
             text-align: center;
             background-color: $gaedi-beige-dark;
           }
+          @include media($from: 'md', $until: 'lg') {
+            margin-top: 80vh;
+          }
           @include media($until: 'sm') {
             margin-top: 20vh;
           }
@@ -60,5 +64,8 @@
         }
       }
     }
+  }
+  + .wp-block-group {
+    margin-top: toRem(140);
   }
 }

@@ -14,6 +14,8 @@ $(document).ready(function ($) {
 
   $.fn.teasersCarousel();
 
+  $.fn.postTypeCategoriesNavigation();
+
   $('a.nav-link.dropdown-toggle').click(function () {
     location.href = this.href;
   });
@@ -76,4 +78,25 @@ $.fn.teasersCarousel = function () {
       }
     });
   }
+};
+
+$.fn.postTypeCategoriesNavigation = function () {
+  $('.wp-block-categories .cat-item a').click(function (e) {
+    e.preventDefault();
+    let category = $(this).text().toLowerCase();
+    $('.wp-block-categories .cat-item a').removeClass('active');
+    $(this).addClass('active');
+
+    $(this)
+      .parents(2)
+      .next()
+      .find('li.wp-block-post:not(.category-' + category + ')')
+      .hide();
+
+    $(this)
+      .parents(2)
+      .next()
+      .find('li.wp-block-post.category-' + category)
+      .show();
+  });
 };
