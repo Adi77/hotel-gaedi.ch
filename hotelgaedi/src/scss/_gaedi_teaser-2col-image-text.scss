@@ -56,6 +56,7 @@
         align-content: center;
       }
       .wp-block-button__link {
+        margin-top: toRem(15);
         @include gaedi-button();
       }
     }
@@ -83,6 +84,26 @@
     }
     + .teaser-carousel-image-text {
       margin-top: toRem(160);
+    }
+  }
+  &.multiple-images-horizontal {
+    .row {
+      .col-xl-7 {
+        padding-right: toRem(40);
+      }
+      .col-xl-5 {
+        @include media($from: 'xl') {
+          display: grid;
+          align-content: center;
+        }
+      }
+    }
+    .wp-block-button__link {
+      margin-top: toRem(15);
+      @include gaedi-button();
+    }
+    + .wp-block-group {
+      margin-top: toRem(140);
     }
   }
 }
