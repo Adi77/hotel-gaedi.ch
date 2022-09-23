@@ -143,7 +143,7 @@ class StarterSite extends Timber\Site
             'label'                 => __('Zimmer', 'text_domain'),
             'description'           => __('Zimmer information.', 'text_domain'),
             'labels'                => $labels,
-            'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'excerpt' ),
             'taxonomies'            => array( 'category', 'post_tag', 'location', 'type' ),
             'hierarchical'          => false,
             'public'                => true,
@@ -199,13 +199,13 @@ class StarterSite extends Timber\Site
             'label'                 => __('Package', 'text_domain'),
             'description'           => __('Package information.', 'text_domain'),
             'labels'                => $labels,
-            'supports'              => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+            'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'excerpt' ),
             'taxonomies'            => array( 'category', 'post_tag', 'location', 'type' ),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
             'show_in_menu'          => true,
-            'menu_position'         => 5,
+            'menu_position'         => 6,
             'menu_icon'             => 'dashicons-forms',
             'show_in_admin_bar'     => true,
             'show_in_nav_menus'     => true,
@@ -430,4 +430,90 @@ function my_remove_experimental_layout($metadata)
         $metadata['supports']['__experimentalLayout'] = false;
     }
     return $metadata;
+}
+
+
+
+/* add better excerpt field with RTE for Rooms and Package post type */
+
+add_action( 'add_meta_boxes', array ( 'T5_Richtext_Excerpt', 'switch_boxes' ) );
+
+/**
+ * Replaces the default excerpt editor with TinyMCE.
+ */
+class T5_Richtext_Excerpt
+{
+    /**
+     * Replaces the meta boxes.
+     *
+     * @return void
+     */
+    public static function switch_boxes()
+    {
+        if ( ! post_type_supports( $GLOBALS['post']->post_type, 'excerpt' ) )
+        {
+            return;
+        }
+
+        remove_meta_box(
+            'postexcerpt' // ID
+        ,   ''            // Screen, empty to support all post types
+        ,   'normal'      // Context
+        );
+
+        add_meta_box(
+            'postexcerpt2'     // Reusing just 'postexcerpt' doesn't work.
+        ,   __( 'Excerpt' )    // Title
+        ,   array ( __CLASS__, 'show' ) // Display function
+        ,   null              // Screen, we use all screens with meta boxes.
+        ,   'normal'          // Context
+        ,   'core'            // Priority
+        );
+    }
+
+    /**
+     * Output for the meta box.
+     *
+     * @param  object $post
+     * @return void
+     */
+    public static function show( $post )
+    {
+    ?>
+        <label class="screen-reader-text" for="excerpt"><?php
+        _e( 'Excerpt' )
+        ?></label>
+        <?php
+        // We use the default name, 'excerpt', so we don’t have to care about
+        // saving, other filters etc.
+        wp_editor(
+            self::unescape( $post->post_excerpt ),
+            'excerpt',
+            array (
+            'textarea_rows' => 15
+        ,   'media_buttons' => FALSE
+        ,   'teeny'         => FALSE
+        ,   'tinymce'       => array(
+            'toolbar1'      => 'superscript, bold,italic,underline,separator,undo,redo',
+            'toolbar2'      => '',
+            'toolbar3'      => '',
+        ),
+            )
+        );
+    }
+
+    /**
+     * The excerpt is escaped usually. This breaks the HTML editor.
+     *
+     * @param  string $str
+     * @return string
+     */
+    public static function unescape( $str )
+    {
+        return str_replace(
+            array ( '&lt;', '&gt;', '&quot;', '&amp;', '&nbsp;', '&amp;nbsp;' )
+        ,   array ( '<',    '>',    '"',      '&',     ' ', ' ' )
+        ,   $str
+        );
+    }
 }
