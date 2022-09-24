@@ -34,12 +34,22 @@
           width: 100vw;
         }
       }
+
       @include media($until: 'sm') {
         padding-right: 5%;
         padding-left: 5%;
       }
     }
     .col-xl-7 {
+      .col-sm-6 {
+        &:first-child {
+          img {
+            @include media($until: 'sm') {
+              margin-bottom: toRem(20);
+            }
+          }
+        }
+      }
       @include media($until: 'sm') {
         padding-right: 5%;
         padding-left: 5%;
@@ -90,6 +100,9 @@
     .row {
       .col-xl-7 {
         padding-right: toRem(40);
+        @include media($until: 'sm') {
+          padding-right: 5%;
+        }
       }
       .col-xl-5 {
         @include media($from: 'xl') {

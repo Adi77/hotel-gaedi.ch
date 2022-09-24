@@ -14,6 +14,9 @@
     padding-bottom: toRem(60);
   }
   text-align: center;
+  h4 {
+    font-weight: $gaedi-lato-regular-weight;
+  }
   img {
     margin-bottom: toRem(45);
     @include media($until: 'xl') {

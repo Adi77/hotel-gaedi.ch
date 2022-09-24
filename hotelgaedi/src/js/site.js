@@ -37,10 +37,28 @@ $.fn.teasersCarousel = function () {
       .querySelector('#' + carousel.id + ' .carousel-inner')
       .classList.add(carousel.id);
 
+    let navigation = document.createElement('div');
+
+    navigation.innerHTML =
+      `
+      <a class="carousel-control-prev bg-transparent w-aut" href="#` +
+      carousel.id +
+      `" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next bg-transparent w-aut" href="#` +
+      carousel.id +
+      `" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+      `;
+
+    document.getElementById(carousel.id).appendChild(navigation);
+
     let style = document.createElement('style');
     style.innerHTML =
       `
-    @media screen and (min-width: 576px) {
+ 
       .` +
       carousel.id +
       ` .carousel-item-end.active { transform: translateX(` +
@@ -61,12 +79,22 @@ $.fn.teasersCarousel = function () {
       ` .carousel-item-prev { transform: translateX(-` +
       translateX +
       `%);}
-    }
-      `;
+      .` +
+      carousel.id +
+      ` .carousel-item .wp-block-group { width: ` +
+      translateX +
+      `%}
+    
+    html,
+    body {
+    overflow-x: hidden;
+    } `;
+
     document.body.appendChild(style);
 
     items.forEach((el) => {
       let next = el.nextElementSibling;
+      items[0].classList.add('active');
       for (var i = 1; i < minPerSlide; i++) {
         if (!next) {
           // wrap carousel by using first child

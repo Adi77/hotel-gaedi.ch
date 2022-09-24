@@ -23,6 +23,10 @@
       @include media($until: 'lg') {
         margin-bottom: toRem(80);
       }
+      @include media($until: 'sm') {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
       figure {
         text-align: center;
         img {

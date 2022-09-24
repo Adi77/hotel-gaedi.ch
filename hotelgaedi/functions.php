@@ -342,6 +342,20 @@ class StarterSite extends Timber\Site
 new StarterSite();
 
 
+/**
+ * Add Post Class Filter for carousel
+ *
+**/
+add_filter('post_class', 'sk_post_class');
+
+function sk_post_class($classes) {
+    if(is_single()) {
+        $classes[] = 'carousel-item';
+    } 
+    return $classes;
+}
+
+
 
 
 /**
