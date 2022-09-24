@@ -73,16 +73,32 @@
   }
 
   @include media($from: 'xl') {
-    + .teaser-2col-image-text {
-      margin-top: toRem(80);
+    + .wp-block-group {
+      margin-top: toRem(120);
+      &.teaser-2col-image-text {
+        margin-top: toRem(80);
+      }
     }
   }
   @include media($from: 'sm') {
-    + .teaser-2col-image-text {
-      .row {
-        > div {
-          &:first-child {
-            order: 6;
+    &:nth-child(even) {
+      + .teaser-2col-image-text {
+        .row {
+          > div {
+            &:first-child {
+              order: 6;
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(odd) {
+      + .teaser-2col-image-text {
+        .row {
+          > div {
+            &:last-child {
+              order: 1;
+            }
           }
         }
       }

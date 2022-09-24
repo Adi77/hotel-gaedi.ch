@@ -58,8 +58,23 @@
               padding-bottom: toRem(30);
             }
           }
-          .wp-block-button__link {
-            @include gaedi-button();
+          .wp-block-buttons {
+            .wp-block-button {
+              margin-top: toRem(20);
+              &.is-style-outline {
+                .wp-block-button__link {
+                  @include gaedi-button(true);
+                }
+              }
+              &:last-child {
+                .wp-block-button__link {
+                  @include gaedi-button();
+                }
+              }
+              &:nth-child(2) {
+                margin-left: toRem(10);
+              }
+            }
           }
         }
       }
