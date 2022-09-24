@@ -1,12 +1,18 @@
 .fullwidth-bg-image-overlay-text {
   @include make-container();
+  @include media($until: 'sm') {
+    @include make-container(0);
+  }
   .wp-block-cover {
     .wp-block-cover__inner-container {
       margin-bottom: -15%;
+      @include media($until: 'sm') {
+        margin-bottom: -100%;
+      }
       .container {
         @include media($until: 'sm') {
-          padding-right: toRem(10);
-          padding-left: toRem(10);
+          padding-right: toRem(30);
+          padding-left: toRem(30);
         }
         p {
           color: white;

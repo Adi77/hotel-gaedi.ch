@@ -116,11 +116,11 @@ h4 {
 h1 {
   font-size: 75px;
   @include media($until: 'sm') {
-    font-size: 50px;
+    font-size: 24px;
   }
 }
 h2 {
-  font-size: 60px;
+  font-size: 55px;
   @include media($until: 'sm') {
     font-size: 40px;
   }

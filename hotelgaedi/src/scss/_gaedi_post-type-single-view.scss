@@ -22,4 +22,14 @@
       }
     }
   }
+  .custom-posttype-filtered-list {
+    .wp-block-columns {
+      &:nth-child(2) {
+        margin-right: -11vw;
+        @include media($from: 'sm', $until: 'lg') {
+          margin-right: -22vw;
+        }
+      }
+    }
+  }
 }

@@ -6,6 +6,13 @@ $container-max-widths: (
   xxl: 1320px,
 );
 
+$spacer: 1rem;
+
+$gutters: (
+  6: $spacer * 8,
+  7: $spacer * 10,
+);
+
 /* Theme colors */
 $gaedi-beige: #faf3dd;
 $gaedi-beige-dark: #ded2aa;

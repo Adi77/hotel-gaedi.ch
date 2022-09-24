@@ -1,0 +1,77 @@
+.teaser-further-offers {
+  position: relative;
+  margin-top: toRem(60);
+  padding-top: toRem(100);
+  @include media($until: 'sm') {
+    padding-bottom: toRem(60);
+  }
+
+  .wp-block-columns {
+    &:first-child {
+      @include make-container(30%);
+      @include media($until: 'xl') {
+        @include make-container();
+      }
+      text-align: center;
+      margin-bottom: toRem(120);
+      img {
+        margin-bottom: toRem(45);
+        @include media($until: 'xl') {
+          margin-top: toRem(30);
+        }
+      }
+      h4 {
+        font-weight: $gaedi-lato-regular-weight;
+      }
+    }
+    &:nth-child(2) {
+      @include make-container(20%);
+      @include media($until: 'xl') {
+        @include make-container();
+      }
+    }
+    &:nth-child(2) {
+      h2 {
+        margin-bottom: toRem(50);
+      }
+    }
+    &:nth-child(3) {
+      @include make-container(17%);
+      @include media($until: 'xl') {
+        @include make-container(0);
+      }
+      .wp-block-column {
+        h4 {
+          margin-top: toRem(40);
+        }
+        .wp-block-button__link {
+          margin-top: toRem(10);
+          @include gaedi-button();
+        }
+        &:last-child {
+          margin-top: toRem(100);
+        }
+      }
+    }
+  }
+
+  + .wp-block-group {
+    margin-top: toRem(140);
+    @include media($until: 'sm') {
+      margin-top: toRem(60);
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 50%;
+    @include media($until: 'lg') {
+      height: 110%;
+    }
+    top: 0;
+    left: 0;
+    right: 0;
+    background: url('../img/bg-beige-dark.png') repeat;
+  }
+}

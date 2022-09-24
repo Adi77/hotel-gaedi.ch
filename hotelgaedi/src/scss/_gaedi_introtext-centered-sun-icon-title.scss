@@ -7,7 +7,7 @@
     @include make-container(100px);
   }
   @include media($until: 'md') {
-    @include make-container();
+    @include make-container(30px);
   }
   margin-top: toRem(60);
   @include media($until: 'sm') {
@@ -25,5 +25,8 @@
   }
   + .wp-block-group {
     margin-top: toRem(140);
+    @include media($until: 'sm') {
+      margin-top: toRem(60);
+    }
   }
 }

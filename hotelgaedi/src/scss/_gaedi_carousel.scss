@@ -1,6 +1,9 @@
 .gaedi-carousel {
   &.teaser-image-text {
     margin-top: toRem(160);
+    @include media($until: 'sm') {
+      margin-top: toRem(60);
+    }
   }
   &.three-items-fullwidth {
     .carousel {
@@ -84,10 +87,6 @@
         margin-right: toRem(15);
       }
 
-      .wp-block-image {
-        img {
-        }
-      }
       p {
         margin-top: toRem(10);
         font-size: toRem(17);
@@ -145,5 +144,8 @@
 
   + .wp-block-group {
     margin-top: toRem(120);
+    @include media($until: 'sm') {
+      margin-top: toRem(60);
+    }
   }
 }
