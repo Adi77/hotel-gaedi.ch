@@ -149,6 +149,15 @@ strong {
   font-weight: $gaedi-lato-bold-weight;
 }
 
+/* blockquote */
+
+blockquote {
+  p {
+    font-size: toRem(35);
+    line-height: 1.2;
+  }
+}
+
 /* Table font-sizes */
 
 table {
