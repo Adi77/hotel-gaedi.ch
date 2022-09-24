@@ -82,23 +82,10 @@
   }
   @include media($from: 'sm') {
     &:nth-child(even) {
-      + .teaser-2col-image-text {
-        .row {
-          > div {
-            &:first-child {
-              order: 6;
-            }
-          }
-        }
-      }
-    }
-    &:nth-child(odd) {
-      + .teaser-2col-image-text {
-        .row {
-          > div {
-            &:last-child {
-              order: 1;
-            }
+      .row {
+        > div {
+          &:first-child {
+            order: 6;
           }
         }
       }
