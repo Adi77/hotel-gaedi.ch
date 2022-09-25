@@ -44,6 +44,30 @@
         padding-right: 5%;
         padding-left: 5%;
       }
+
+      .wp-block-buttons {
+        margin-top: toRem(15);
+        .wp-block-button {
+          .wp-block-button__link {
+            @include gaedi-button();
+          }
+        }
+        &.two-btn {
+          .wp-block-button {
+            &:first-child {
+              margin-right: toRem(15);
+              .wp-block-button__link {
+                @include gaedi-button(true);
+              }
+            }
+            &:last-child {
+              .wp-block-button__link {
+                @include gaedi-button();
+              }
+            }
+          }
+        }
+      }
     }
     .col-xl-7 {
       .col-sm-6 {
@@ -70,10 +94,6 @@
         display: grid;
         align-content: center;
       }
-      .wp-block-button__link {
-        margin-top: toRem(15);
-        @include gaedi-button();
-      }
     }
   }
 
@@ -94,6 +114,7 @@
       margin-top: toRem(160);
     }
   }
+
   &.multiple-images-horizontal {
     .row {
       .col-xl-7 {
@@ -115,6 +136,34 @@
     }
     + .wp-block-group {
       margin-top: toRem(140);
+    }
+  }
+  &.package-booking-teaser {
+    .row {
+      .col-xl-5 {
+        text-align: left;
+      }
+    }
+    @include media($from: 'xl') {
+      &.even {
+        .row {
+          .col-xl-7 {
+            padding-left: toRem(80);
+          }
+        }
+      }
+      &.odd {
+        .row {
+          .col-xl-7 {
+            padding-right: toRem(80);
+          }
+        }
+      }
+      .row {
+        .col-xl-5 {
+          text-align: right;
+        }
+      }
     }
   }
 }

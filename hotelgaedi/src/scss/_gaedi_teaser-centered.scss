@@ -2,7 +2,9 @@
   position: relative;
   .wp-block-columns {
     .container {
-      @include make-container(26vw);
+      @include media($until: 'xxl') {
+        @include make-container(26vw);
+      }
       @include media($until: 'xl') {
         @include make-container();
       }

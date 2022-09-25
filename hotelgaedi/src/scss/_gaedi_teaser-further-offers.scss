@@ -6,50 +6,74 @@
     padding-bottom: toRem(60);
   }
 
-  .wp-block-columns {
-    &:first-child {
-      @include make-container(30%);
-      @include media($until: 'xl') {
-        @include make-container();
-      }
-      text-align: center;
-      margin-bottom: toRem(120);
-      img {
-        margin-bottom: toRem(45);
+  > .wp-block-group__inner-container {
+    > .wp-block-columns {
+      &:first-child {
+        @include make-container(30%);
         @include media($until: 'xl') {
-          margin-top: toRem(30);
+          @include make-container();
         }
-      }
-      h4 {
-        font-weight: $gaedi-lato-regular-weight;
-      }
-    }
-    &:nth-child(2) {
-      @include make-container(20%);
-      @include media($until: 'xl') {
-        @include make-container();
-      }
-    }
-    &:nth-child(2) {
-      h2 {
-        margin-bottom: toRem(50);
-      }
-    }
-    &:nth-child(3) {
-      @include make-container(17%);
-      @include media($until: 'xl') {
-        @include make-container(0);
-      }
-      .wp-block-column {
+        text-align: center;
+        margin-bottom: toRem(120);
+        img {
+          margin-bottom: toRem(45);
+          @include media($until: 'xl') {
+            margin-top: toRem(30);
+          }
+        }
         h4 {
-          margin-top: toRem(40);
+          font-weight: $gaedi-lato-regular-weight;
         }
-        .wp-block-button__link {
-          margin-top: toRem(10);
-          @include gaedi-button();
+        .advantages-icons-gallery {
+          figure {
+            img {
+              width: 100%;
+            }
+            figcaption {
+              position: relative;
+              top: toRem(10);
+              color: $gaedi-black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left: inherit;
+            }
+          }
         }
-        &:last-child {
-          margin-top: toRem(100);
+        .advantages-icons-gallery {
+          margin-top: toRem(80);
+          + .advantages-icons-gallery {
+            margin-top: toRem(40);
+          }
+        }
+      }
+      &:nth-child(2) {
+        @include make-container(20%);
+        @include media($until: 'xl') {
+          @include make-container();
+        }
+      }
+      &:nth-child(2) {
+        h2 {
+          margin-bottom: toRem(50);
+        }
+      }
+      &:nth-child(3) {
+        @include make-container(17%);
+        @include media($until: 'xl') {
+          @include make-container(0);
+        }
+        .wp-block-column {
+          h4 {
+            margin-top: toRem(40);
+          }
+          .wp-block-button__link {
+            margin-top: toRem(10);
+            @include gaedi-button();
+          }
+          &:last-child {
+            margin-top: toRem(100);
+          }
         }
       }
     }
@@ -73,5 +97,16 @@
     left: 0;
     right: 0;
     background: url('../img/bg-beige-dark.png') repeat;
+  }
+}
+
+.single-packages {
+  .teaser-further-offers {
+    &::after {
+      height: 60%;
+      @include media($until: 'lg') {
+        height: 110%;
+      }
+    }
   }
 }

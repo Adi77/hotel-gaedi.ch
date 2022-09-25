@@ -235,6 +235,22 @@ class StarterSite extends Timber\Site
     /** This is where you can register custom taxonomies. */
     public function register_taxonomies()
     {
+/*         register_taxonomy(
+            'zimmer-categories',
+            'zimmer',
+            array(
+                'label' => __( 'Zimmer Kategorien' ),
+                'hierarchical' => true,
+            )
+        );
+        register_taxonomy(
+            'packages-categories',
+            'packages',
+            array(
+                'label' => __( 'Packages Kategorien' ),
+                'hierarchical' => true,
+            )
+        ); */
     }
 
     /** This is where you add some context
@@ -471,7 +487,7 @@ class T5_Richtext_Excerpt
 
         remove_meta_box(
             'postexcerpt' // ID
-        ,   ''            // Screen, empty to support all post types
+        ,   'post'            // Screen, empty to support all post types
         ,   'normal'      // Context
         );
 
@@ -504,10 +520,10 @@ class T5_Richtext_Excerpt
             self::unescape( $post->post_excerpt ),
             'excerpt',
             array (
-            'textarea_rows' => 15
-        ,   'media_buttons' => FALSE
-        ,   'teeny'         => FALSE
-        ,   'tinymce'       => array(
+            'textarea_rows' => 160,   
+            'media_buttons' => FALSE,
+            'teeny'         => TRUE,
+            'tinymce'       => array(
             'toolbar1'      => 'superscript, bold,italic,underline,separator,undo,redo',
             'toolbar2'      => '',
             'toolbar3'      => '',
@@ -515,6 +531,7 @@ class T5_Richtext_Excerpt
             )
         );
     }
+    
 
     /**
      * The excerpt is escaped usually. This breaks the HTML editor.

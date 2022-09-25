@@ -32,6 +32,29 @@
       background: url('../img/bg-beige-dark.png') repeat;
     }
   }
+  &.one-item-containerwidth {
+    @include make-container(8vw);
+    .carousel {
+      padding: 0;
+      .carousel-item {
+        .wp-block-group__inner-container {
+          margin-right: inherit;
+        }
+      }
+      .carousel-control-prev {
+        margin-right: 5.2%;
+        @include media($until: 'lg') {
+          margin-right: 1.5vw;
+        }
+      }
+      .carousel-control-next {
+        margin-right: 5%;
+        @include media($until: 'lg') {
+          margin-right: 2vw;
+        }
+      }
+    }
+  }
   @include media($until: 'xl') {
     .wp-block-columns {
       &:first-child {
