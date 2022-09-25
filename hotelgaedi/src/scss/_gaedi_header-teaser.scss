@@ -31,6 +31,9 @@
       &:first-child {
         display: grid;
         align-content: center;
+        @include media($from: 'xl') {
+          margin-bottom: toRem(65);
+        }
         .wp-block-group {
           padding-left: 5%;
           padding-right: 5%;
