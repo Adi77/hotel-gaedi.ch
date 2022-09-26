@@ -19,6 +19,27 @@ $(document).ready(function ($) {
   $('a.nav-link.dropdown-toggle').click(function () {
     location.href = this.href;
   });
+  $('.dropdownToggleMobile').click(function () {
+    $('.dropdownToggleMobile').not(this).removeClass('show');
+    $('.dropdownToggleMobile').not(this).prev().removeClass('show');
+    $('.dropdownToggleMobile').not(this).next().removeClass('show');
+
+    $('.dropdownToggleMobile')
+      .not(this)
+      .prev()
+      .attr('aria-expanded', function (i, attr) {
+        return attr == 'true' ? 'false' : 'true';
+      });
+
+    $(this).toggleClass('show');
+    $(this).prev().toggleClass('show');
+    $(this)
+      .prev()
+      .attr('aria-expanded', function (i, attr) {
+        return attr == 'true' ? 'false' : 'true';
+      });
+    $(this).next().toggleClass('show');
+  });
 });
 
 $.fn.teasersCarousel = function () {

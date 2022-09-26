@@ -31,7 +31,9 @@
         text-transform: uppercase;
         padding: toRem(30) toRem(20) toRem(15);
         @include media($until: 'xl') {
-          padding: 0;
+          display: block;
+          padding-top: toRem(10);
+          padding-bottom: toRem(10);
         }
         &:hover {
           color: white;

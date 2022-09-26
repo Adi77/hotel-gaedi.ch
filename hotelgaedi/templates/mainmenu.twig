@@ -5,7 +5,11 @@
 <ul class="navbar-nav">
   {% for item in items %}
 
-  <!-- if has submenu -->
+  <!-- if has submenu 
+  
+  data-bs-toggle="dropdown"
+
+-->
   {% if item.get_children %}
 
   <li class="nav-item dropdown {{ item.classes | join(' ') }}">
@@ -14,12 +18,12 @@
       href="{{ item.link }}"
       id="navbarDropdown"
       class="nav-link dropdown-toggle"
-      data-bs-toggle="dropdown"
       href="#"
       role="button"
       aria-expanded="false"
       >{{ item.title }}</a
     >
+    <span class="dropdownToggleMobile"></span>
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       {% for child in item.children %}

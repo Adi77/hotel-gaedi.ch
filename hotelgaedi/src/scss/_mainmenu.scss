@@ -30,8 +30,52 @@ header {
           @include media($from: 'xl') {
             padding-bottom: toRem(20);
           }
+          @include media($until: 'xl') {
+            &.dropdown-toggle {
+              margin-left: toRem(40);
+            }
+
+            display: inline-block;
+          }
           &:hover {
             color: $gaedi-brown;
+          }
+          @include media($until: 'xl') {
+            &:after {
+              border: 0;
+            }
+          }
+        }
+
+        .dropdownToggleMobile {
+          display: inline-block;
+          margin-left: 14px;
+          margin-bottom: 5px;
+          position: relative;
+
+          @include media($from: 'xl') {
+            display: none;
+          }
+
+          border-top: toRem(7) solid;
+          border-right: toRem(7) solid transparent;
+          border-bottom: 0;
+          border-left: toRem(7) solid transparent;
+          &::after {
+            position: absolute;
+            margin-left: toRem(-20);
+            margin-top: toRem(-25);
+            content: '';
+            width: toRem(40);
+            height: toRem(40);
+            border: 1px solid $gaedi-black;
+          }
+          &.show {
+            border-top: 0;
+            border-bottom: toRem(7) solid;
+            &:after {
+              margin-top: toRem(-18);
+            }
           }
         }
         &.dropdown {
@@ -58,7 +102,10 @@ header {
                 font-size: toRem(20);
                 letter-spacing: toRem(0.8);
                 font-weight: $gaedi-lato-bold-weight;
-
+                @include media($until: 'xl') {
+                  padding-top: toRem(10);
+                  padding-bottom: toRem(10);
+                }
                 &:hover {
                   background-color: transparent;
                   color: $gaedi-brown;
