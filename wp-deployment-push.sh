@@ -12,7 +12,7 @@ prodServerSsh=sshhotelgaedi@staging.hotel-gaedi.ch
 sshPort=2121
 serverRootRemote=/staging.hotel-gaedi.ch
 webRootRelativeRemote=staging.hotel-gaedi.ch
-migrationDbDumpFolderLocationRemote=${serverRootRemote}/migration
+migrationDbDumpFolderLocationRemote=${webRootRelativeRemote}/migration
 domainNameProduction=https://staging.hotel-gaedi.ch
 repoLocationRemote=$WP_THEME-git-repo/hotel-gaedi.ch
 repoThemeLocationRemote=${repoLocationRemote}/$WP_THEME
@@ -137,12 +137,10 @@ wp-database_sync() {
         esac
     done
     echo "******* Do you wish to import db-dump to DB on Production Server?"
-    SCRIPT="gunzip -k ${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz;
-    cd ${migrationDbDumpFolderLocationRemote}
-    php ${serverRootRemote}/wp-cli.phar db import $DB_NAME.sql
-    php ${serverRootRemote}/wp-cli.phar search-replace 'http://'$VIRTUAL_HOST '${domainNameProduction}' --skip-columns=guid --skip-tables=wp_users
-    rm $DB_NAME.sql
-    "
+    SCRIPT="cd ${migrationDbDumpFolderLocationRemote};
+    gunzip $DB_NAME.sql.gz;
+    wp db import $DB_NAME.sql;
+    wp search-replace 'http://'$VIRTUAL_HOST '${domainNameProduction}' --skip-columns=guid --skip-tables=wp_users;"
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
