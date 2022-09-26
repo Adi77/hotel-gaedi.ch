@@ -4,15 +4,18 @@ source .env
 set +o allexport
 
 # local
-wpContentFolderLocationLocal=www/wp-content
 migrationDbDumpFolderLocationLocal=www
+wpContentFolderLocationLocal=www/wp-content
 
 # remote
-prodServerSsh=monikazi@wink.ch
-serverRootRemote=/home/monikazi
-domainNameProduction=https://www.wink.ch/staging2
-webRootRelativeRemote=www/www.wink.ch/staging2
-migrationDbDumpFolderLocationRemote=${serverRootRemote}/${webRootRelativeRemote}/migration
+prodServerSsh=sshhotelgaedi@staging.hotel-gaedi.ch
+sshPort=2121
+serverRootRemote=/staging.hotel-gaedi.ch
+webRootRelativeRemote=staging.hotel-gaedi.ch
+migrationDbDumpFolderLocationRemote=${serverRootRemote}/migration
+domainNameProduction=https://staging.hotel-gaedi.ch
+repoLocationRemote=$WP_THEME-git-repo/hotel-gaedi.ch
+repoThemeLocationRemote=${repoLocationRemote}/$WP_THEME
 
 wp-files_sync_plugins() {
 
@@ -21,8 +24,8 @@ wp-files_sync_plugins() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
-            scp ${prodServerSsh}:${serverRootRemote}/${webRootRelativeRemote}/wp-content/plugins.zip ${wpContentFolderLocationLocal}
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
+            scp -P ${sshPort} ${prodServerSsh}:${serverRootRemote}/wp-content/plugins.zip ${wpContentFolderLocationLocal}
             break
             ;;
         No) break ;;
@@ -44,7 +47,7 @@ wp-files_sync_uploads() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             break
             ;;
         No) break ;;
@@ -56,8 +59,8 @@ wp-files_sync_uploads() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
-            scp ${prodServerSsh}:${serverRootRemote}/${webRootRelativeRemote}/wp-content/uploads.zip ${wpContentFolderLocationLocal}
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
+            scp -P ${sshPort} ${prodServerSsh}:${serverRootRemote}/wp-content/uploads.zip ${wpContentFolderLocationLocal}
             break
             ;;
         No) break ;;
@@ -105,8 +108,8 @@ wp-database_sync() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
-            scp ${prodServerSsh}:${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz ${migrationDbDumpFolderLocationLocal}
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
+            scp -P ${sshPort} ${prodServerSsh}:${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz ${migrationDbDumpFolderLocationLocal}
 
             break
             ;;

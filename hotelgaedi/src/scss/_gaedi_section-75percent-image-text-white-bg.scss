@@ -1,0 +1,98 @@
+.section-75percent-image-text-white-bg {
+  .container {
+    padding-left: 0;
+    background-color: $gaedi-beige;
+
+    @include media($until: 'xl') {
+      background-color: white;
+    }
+    background-image: url('../img/bg-white.png');
+    @include media($until: 'lg') {
+      background-image: none;
+      background-color: transparent;
+    }
+    background-repeat: repeat-x;
+    background-size: toRem(500);
+    @include media($until: 'xxl') {
+      background-size: toRem(600);
+    }
+    .col-md-12 {
+      &:first-child {
+        figure {
+          img {
+            min-width: 100%;
+            @include media($until: 'lg') {
+              position: absolute;
+              left: 0;
+              z-index: -1;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        @include media($from: 'xl') {
+          margin-bottom: toRem(65);
+        }
+        .wp-block-group {
+          padding-left: 5%;
+          padding-right: 5%;
+          margin-top: toRem(80);
+          @include media($until: 'xl') {
+            margin-top: toRem(20);
+          }
+          @include media($until: 'lg') {
+            margin-top: 40vh;
+            padding-top: toRem(40);
+            padding-bottom: toRem(40);
+            text-align: center;
+            background-color: white;
+          }
+
+          @include media($until: 'sm') {
+            margin-top: 20vh;
+          }
+          @include media($until: 'lg') {
+            p {
+              padding-top: toRem(20);
+              padding-bottom: toRem(30);
+            }
+          }
+          .wp-block-buttons {
+            .wp-block-button {
+              margin-top: toRem(20);
+              &.is-style-outline {
+                .wp-block-button__link {
+                  @include gaedi-button(true);
+                }
+              }
+              &:last-child {
+                .wp-block-button__link {
+                  @include gaedi-button();
+                }
+              }
+              &:nth-child(2) {
+                margin-left: toRem(10);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include media($from: 'lg') {
+    &.odd {
+      .container {
+        padding-right: 0;
+        .col-md-12 {
+          &:first-child {
+            order: 6;
+          }
+        }
+      }
+    }
+  }
+  + .wp-block-group {
+    margin-top: toRem(140);
+  }
+}
