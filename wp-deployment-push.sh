@@ -8,12 +8,12 @@ migrationDbDumpFolderLocationLocal=www
 wpContentFolderLocationLocal=www/wp-content
 
 # remote
-prodServerSsh=monikazi@wink.ch
-serverRootRemote=/home/monikazi
-webRootRelativeRemote=www/www.wink.ch/staging2
-migrationDbDumpFolderLocationRemote=${serverRootRemote}/${webRootRelativeRemote}/migration
-domainNameProduction=https://www.wink.ch/staging2
-repoLocationRemote=wink-git-repo/wink.ch
+prodServerSsh=sshhotelgaedi@staging.hotel-gaedi.ch
+serverRootRemote=/staging.hotel-gaedi.ch
+webRootRelativeRemote=staging.hotel-gaedi.ch
+migrationDbDumpFolderLocationRemote=${serverRootRemote}/migration
+domainNameProduction=https://staging.hotel-gaedi.ch
+repoLocationRemote=$WP_THEME-git-repo/hotel-gaedi.ch
 repoThemeLocationRemote=${repoLocationRemote}/$WP_THEME
 
 wp-files_sync_plugins() {
@@ -42,7 +42,7 @@ wp-files_sync_plugins() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            scp ${wpContentFolderLocationLocal}/plugins.zip ${prodServerSsh}:${serverRootRemote}/${webRootRelativeRemote}/wp-content
+            scp ${wpContentFolderLocationLocal}/plugins.zip ${prodServerSsh}:${serverRootRemote}/wp-content
             ssh ${prodServerSsh} "${SCRIPT}"
             break
             ;;
@@ -75,7 +75,7 @@ wp-files_sync_uploads() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            scp ${wpContentFolderLocationLocal}/uploads.zip ${prodServerSsh}:${serverRootRemote}/${webRootRelativeRemote}/wp-content
+            scp ${wpContentFolderLocationLocal}/uploads.zip ${prodServerSsh}:${serverRootRemote}/wp-content
             ssh ${prodServerSsh} "${SCRIPT}"
             break
             ;;
