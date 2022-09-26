@@ -9,6 +9,7 @@ wpContentFolderLocationLocal=www/wp-content
 
 # remote
 prodServerSsh=sshhotelgaedi@staging.hotel-gaedi.ch
+sshPort=2121
 serverRootRemote=/staging.hotel-gaedi.ch
 webRootRelativeRemote=staging.hotel-gaedi.ch
 migrationDbDumpFolderLocationRemote=${serverRootRemote}/migration
@@ -42,8 +43,8 @@ wp-files_sync_plugins() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            scp ${wpContentFolderLocationLocal}/plugins.zip ${prodServerSsh}:${serverRootRemote}/wp-content
-            ssh ${prodServerSsh} "${SCRIPT}"
+            scp -P ${sshPort} ${wpContentFolderLocationLocal}/plugins.zip ${prodServerSsh}:${serverRootRemote}/wp-content
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             break
             ;;
         No) break ;;
@@ -75,8 +76,8 @@ wp-files_sync_uploads() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            scp ${wpContentFolderLocationLocal}/uploads.zip ${prodServerSsh}:${serverRootRemote}/wp-content
-            ssh ${prodServerSsh} "${SCRIPT}"
+            scp -P ${sshPort} ${wpContentFolderLocationLocal}/uploads.zip ${prodServerSsh}:${serverRootRemote}/wp-content
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             break
             ;;
         No) break ;;
@@ -129,7 +130,7 @@ wp-database_sync() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            scp ${migrationDbDumpFolderLocationLocal}/$DB_NAME.sql.gz ${prodServerSsh}:${migrationDbDumpFolderLocationRemote}
+            scp -P ${sshPort} ${migrationDbDumpFolderLocationLocal}/$DB_NAME.sql.gz ${prodServerSsh}:${migrationDbDumpFolderLocationRemote}
             break
             ;;
         No) break ;;
@@ -145,7 +146,7 @@ wp-database_sync() {
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             break
             ;;
         No) exit ;;
@@ -158,7 +159,7 @@ wp-git_deploy() {
     SCRIPT="cd ${webRootRelativeRemote}/${repoLocationRemote}; 
             git pull;
             cp -r $WP_THEME ../../wp-content/themes/"
-    ssh ${prodServerSsh} "${SCRIPT}"
+    ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
     if [ $? -eq 0 ]; then
         echo "******* Repo deployment done ******************"
     else
