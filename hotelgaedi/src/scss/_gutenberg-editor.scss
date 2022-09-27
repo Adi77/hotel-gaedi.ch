@@ -85,9 +85,13 @@ html .wp-block .wp-block-column {
 
 /* image captions */
 
-.wp-block-image figcaption {
+/* .wp-block-image figcaption {
   margin-top: -40px;
   position: absolute;
   margin-left: 20px;
   color: $white;
+} */
+
+#tab-panel-0-reusable.components-tab-panel__tabs-item {
+  display: none !important;
 }

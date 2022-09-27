@@ -1,0 +1,25 @@
+.section-2col-advantages-icons {
+  @include make-container(5%);
+  .wp-block-columns {
+    .wp-block-column {
+      .wp-block-columns {
+        .wp-block-column {
+          &:first-child {
+            margin-bottom: toRem(40);
+          }
+          .wp-block-image {
+            img {
+              width: 100%;
+            }
+            figcaption {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+  + .wp-block-group {
+    margin-top: toRem(140);
+  }
+}
