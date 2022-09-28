@@ -1,0 +1,3 @@
+.components-tab-panel__tabs .components-button:last-child {
+  display: none !important;
+}

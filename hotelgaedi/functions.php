@@ -548,3 +548,12 @@ class T5_Richtext_Excerpt
         );
     }
 }
+
+
+/* styling for wordpress backend 
+* hide reusable blocks tab
+*/
+function enqueuing_admin_scripts(){
+    wp_enqueue_style('admin-your-css-file-handle-name', get_template_directory_uri().'/css/gutenberg-backend.css'); 
+}
+add_action( 'admin_enqueue_scripts', 'enqueuing_admin_scripts' );
