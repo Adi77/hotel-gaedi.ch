@@ -42,6 +42,29 @@ header {
       }
       .navbar-collapse {
         flex-basis: 100%;
+        &.fixedNav {
+          position: fixed;
+          top: toRem(-100);
+          z-index: 99;
+          transition: 0.6s ease-out;
+          background-color: $gaedi-beige;
+          box-shadow: 0px 9px 12px -3px rgb(0 0 0 / 20%);
+          .meta-menu {
+            display: none;
+          }
+          &::before {
+            content: '';
+            background-image: url('../img/gaedi-logo.svg');
+            position: absolute;
+
+            left: 0;
+            height: 100%;
+            width: 200px;
+            background-size: 23%;
+            background-repeat: no-repeat;
+            background-position: 15%;
+          }
+        }
       }
     }
   }

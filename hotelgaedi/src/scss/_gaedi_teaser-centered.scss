@@ -57,16 +57,29 @@
       }
     }
     &.btn-overlap {
-      .wp-block-buttons {
-        bottom: -46px;
-        position: relative;
-        .wp-block-button__link {
-          width: 25vw;
-          @include media($until: 'md') {
-            width: 50vw;
+      .wp-block-columns {
+        .wp-block-column {
+          .wp-block-buttons {
+            bottom: -46px;
+            position: relative;
+            .wp-block-button__link {
+              width: 25vw;
+              @include media($until: 'md') {
+                width: 50vw;
+              }
+            }
+          }
+        }
+        &:nth-child(2) {
+          @include gaedi-container();
+          margin-top: toRem(60);
+          img {
+            width: auto;
+            height: toRem(80);
           }
         }
       }
+
       + .wp-block-group {
         margin-top: toRem(180);
       }

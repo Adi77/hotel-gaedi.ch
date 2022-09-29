@@ -104,3 +104,16 @@ $breakpoints: (
   padding: toRem(15);
   border-radius: 0;
 }
+
+@mixin gaedi-container() {
+  @include make-container(20%);
+  @include media($from: 'xl', $until: 'xxl') {
+    @include make-container(180px);
+  }
+  @include media($from: 'md', $until: 'xl') {
+    @include make-container(100px);
+  }
+  @include media($until: 'md') {
+    @include make-container(30px);
+  }
+}

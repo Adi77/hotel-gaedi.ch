@@ -16,6 +16,11 @@ $(document).ready(function ($) {
 
   $.fn.postTypeCategoriesNavigation();
 
+  /*
+   * Show Navigation on Scroll up
+   */
+  $.fn.showNavOnScrollUp();
+
   $('a.nav-link.dropdown-toggle').click(function () {
     location.href = this.href;
   });
@@ -147,5 +152,48 @@ $.fn.postTypeCategoriesNavigation = function () {
       .next()
       .find('li.wp-block-post.category-' + category)
       .show();
+  });
+};
+
+$.fn.showNavOnScrollUp = function () {
+  var lastScrollTop; // This Varibale will store the top position
+  var navbar = document.getElementById('navbarCollapse'); // Get The NavBar
+
+  var scrollTopOnLoad =
+    window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTopOnLoad > 300) {
+    navbar.classList.add('fixedNav');
+  }
+  if (scrollTopOnLoad < 300) {
+    navbar.classList.remove('fixedNav');
+  }
+  window.addEventListener('scroll', function () {
+    //on every scroll this funtion will be called
+
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop < 300) {
+      navbar.classList.remove('fixedNav');
+    } else {
+      navbar.classList.add('fixedNav');
+    }
+
+    //This line will get the location on scroll
+
+    if (scrollTop > lastScrollTop && scrollTop > 300) {
+      //if it will be greater than the previous
+      navbar.style.top = '-100px';
+
+      //set the value to the negetive of height of navbar
+    } else {
+      if (scrollTop < 800) {
+        navbar.style.top = '-100px';
+      } else {
+        navbar.style.top = '0';
+      }
+    }
+
+    lastScrollTop = scrollTop; //New Position Stored
   });
 };

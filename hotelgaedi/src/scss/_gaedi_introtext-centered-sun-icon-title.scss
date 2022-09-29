@@ -1,14 +1,5 @@
 .introtext-centered-sun-icon-title {
-  @include make-container(20%);
-  @include media($from: 'xl', $until: 'xxl') {
-    @include make-container(180px);
-  }
-  @include media($from: 'md', $until: 'xl') {
-    @include make-container(100px);
-  }
-  @include media($until: 'md') {
-    @include make-container(30px);
-  }
+  @include gaedi-container();
 
   @include media($until: 'sm') {
     padding-bottom: toRem(60);
