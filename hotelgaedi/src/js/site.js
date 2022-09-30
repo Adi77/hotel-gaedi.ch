@@ -160,6 +160,7 @@ $.fn.showNavOnScrollUp = function () {
   var navbar = document.getElementById('gaedi-header'); // Get The NavBar
   var body = document.getElementsByTagName('body')[0];
   var navbarCollapse = document.getElementById('navbarCollapse');
+  var toTopLink = document.getElementById('toTopLink');
 
   var scrollTopOnLoad =
     window.pageYOffset || document.documentElement.scrollTop;
@@ -171,6 +172,11 @@ $.fn.showNavOnScrollUp = function () {
       body.classList.remove('fixedNav');
     } else {
       body.classList.add('fixedNav');
+    }
+    if (scrollTop > 600) {
+      toTopLink.classList.add('show');
+    } else {
+      toTopLink.classList.remove('show');
     }
     //This line will get the location on scroll
     if (scrollTop > lastScrollTop && scrollTop > 300) {

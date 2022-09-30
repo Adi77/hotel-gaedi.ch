@@ -1,8 +1,9 @@
 {% block html_head_container %}
 
 {% include 'html-header.twig' %}
-	{% block head %}
-	{% endblock %}
+	<head>
+		{% block head %}
+		{% endblock %}
 	</head>
 {% endblock %}
 
@@ -56,5 +57,8 @@
 			</footer>
 			{{ function('wp_footer') }}
 		{% endblock %}
+		<a class="toTopLink" id="toTopLink" href="#top">
+			&nbsp;
+		</a>
 	</body>
 </html>
