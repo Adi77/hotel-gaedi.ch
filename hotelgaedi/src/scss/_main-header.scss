@@ -28,6 +28,7 @@ header {
         }
       }
       .navbar-toggler {
+        top: toRem(10);
         border: 0;
         color: transparent !important;
         &:focus,

@@ -159,6 +159,8 @@ $.fn.showNavOnScrollUp = function () {
   var lastScrollTop; // This Varibale will store the top position
   var navbar = document.getElementById('gaedi-header'); // Get The NavBar
   var body = document.getElementsByTagName('body')[0];
+  var navbarCollapse = document.getElementById('navbarCollapse');
+
   var scrollTopOnLoad =
     window.pageYOffset || document.documentElement.scrollTop;
 
@@ -173,11 +175,17 @@ $.fn.showNavOnScrollUp = function () {
     //This line will get the location on scroll
     if (scrollTop > lastScrollTop && scrollTop > 300) {
       //if it will be greater than the previous
-      navbar.style.top = '-100px';
+      console.log(navbarCollapse.classList.contains('show'));
+      if (navbarCollapse.classList.contains('show') === false) {
+        navbar.style.top = '-100px';
+      }
+
       //set the value to the negetive of height of navbar
     } else {
       if (scrollTop < 600) {
-        navbar.style.top = '-100px';
+        if (navbarCollapse.classList.contains('show') === false) {
+          navbar.style.top = '-100px';
+        }
       } else {
         navbar.style.top = '0';
       }
