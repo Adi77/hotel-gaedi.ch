@@ -10,6 +10,7 @@
           .wp-block-image {
             img {
               width: 100%;
+              height: toRem(80);
             }
             figcaption {
               text-align: center;
