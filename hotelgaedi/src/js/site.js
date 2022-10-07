@@ -181,7 +181,6 @@ $.fn.showNavOnScrollUp = function () {
     //This line will get the location on scroll
     if (scrollTop > lastScrollTop && scrollTop > 300) {
       //if it will be greater than the previous
-      console.log(navbarCollapse.classList.contains('show'));
       if (navbarCollapse.classList.contains('show') === false) {
         navbar.style.top = '-100px';
       }

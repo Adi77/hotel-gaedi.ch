@@ -1,0 +1,5 @@
+.image-text-grid-3-col {
+  .row {
+    @include make-container(5%);
+  }
+}

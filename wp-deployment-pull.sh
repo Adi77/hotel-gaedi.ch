@@ -104,7 +104,8 @@ wp-files_sync() {
 wp-database_sync() {
     echo "******* Do you wish to export db-dump to ${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz File and download it?"
     SCRIPT="cd ${migrationDbDumpFolderLocationRemote}
-            php ${serverRootRemote}/wp-cli.phar db export --add-drop-table - | gzip >${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz"
+            
+            wp db export --add-drop-table - | gzip >${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz"
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
