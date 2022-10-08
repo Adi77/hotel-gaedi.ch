@@ -1,0 +1,56 @@
+.gaedi-forms {
+  .wp-block-columns {
+    .wp-block-column {
+      .wp-block-contact-form-7-contact-form-selector {
+        input,
+        textarea,
+        select {
+          height: toRem(77);
+          padding-left: toRem(40);
+          margin-bottom: toRem(20);
+          border: 0;
+          color: $gaedi-black;
+          width: 100%;
+          &::placeholder {
+            font-size: toRem(20);
+            color: $gaedi-black;
+            opacity: 1;
+          }
+        }
+        textarea {
+          padding-top: toRem(23);
+        }
+        .wpcf7-not-valid-tip {
+          color: #dc3232;
+          top: -15px;
+          position: relative;
+        }
+        input[type='submit'] {
+          padding: 0;
+          color: white;
+          text-transform: uppercase;
+          background-color: $gaedi-brown;
+        }
+        select {
+          appearance: none;
+        }
+        span.wpcf7-form-control-wrap[data-name='reason'] {
+          &:after {
+            content: '';
+            background-image: escape-svg($chevron-down-black);
+            background-repeat: no-repeat;
+            position: absolute;
+            width: toRem(40);
+            height: 100%;
+            z-index: 9;
+            top: toRem(4);
+            right: toRem(7);
+          }
+        }
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

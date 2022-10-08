@@ -1,5 +1,17 @@
 .image-text-grid-3-col {
-  .row {
-    @include make-container(5%);
+  @include make-container(5%);
+  .wp-block-columns {
+    .wp-block-column {
+      h4 {
+        margin-top: toRem(20);
+        margin-bottom: 0;
+      }
+      p {
+        margin-bottom: toRem(40);
+      }
+    }
+  }
+  + .wp-block-group {
+    margin-top: toRem(140);
   }
 }

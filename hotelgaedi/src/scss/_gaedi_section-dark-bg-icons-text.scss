@@ -4,6 +4,11 @@
 
   background-color: $gaedi-beige-dark;
   .wp-block-columns {
+    @include media($until: 'xxl') {
+      &.gx-6 {
+        --bs-gutter-x: inherit;
+      }
+    }
     .wp-block-column {
       text-align: center;
       .wp-block-image {
@@ -13,6 +18,9 @@
         }
       }
     }
+  }
+  &.noBg {
+    background-color: transparent;
   }
   + .wp-block-group {
     margin-top: toRem(140);
