@@ -1,5 +1,8 @@
 .gaedi-forms {
   .wp-block-columns {
+    @include media($from: 'lg') {
+      @include make-container(5%);
+    }
     .wp-block-column {
       .wp-block-contact-form-7-contact-form-selector {
         input,
@@ -34,21 +37,44 @@
         select {
           appearance: none;
         }
-        span.wpcf7-form-control-wrap[data-name='reason'] {
-          &:after {
-            content: '';
-            background-image: escape-svg($chevron-down-black);
-            background-repeat: no-repeat;
-            position: absolute;
-            width: toRem(40);
-            height: 100%;
-            z-index: 9;
-            top: toRem(4);
-            right: toRem(7);
-          }
-        }
+
         p {
           margin: 0;
+          &.blockLabel {
+            font-weight: $gaedi-lato-bold-weight;
+            margin-bottom: toRem(20);
+          }
+          span.wpcf7-form-control-wrap {
+            &:after {
+              content: '';
+              background-image: escape-svg($chevron-down-black);
+              background-repeat: no-repeat;
+              position: absolute;
+              width: toRem(40);
+              height: 100%;
+              z-index: 9;
+              top: toRem(4);
+              right: toRem(7);
+            }
+          }
+        }
+        .datepicker {
+          position: relative;
+          .input-group-text {
+            background-image: escape-svg($calendar-black);
+            background-repeat: no-repeat;
+            position: absolute;
+            width: toRem(45);
+            z-index: 9;
+            top: 15px;
+            right: 15px;
+            background-size: 100%;
+            height: 100%;
+            cursor: pointer;
+          }
+        }
+        .spacerBig {
+          height: toRem(180);
         }
       }
     }

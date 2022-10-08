@@ -1,7 +1,9 @@
 import $ from 'jquery';
 import 'bootstrap';
 //import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './../scss/style.scss';
+import { TempusDominus } from '@eonasdan/tempus-dominus';
 
 $(document).ready(function ($) {
   $('.navbar-toggler').on('click', function () {
@@ -45,7 +47,28 @@ $(document).ready(function ($) {
       });
     $(this).next().toggleClass('show');
   });
+
+  /*
+   * datepicker
+   */
+  $.fn.datePicker();
 });
+
+$.fn.datePicker = function () {
+  var date = new Date();
+  new TempusDominus(document.getElementById('datepicker-anreise'), {
+    //put your config here
+    restrictions: {
+      minDate: date,
+    },
+  });
+  new TempusDominus(document.getElementById('datepicker-abreise'), {
+    //put your config here
+    restrictions: {
+      minDate: date,
+    },
+  });
+};
 
 $.fn.teasersCarousel = function () {
   const carousels = document.querySelectorAll('.carousel');
