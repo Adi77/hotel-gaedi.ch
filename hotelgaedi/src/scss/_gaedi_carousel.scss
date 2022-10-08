@@ -8,6 +8,16 @@
   &.three-items-fullwidth {
     .carousel {
       padding: 0;
+      .carousel-item {
+        .wp-block-group__inner-container {
+          figure,
+          img {
+            height: inherit;
+            width: inherit;
+            object-fit: inherit;
+          }
+        }
+      }
       .carousel-control-prev {
         margin-right: 5.2%;
         @include media($until: 'lg') {
@@ -109,8 +119,14 @@
       @include media($until: 'lg') {
         margin-right: toRem(15);
       }
-
+      figure,
+      img {
+        height: toRem(305);
+        width: toRem(305);
+        object-fit: cover;
+      }
       p {
+        width: toRem(305);
         margin-top: toRem(10);
         font-size: toRem(17);
       }

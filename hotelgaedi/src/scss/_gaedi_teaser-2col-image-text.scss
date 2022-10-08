@@ -31,6 +31,14 @@
   }
   .row {
     > div {
+      figure {
+        text-align: right;
+        img[src$='.svg'] {
+          width: 60%;
+          margin-right: toRem(60);
+        }
+      }
+
       @include media($until: 'xl') {
         &:last-child {
           order: 6;
