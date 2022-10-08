@@ -12,10 +12,23 @@
     border-bottom: toRem(20) solid $gaedi-beige;
     .c-accordion__title {
       margin-bottom: toRem(15);
-      &::after {
-        color: $gaedi-black;
-        top: 13%;
-        transform: translateY(-29%);
+
+      &:after {
+        content: '';
+        background-image: escape-svg($chevron-down-black);
+        background-repeat: no-repeat;
+        position: absolute;
+        width: toRem(40);
+        height: 100%;
+        z-index: 9;
+        top: toRem(24);
+        right: toRem(7);
+        background-size: 80%;
+      }
+      &[aria-expanded='true'] {
+        &:after {
+          background-image: escape-svg($chevron-up-black);
+        }
       }
     }
     div {
