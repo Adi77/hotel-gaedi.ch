@@ -9,6 +9,7 @@
     .carousel {
       padding: 0;
       .carousel-item {
+        background-color: transparent;
         .wp-block-group__inner-container {
           img {
             height: inherit;
@@ -113,6 +114,7 @@
     }
   }
   .carousel-item {
+    background-color: $gaedi-beige;
     .wp-block-group__inner-container {
       margin-right: 30px;
       @include media($until: 'lg') {
@@ -140,6 +142,7 @@
     }
     .carousel-item-next,
     .carousel-item-prev {
+      float: left;
       display: flex;
     }
   }

@@ -62,11 +62,21 @@ $.fn.datePicker = function () {
       restrictions: {
         minDate: date,
       },
+      display: {
+        components: {
+          clock: false,
+        },
+      },
     });
     new TempusDominus(document.getElementById('datepicker-abreise'), {
       //put your config here
       restrictions: {
         minDate: date,
+      },
+      display: {
+        components: {
+          clock: false,
+        },
       },
     });
   }

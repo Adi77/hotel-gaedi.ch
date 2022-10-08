@@ -6,17 +6,23 @@
   }
   text-align: center;
   h1 {
-    margin-top: toRem(20);
+    margin-top: toRem(80);
   }
   h4 {
     font-weight: $gaedi-lato-regular-weight;
   }
-  img {
-    margin-bottom: toRem(45);
-    @include media($until: 'xl') {
-      margin-top: toRem(30);
+  figure {
+    img {
+      margin-bottom: toRem(45);
+      @include media($until: 'xl') {
+        margin-top: toRem(30);
+      }
+    }
+    + h1 {
+      margin-top: toRem(20);
     }
   }
+
   + .wp-block-group {
     margin-top: toRem(140);
     @include media($until: 'sm') {

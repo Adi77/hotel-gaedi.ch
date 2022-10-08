@@ -29,6 +29,7 @@
       .wp-block-post-template {
         .wp-block-post {
           &.carousel-item {
+            background-color: $gaedi-beige;
             .wp-block-group__inner-container {
               margin-right: toRem(20);
 
