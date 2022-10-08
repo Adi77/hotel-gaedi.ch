@@ -55,19 +55,21 @@ $(document).ready(function ($) {
 });
 
 $.fn.datePicker = function () {
-  var date = new Date();
-  new TempusDominus(document.getElementById('datepicker-anreise'), {
-    //put your config here
-    restrictions: {
-      minDate: date,
-    },
-  });
-  new TempusDominus(document.getElementById('datepicker-abreise'), {
-    //put your config here
-    restrictions: {
-      minDate: date,
-    },
-  });
+  if ($('.datepicker').length > 0) {
+    var date = new Date();
+    new TempusDominus(document.getElementById('datepicker-anreise'), {
+      //put your config here
+      restrictions: {
+        minDate: date,
+      },
+    });
+    new TempusDominus(document.getElementById('datepicker-abreise'), {
+      //put your config here
+      restrictions: {
+        minDate: date,
+      },
+    });
+  }
 };
 
 $.fn.teasersCarousel = function () {

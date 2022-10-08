@@ -10,7 +10,6 @@
       padding: 0;
       .carousel-item {
         .wp-block-group__inner-container {
-          figure,
           img {
             height: inherit;
             width: inherit;
@@ -119,7 +118,7 @@
       @include media($until: 'lg') {
         margin-right: toRem(15);
       }
-      figure,
+
       img {
         height: toRem(305);
         width: toRem(305);
