@@ -1,0 +1,31 @@
+.accordion-items {
+  @include media($from: 'lg') {
+    @include make-container(5%);
+  }
+  .wp-block-pb-accordion-item {
+    background-color: white;
+    padding-top: toRem(20);
+
+    padding-left: toRem(20);
+    padding-right: toRem(20);
+
+    border-bottom: toRem(20) solid $gaedi-beige;
+    .c-accordion__title {
+      margin-bottom: toRem(15);
+      &::after {
+        color: $gaedi-black;
+        top: 13%;
+        transform: translateY(-29%);
+      }
+    }
+    div {
+      padding-top: toRem(20);
+      padding-bottom: toRem(80);
+      p {
+        @include media($from: 'lg') {
+          max-width: 80%;
+        }
+      }
+    }
+  }
+}
