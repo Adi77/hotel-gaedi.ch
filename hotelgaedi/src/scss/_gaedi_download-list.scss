@@ -1,0 +1,56 @@
+.download-list {
+  @include media($from: 'lg') {
+    @include make-container(5%);
+  }
+
+  .wp-block-columns {
+    .wp-block-column {
+      .wp-block-group {
+        background-color: white;
+        padding: toRem(20) toRem(20) toRem(0);
+        margin-bottom: toRem(20);
+        .wp-block-group__inner-container {
+          position: relative;
+          h4 {
+            padding-bottom: toRem(10);
+          }
+          .wp-block-file {
+            position: absolute;
+            right: 0;
+            top: 0;
+            a {
+              &:first-child {
+                display: none;
+              }
+              &.wp-block-file__button {
+                display: block;
+                margin-top: toRem(-10);
+                margin-left: 0;
+                margin-right: toRem(20);
+                font-size: toRem(20);
+                background: none;
+                color: $gaedi-black;
+                &:after {
+                  content: '';
+                  background-image: escape-svg($arrow-down-black);
+                  background-repeat: no-repeat;
+                  position: absolute;
+                  width: toRem(40);
+                  height: 100%;
+                  z-index: 9;
+                  top: 0;
+                  right: 0;
+                  background-size: 80%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  + .wp-block-group {
+    margin-top: toRem(140);
+  }
+}

@@ -1,0 +1,37 @@
+.section-blog-detail-content {
+  @include media($from: 'lg') {
+    @include make-container(18%);
+  }
+  margin-top: toRem(120);
+  .wp-block-columns {
+    .wp-block-column {
+      .wp-block-image {
+        margin-bottom: toRem(60);
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  + .wp-block-group {
+    margin-top: toRem(140);
+  }
+}
+
+.single-post {
+  .article-h1 {
+    display: none;
+  }
+  .custom-posttype-filtered-list {
+    .wp-block-post-template {
+      .wp-block-post {
+        .wp-block-buttons {
+          .wp-block-button__link {
+            @include gaedi-button(true);
+          }
+        }
+      }
+    }
+  }
+}
