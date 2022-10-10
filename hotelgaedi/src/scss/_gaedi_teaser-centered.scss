@@ -96,6 +96,20 @@
       right: 0;
       background: url('../img/bg-beige-dark.png') repeat;
     }
+    + .gaedi-carousel {
+      &.three-items-fullwidth {
+        &:before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          height: 200px;
+          left: 0;
+          right: 0;
+
+          background: url('../img/bg-beige-dark.png') repeat;
+        }
+      }
+    }
   }
   + .wp-block-group {
     margin-top: toRem(120);
