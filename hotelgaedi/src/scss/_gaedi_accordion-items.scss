@@ -18,12 +18,15 @@
         background-image: escape-svg($chevron-down-black);
         background-repeat: no-repeat;
         position: absolute;
-        width: toRem(40);
         height: 100%;
         z-index: 9;
-        top: toRem(24);
-        right: toRem(7);
+
+        top: 0;
+        width: toRem(30);
+        right: toRem(-10);
+
         background-size: 80%;
+        transform: inherit;
       }
       &[aria-expanded='true'] {
         &:after {

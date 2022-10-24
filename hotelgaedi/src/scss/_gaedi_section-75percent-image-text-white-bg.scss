@@ -1,8 +1,9 @@
 .section-75percent-image-text-white-bg {
   .container {
-    padding-left: 0;
     background-color: $gaedi-beige;
-
+    @include media($from: 'lg') {
+      padding-left: 0;
+    }
     @include media($until: 'xl') {
       background-color: white;
     }

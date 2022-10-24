@@ -102,6 +102,9 @@ $breakpoints: (
   text-transform: uppercase;
 
   padding: toRem(15);
+  @include media($until: 'sm') {
+    padding: toRem(5) toRem(30);
+  }
   border-radius: 0;
 }
 

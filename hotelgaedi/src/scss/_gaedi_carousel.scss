@@ -12,9 +12,9 @@
         background-color: transparent;
         .wp-block-group__inner-container {
           img {
-            height: inherit;
+            /*             height: inherit;
             width: inherit;
-            object-fit: inherit;
+            object-fit: inherit; */
           }
         }
       }
@@ -105,21 +105,30 @@
   }
   .carousel-item {
     background-color: $gaedi-beige;
+    //border-right: toRem(30) solid transparent;
     .wp-block-group__inner-container {
-      margin-right: 30px;
+      //border-right: toRem(30) solid transparent;
       @include media($until: 'lg') {
         margin-right: toRem(15);
       }
 
       img {
+        border-right: toRem(30) solid transparent;
         height: toRem(305);
         width: toRem(305);
         object-fit: cover;
       }
-      p {
+      p,
+      figcaption {
         width: toRem(305);
-        margin-top: toRem(10);
-        font-size: toRem(17);
+        //margin-top: toRem(10);
+        //font-size: toRem(17);
+        // display: none;
+      }
+      .wp-block-cover {
+        // border-right: toRem(30) solid transparent;
+        min-height: toRem(360);
+        min-width: toRem(360);
       }
     }
   }

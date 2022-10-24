@@ -29,6 +29,7 @@
           position: relative;
         }
         input[type='submit'] {
+          height: toRem(60);
           padding: 0;
           color: white;
           text-transform: uppercase;
@@ -44,17 +45,21 @@
             font-weight: $gaedi-lato-bold-weight;
             margin-bottom: toRem(20);
           }
-          span.wpcf7-form-control-wrap {
-            &:after {
-              content: '';
-              background-image: escape-svg($chevron-down-black);
-              background-repeat: no-repeat;
-              position: absolute;
-              width: toRem(40);
-              height: 100%;
-              z-index: 9;
-              top: toRem(4);
-              right: toRem(7);
+          span {
+            &.selectItem {
+              .wpcf7-form-control-wrap {
+                &:after {
+                  content: '';
+                  background-image: escape-svg($chevron-down-black);
+                  background-repeat: no-repeat;
+                  position: absolute;
+                  width: toRem(40);
+                  height: 100%;
+                  z-index: 9;
+                  top: toRem(4);
+                  right: toRem(7);
+                }
+              }
             }
           }
         }

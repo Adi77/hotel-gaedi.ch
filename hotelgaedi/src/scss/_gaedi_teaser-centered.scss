@@ -60,7 +60,11 @@
       .wp-block-columns {
         .wp-block-column {
           .wp-block-buttons {
-            bottom: -46px;
+            bottom: toRem(-46);
+            @include media($until: 'sm') {
+              margin-bottom: toRem(20);
+              bottom: toRem(25);
+            }
             position: relative;
             .wp-block-button__link {
               width: 25vw;
@@ -73,6 +77,9 @@
         &:nth-child(2) {
           @include gaedi-container();
           margin-top: toRem(60);
+          @include media($until: 'lg') {
+            margin-top: 0;
+          }
           img {
             width: auto;
             height: toRem(80);
@@ -82,6 +89,9 @@
 
       + .wp-block-group {
         margin-top: toRem(180);
+        @include media($until: 'lg') {
+          margin-top: toRem(120);
+        }
       }
     }
   }

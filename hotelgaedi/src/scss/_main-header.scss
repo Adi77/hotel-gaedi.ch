@@ -1,11 +1,30 @@
 header {
   @include media($until: 'xl') {
-    padding-top: toRem(20);
-    padding-bottom: toRem(40);
+    padding-top: toRem(5);
+    padding-bottom: toRem(20);
   }
+
   .gaedi-logo-main {
     svg {
       width: toRem(170);
+      @include media($until: 'xl') {
+        width: toRem(74);
+      }
+    }
+  }
+  .book-now-btn-mobile {
+    display: none;
+    position: relative;
+    bottom: toRem(-6);
+    @include gaedi-button();
+    padding: toRem(15) !important;
+    color: white;
+    margin-left: toRem(27);
+    @include media($until: 'lg') {
+      margin-left: toRem(30);
+    }
+    @include media($until: 'xl') {
+      display: inline-block;
     }
   }
   .navbar {
@@ -18,10 +37,19 @@ header {
     @include media($from: 'xl') {
       padding-bottom: 0;
     }
+    .top-bar {
+      &.justify-content-center {
+        @include media($until: 'xl') {
+          .navbar-brand {
+            margin-left: toRem(30);
+          }
+          text-align: left;
+        }
+      }
+    }
     .justify-content-center {
       width: 100%;
       text-align: center;
-
       .navbar-brand {
         @include media($until: 'xl') {
           margin: 0;
@@ -29,6 +57,9 @@ header {
       }
       .navbar-toggler {
         top: toRem(10);
+        @include media($until: 'xl') {
+          top: toRem(20);
+        }
         border: 0;
         color: transparent !important;
         &:focus,
@@ -50,7 +81,8 @@ header {
 
 body {
   &.fixedNav {
-    margin-top: toRem(239.42);
+    //  margin-top: toRem(239.42);
+    padding-top: 114.13px;
     header {
       position: fixed;
       top: toRem(-100);
@@ -66,14 +98,19 @@ body {
       }
       .gaedi-logo-main {
         position: absolute;
-        left: 20px;
+        left: toRem(30);
         top: 0;
+        margin-left: 0 !important;
         svg {
-          width: toRem(40);
+          width: toRem(60);
+        }
+      }
+      .book-now-btn-mobile {
+        @include media($until: 'xl') {
+          margin-left: toRem(137);
         }
       }
       @include media($until: 'xl') {
-        padding-top: toRem(8);
         .navbar-nav {
           padding-top: toRem(80);
         }

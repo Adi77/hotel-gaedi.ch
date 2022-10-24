@@ -5,6 +5,11 @@ header {
       @include media($until: 'xl') {
         padding-top: toRem(30);
       }
+      .current-menu-item {
+        > a {
+          color: $gaedi-brown !important;
+        }
+      }
       .nav-item {
         &:not(:last-child) {
           margin-right: 15px;
@@ -31,10 +36,6 @@ header {
             padding-bottom: toRem(20);
           }
           @include media($until: 'xl') {
-            &.dropdown-toggle {
-              margin-left: toRem(40);
-            }
-
             display: inline-block;
           }
           &:hover {

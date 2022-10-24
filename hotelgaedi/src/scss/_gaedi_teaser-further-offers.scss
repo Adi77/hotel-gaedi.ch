@@ -2,8 +2,9 @@
   position: relative;
   margin-top: toRem(60);
   padding-top: toRem(100);
-  @include media($until: 'sm') {
-    padding-bottom: toRem(60);
+  @include media($until: 'xl') {
+    padding-top: toRem(80);
+    padding-bottom: toRem(0);
   }
 
   > .wp-block-group__inner-container {
@@ -12,13 +13,16 @@
         @include make-container(30%);
         @include media($until: 'xl') {
           @include make-container();
+          padding: 0;
+          margin-bottom: toRem(60);
         }
         text-align: center;
         margin-bottom: toRem(120);
         img {
           margin-bottom: toRem(45);
           @include media($until: 'xl') {
-            margin-top: toRem(30);
+            margin-top: 0;
+            margin-bottom: toRem(40);
           }
         }
         h4 {
@@ -50,7 +54,7 @@
       &:nth-child(2) {
         @include make-container(20%);
         @include media($until: 'xl') {
-          @include make-container();
+          @include make-container(0);
         }
       }
       &:nth-child(2) {
@@ -73,7 +77,16 @@
           }
           &:last-child {
             margin-top: toRem(100);
+            @include media($until: 'xl') {
+              margin-top: toRem(60);
+            }
           }
+        }
+      }
+
+      .wp-block-column {
+        @include media($until: 'xl') {
+          padding: 0;
         }
       }
     }

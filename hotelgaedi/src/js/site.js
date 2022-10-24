@@ -23,6 +23,28 @@ $(document).ready(function ($) {
    */
   $.fn.showNavOnScrollUp();
 
+  /*
+   * Menu Dropdown toggle on mobile
+   */
+  $.fn.mobileDropdownToggle();
+
+  /*
+   * datepicker
+   */
+  $.fn.datePicker();
+});
+
+$.fn.mobileDropdownToggle = function () {
+  if (
+    $('.dropdown .dropdown-menu .menu-item').hasClass('current-menu-item') &&
+    $('.navbar-toggler').css('display') != 'none'
+  ) {
+    let activeDropdownMenuItem = $(
+      '.dropdown .dropdown-menu .menu-item.current-menu-item'
+    );
+    $(activeDropdownMenuItem).parent().addClass('show');
+  }
+
   $('a.nav-link.dropdown-toggle').click(function () {
     location.href = this.href;
   });
@@ -47,12 +69,7 @@ $(document).ready(function ($) {
       });
     $(this).next().toggleClass('show');
   });
-
-  /*
-   * datepicker
-   */
-  $.fn.datePicker();
-});
+};
 
 $.fn.datePicker = function () {
   if ($('.datepicker').length > 0) {
@@ -170,6 +187,7 @@ $.fn.teasersCarousel = function () {
 };
 
 $.fn.postTypeCategoriesNavigation = function () {
+  $('.wp-block-categories .cat-item:first-child a').addClass('active');
   $('.wp-block-categories .cat-item a').click(function (e) {
     e.preventDefault();
     let category = $(this).text().toLowerCase();

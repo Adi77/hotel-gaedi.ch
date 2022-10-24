@@ -1,5 +1,11 @@
 .section-2col-advantages-icons {
-  @include make-container(5%);
+  @include media($from: 'lg') {
+    @include make-container(5%);
+  }
+  @include media($until: 'sm') {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
   .wp-block-columns {
     .wp-block-column {
       .wp-block-columns {
@@ -22,5 +28,8 @@
   }
   + .wp-block-group {
     margin-top: toRem(140);
+    @include media($until: 'sm') {
+      margin-top: toRem(60);
+    }
   }
 }

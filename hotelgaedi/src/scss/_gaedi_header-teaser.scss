@@ -8,12 +8,14 @@
       background-color: $gaedi-beige-dark;
     }
     background-image: url('../img/bg-beige-dark.png');
+
+    background-repeat: repeat-x;
+    background-size: 44%;
     @include media($until: 'lg') {
       background-image: none;
       background-color: transparent;
+      background-size: 34%;
     }
-    background-repeat: repeat-x;
-    background-size: 44%;
     .col-lg-6 {
       &:last-child {
         figure {
@@ -45,10 +47,10 @@
             background-color: $gaedi-beige-dark;
           }
           @include media($from: 'md', $until: 'lg') {
-            margin-top: 80vh;
+            margin-top: 60vh;
           }
           @include media($until: 'sm') {
-            margin-top: 20vh;
+            margin-top: 40vh;
           }
           @include media($until: 'xl') {
             h1 {
@@ -58,7 +60,7 @@
           @include media($until: 'lg') {
             p {
               padding-top: toRem(20);
-              padding-bottom: toRem(30);
+              padding-bottom: toRem(0);
             }
           }
           .wp-block-buttons {
@@ -127,5 +129,8 @@
   }
   + .wp-block-group {
     margin-top: toRem(140);
+    @include media($until: 'lg') {
+      margin-top: toRem(80);
+    }
   }
 }

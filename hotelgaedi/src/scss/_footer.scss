@@ -2,6 +2,10 @@ footer {
   color: white;
   background-color: $gaedi-brown;
   padding-top: toRem(96);
+  @include media($until: 'md') {
+    padding-left: toRem(30);
+    padding-right: toRem(30);
+  }
   margin-top: toRem(120);
   .container-fluid {
     padding-left: 5%;
@@ -17,6 +21,10 @@ footer {
       }
     }
     .footerwidgetcol1 {
+      @include media($until: 'md') {
+        padding-left: 0;
+        padding-right: 0;
+      }
       .ort {
         @include media($until: 'xl') {
           display: block;
@@ -33,8 +41,17 @@ footer {
     .footerwidgetcol2 {
       @include media($until: 'md') {
         margin-top: toRem(30);
+        border-top: toRem(1) solid white;
+        border-bottom: toRem(1) solid white;
+        padding-top: toRem(20);
+        padding-left: 0;
+        padding-right: 0;
       }
       .menu {
+        @include media($until: 'md') {
+          padding-left: toRem(38);
+          margin-bottom: toRem(30);
+        }
         .menu-item {
           a {
             &:before {
@@ -61,15 +78,26 @@ footer {
 
     .footerwidgetcol3 {
       text-align: right;
+
       @include media($until: 'lg') {
         margin-top: toRem(30);
       }
       .widget_text {
         padding-top: toRem(20);
       }
+      @include media($until: 'md') {
+        .widget {
+          &:first-child {
+            text-align: center;
+          }
+          &:last-child {
+            text-align: left;
+          }
+        }
+      }
     }
     .footer-bottom {
-      border-top: 2px solid white;
+      border-top: toRem(1) solid white;
       margin-top: toRem(30);
       padding: 0;
       .wp-block-column {

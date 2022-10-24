@@ -17,10 +17,19 @@
           height: toRem(80);
         }
       }
+      @include media($until: 'lg') {
+        &:not(:first-child) {
+          margin-top: toRem(60);
+        }
+      }
     }
   }
   &.noBg {
     background-color: transparent;
+    margin-top: 0;
+    + .wp-block-group {
+      margin-top: 0;
+    }
   }
   + .wp-block-group {
     margin-top: toRem(140);

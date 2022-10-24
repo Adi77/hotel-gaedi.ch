@@ -2,6 +2,9 @@
   .wp-block-categories {
     padding-left: 0;
     margin-bottom: toRem(60);
+    @include media($until: 'lg') {
+      margin-bottom: toRem(40);
+    }
     .cat-item {
       display: inline-block;
       margin-right: toRem(40);
@@ -97,15 +100,28 @@
   .wp-block-post-template {
     .wp-block-post {
       margin-bottom: toRem(60);
+
       .wp-block-post-featured-image {
         margin-bottom: toRem(40);
+        @include media($until: 'lg') {
+          margin-bottom: toRem(10);
+        }
       }
 
       .wp-block-post-title {
         margin-top: toRem(40);
+        @include media($until: 'lg') {
+          margin-top: toRem(20);
+          margin-bottom: 0;
+        }
       }
       .wp-block-post-excerpt {
         margin-bottom: toRem(30);
+      }
+      @include media($until: 'lg') {
+        p {
+          margin-bottom: toRem(10);
+        }
       }
       .wp-block-read-more {
         color: white;
@@ -125,7 +141,7 @@
       }
       @include media($until: 'lg') {
         //display: block;
-        width: 90% !important;
+        width: 100% !important;
       }
     }
   }
