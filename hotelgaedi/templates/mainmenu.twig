@@ -3,14 +3,7 @@
 {% if mainmenu %}
 
 <ul class="navbar-nav">
-  {% for item in items %}
-
-  <!-- if has submenu 
-  
-  data-bs-toggle="dropdown"
-
--->
-  {% if item.get_children %}
+  {% for item in items %} {% if item.get_children %}
 
   <li class="nav-item dropdown {{ item.classes | join(' ') }}">
     <a
@@ -27,7 +20,7 @@
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       {% for child in item.children %}
-      <li>
+      <li class="{{ child.class }}">
         <a class="dropdown-item" href="{{ child.link }}">{{ child.title }}</a>
       </li>
       {% endfor %}
