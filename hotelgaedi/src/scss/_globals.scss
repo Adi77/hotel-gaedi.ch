@@ -180,6 +180,22 @@ footer {
   }
 }
 
+section {
+  .wp-block-group {
+    .wp-block-column {
+      ul {
+        &:not(.wp-block-post-template) {
+          list-style-type: disc;
+          padding-left: toRem(17);
+          li {
+            font-size: toRem(20);
+          }
+        }
+      }
+    }
+  }
+}
+
 /* to Top Link */
 .toTopLink {
   background-image: escape-svg($arrow-up-black);

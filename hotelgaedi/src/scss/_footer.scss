@@ -82,6 +82,9 @@ footer {
       @include media($until: 'lg') {
         margin-top: toRem(30);
       }
+      @include media($until: 'md') {
+        padding: 0;
+      }
       .widget_text {
         padding-top: toRem(20);
       }

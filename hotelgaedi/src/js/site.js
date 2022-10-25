@@ -10,9 +10,14 @@ $(document).ready(function ($) {
     $('.animated-icon').toggleClass('open');
   });
 
-  $('.meta-menu .menu-item a').hover(function () {
+  $('.meta-menu .menu-item:not(.current-menu-item) a').hover(function () {
     $(this).parent().prev().toggleClass('hidePipe');
   });
+
+  $('.meta-menu .menu-item.current-menu-item a')
+    .parent()
+    .prev()
+    .toggleClass('hidePipe');
 
   $.fn.teasersCarousel();
 
@@ -100,6 +105,15 @@ $.fn.datePicker = function () {
 };
 
 $.fn.teasersCarousel = function () {
+  const pathname = $(location).attr('pathname');
+
+  $('.carousel-item')
+    .find($("a[href$='" + pathname + "']"))
+    .parent()
+    .parent()
+    .parent()
+    .addClass('excludeCurrent');
+
   const carousels = document.querySelectorAll('.carousel');
   for (const carousel of carousels.values()) {
     let items = document.querySelectorAll(
@@ -238,7 +252,7 @@ $.fn.showNavOnScrollUp = function () {
         navbar.style.top = '-100px';
       }
 
-      //set the value to the negetive of height of navbar
+      //set the value to the negative of height of navbar
     } else {
       if (scrollTop < 600) {
         if (navbarCollapse.classList.contains('show') === false) {

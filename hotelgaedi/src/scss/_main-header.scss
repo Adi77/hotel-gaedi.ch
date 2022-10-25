@@ -81,8 +81,13 @@ header {
 
 body {
   &.fixedNav {
-    //  margin-top: toRem(239.42);
-    padding-top: 114.13px;
+    margin-top: toRem(239.42);
+    @include media($from: 'xl') {
+      margin-top: toRem(239.42);
+    }
+    @include media($until: 'xl') {
+      margin-top: 114.13px;
+    }
     header {
       position: fixed;
       top: toRem(-100);

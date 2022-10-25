@@ -68,6 +68,12 @@
           }
         }
       }
+      &.current-menu-item {
+        > a {
+          color: white;
+          background-color: $gaedi-brown;
+        }
+      }
     }
   }
 }

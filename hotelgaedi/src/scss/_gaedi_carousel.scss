@@ -114,9 +114,9 @@
 
       img {
         border-right: toRem(30) solid transparent;
-        height: toRem(305);
-        width: toRem(305);
-        object-fit: cover;
+        //height: toRem(305);
+        //width: toRem(305);
+        //object-fit: cover;
       }
       p,
       figcaption {
@@ -127,8 +127,8 @@
       }
       .wp-block-cover {
         // border-right: toRem(30) solid transparent;
-        min-height: toRem(360);
-        min-width: toRem(360);
+        // min-height: toRem(360);
+        // min-width: toRem(360);
       }
     }
   }
