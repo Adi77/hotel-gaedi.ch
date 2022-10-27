@@ -25,6 +25,10 @@
 .modal-body {
   .wp-block-button__link {
     @include gaedi-button();
-    margin-bottom: toRem(40);
   }
+}
+
+.modal-header,
+.modal-body {
+  padding: 0 30px 30px;
 }
