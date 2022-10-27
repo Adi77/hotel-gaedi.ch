@@ -147,6 +147,7 @@ $.fn.teasersCarousel = function () {
       .classList.add(carousel.id);
 
     let navigation = document.createElement('div');
+    navigation.classList.add('carousel-nav');
 
     navigation.innerHTML =
       `
@@ -162,7 +163,10 @@ $.fn.teasersCarousel = function () {
       </a>
       `;
 
-    document.getElementById(carousel.id).appendChild(navigation);
+    document
+      .getElementById(carousel.id)
+      .closest('.gaedi-carousel')
+      .prepend(navigation);
 
     let style = document.createElement('style');
     style.innerHTML =

@@ -6,28 +6,20 @@
     }
   }
   &.three-items-fullwidth {
+    .carousel-nav {
+      margin-top: 0;
+    }
     .carousel {
       padding: 0;
       .carousel-item {
         background-color: transparent;
         .wp-block-group__inner-container {
           img {
+            width: toRem(598);
             /*             height: inherit;
-            width: inherit;
+            
             object-fit: inherit; */
           }
-        }
-      }
-      .carousel-control-prev {
-        margin-right: 5.2%;
-        @include media($until: 'lg') {
-          margin-right: 1.5vw;
-        }
-      }
-      .carousel-control-next {
-        margin-right: 5%;
-        @include media($until: 'lg') {
-          margin-right: 2vw;
         }
       }
     }
@@ -107,15 +99,15 @@
     background-color: $gaedi-beige;
     //border-right: toRem(30) solid transparent;
     .wp-block-group__inner-container {
-      //border-right: toRem(30) solid transparent;
-      @include media($until: 'lg') {
-        margin-right: toRem(15);
+      border-right: toRem(30) solid transparent;
+      @include media($until: 'md') {
+        border-right: toRem(15) solid transparent;
       }
 
       img {
-        border-right: toRem(30) solid transparent;
+        //border-right: toRem(30) solid transparent;
         //height: toRem(305);
-        //width: toRem(305);
+        width: toRem(305);
         //object-fit: cover;
       }
       p,
@@ -152,33 +144,33 @@
       transform: translateX(0);
     }
   }
-  .carousel-control-prev,
-  .carousel-control-next {
-    left: inherit;
-    top: -61px;
-    @include media($until: 'sm') {
-      top: -50px;
+  .carousel-nav {
+    position: absolute;
+    width: 90%;
+    right: 0;
+    margin-top: toRem(90);
+    .carousel-control-prev,
+    .carousel-control-next {
+      left: inherit;
+      top: -61px;
+      @include media($until: 'sm') {
+        top: -50px;
+      }
+      bottom: inherit;
+      opacity: 1;
+      width: 33px;
     }
-    bottom: inherit;
-    opacity: 1;
-    width: 33px;
-  }
-  .carousel-control-prev {
-    right: 165px;
-    @include media($until: 'sm') {
-      right: toRem(60);
+    .carousel-control-prev {
+      right: toRem(70);
+      .carousel-control-prev-icon {
+        background-image: escape-svg($arrow-left-black);
+      }
     }
-    .carousel-control-prev-icon {
-      background-image: escape-svg($arrow-left-black);
-    }
-  }
-  .carousel-control-next {
-    right: 125px;
-    @include media($until: 'sm') {
-      right: toRem(20);
-    }
-    .carousel-control-next-icon {
-      background-image: escape-svg($arrow-right-black);
+    .carousel-control-next {
+      right: toRem(30);
+      .carousel-control-next-icon {
+        background-image: escape-svg($arrow-right-black);
+      }
     }
   }
 
