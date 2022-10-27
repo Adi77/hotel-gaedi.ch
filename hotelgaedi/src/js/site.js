@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import 'bootstrap';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal } from 'bootstrap';
 
 import './../scss/style.scss';
 import { TempusDominus } from '@eonasdan/tempus-dominus';
@@ -37,7 +37,24 @@ $(document).ready(function ($) {
    * datepicker
    */
   $.fn.datePicker();
+
+  /*
+   * Modal Teaser show on pageload
+   *
+   */
+  $.fn.teaserModalBox();
 });
+
+$.fn.teaserModalBox = function () {
+  let myModal = new Modal(document.getElementById('teasermodalbox'));
+  //myModal.show();
+
+  let is_modal_show = sessionStorage.getItem('alreadyShow');
+  if (is_modal_show != 'alredy shown') {
+    myModal.show();
+    sessionStorage.setItem('alreadyShow', 'alredy shown');
+  }
+};
 
 $.fn.mobileDropdownToggle = function () {
   if (

@@ -142,8 +142,10 @@
     .row {
       .col-xl-7 {
         padding-right: toRem(40);
-        @include media($until: 'lg') {
+        @include media($from: 'sm', $until: 'lg') {
           padding-right: 5%;
+        }
+        @include media($until: 'lg') {
           padding-bottom: toRem(30);
         }
       }

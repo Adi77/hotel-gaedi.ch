@@ -1,0 +1,23 @@
+.modal-open {
+  //padding-right: 0 !important;
+}
+.modal-header {
+  .btn-close {
+    border: 0;
+    background: none;
+    &:after {
+      content: '';
+      background-image: escape-svg($close-black);
+      background-repeat: no-repeat;
+      position: absolute;
+      height: 100%;
+      z-index: 9;
+      top: toRem(8);
+      width: 1.875rem;
+      right: toRem(2);
+      background-size: 80%;
+      -webkit-transform: inherit;
+      transform: inherit;
+    }
+  }
+}
