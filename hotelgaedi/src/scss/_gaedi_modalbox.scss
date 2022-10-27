@@ -1,5 +1,5 @@
 .modal-open {
-  //padding-right: 0 !important;
+  padding-right: 0 !important;
 }
 .modal-header {
   .btn-close {
@@ -19,5 +19,12 @@
       -webkit-transform: inherit;
       transform: inherit;
     }
+  }
+}
+
+.modal-body {
+  .wp-block-button__link {
+    @include gaedi-button();
+    margin-bottom: toRem(40);
   }
 }
