@@ -120,3 +120,38 @@ $breakpoints: (
     @include make-container(30px);
   }
 }
+
+@mixin gaedi-carousel-nav() {
+  .carousel-nav {
+    @include media($until: 'md') {
+      display: none;
+    }
+    position: absolute;
+    width: 90%;
+    right: 0;
+    margin-top: toRem(90);
+    .carousel-control-prev,
+    .carousel-control-next {
+      left: inherit;
+      top: -61px;
+      @include media($until: 'sm') {
+        top: -50px;
+      }
+      bottom: inherit;
+      opacity: 1;
+      width: 33px;
+    }
+    .carousel-control-prev {
+      right: toRem(70);
+      .carousel-control-prev-icon {
+        background-image: escape-svg($arrow-left-black);
+      }
+    }
+    .carousel-control-next {
+      right: toRem(30);
+      .carousel-control-next-icon {
+        background-image: escape-svg($arrow-right-black);
+      }
+    }
+  }
+}

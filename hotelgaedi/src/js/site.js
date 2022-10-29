@@ -165,7 +165,7 @@ $.fn.teasersCarousel = function () {
 
     document
       .getElementById(carousel.id)
-      .closest('.gaedi-carousel')
+      .closest('.wp-block-group')
       .prepend(navigation);
 
     let style = document.createElement('style');

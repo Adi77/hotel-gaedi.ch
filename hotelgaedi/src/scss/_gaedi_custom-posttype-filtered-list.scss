@@ -33,6 +33,9 @@
         .wp-block-post {
           &.carousel-item {
             background-color: $gaedi-beige;
+            .excludeCurrent {
+              display: none;
+            }
             .wp-block-group__inner-container {
               margin-right: toRem(20);
 
@@ -65,35 +68,6 @@
     .carousel-item-end,
     .carousel-item-start {
       transform: translateX(0);
-    }
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    left: inherit;
-    top: -61px;
-    @include media($until: 'sm') {
-      top: -50px;
-    }
-    bottom: inherit;
-    opacity: 1;
-    width: 33px;
-  }
-  .carousel-control-prev {
-    right: 165px;
-    @include media($until: 'sm') {
-      right: 27.5vw;
-    }
-    .carousel-control-prev-icon {
-      background-image: escape-svg($arrow-left-black);
-    }
-  }
-  .carousel-control-next {
-    right: 125px;
-    @include media($until: 'sm') {
-      right: 18vw;
-    }
-    .carousel-control-next-icon {
-      background-image: escape-svg($arrow-right-black);
     }
   }
 
@@ -153,4 +127,5 @@
       }
     }
   }
+  @include gaedi-carousel-nav();
 }

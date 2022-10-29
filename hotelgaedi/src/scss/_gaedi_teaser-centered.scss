@@ -112,7 +112,10 @@
           content: '';
           position: absolute;
           z-index: -1;
-          height: 200px;
+          height: toRem(200);
+          @include media($until: 'lg') {
+            height: toRem(134);
+          }
           left: 0;
           right: 0;
 

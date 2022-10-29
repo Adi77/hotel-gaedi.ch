@@ -4,7 +4,13 @@
     @include media($until: 'sm') {
       margin-top: toRem(60);
     }
+    @include media($until: 'lg') {
+      .carousel-inner {
+        width: 150%;
+      }
+    }
   }
+
   &.three-items-fullwidth {
     .carousel-nav {
       margin-top: 0;
@@ -14,12 +20,7 @@
       .carousel-item {
         background-color: transparent;
         .wp-block-group__inner-container {
-          img {
-            width: toRem(598);
-            /*             height: inherit;
-            
-            object-fit: inherit; */
-          }
+          width: inherit;
         }
       }
     }
@@ -61,7 +62,7 @@
   .wp-block-columns {
     &:last-child {
       margin-right: -11vw;
-      @include media($from: 'sm', $until: 'lg') {
+      @include media($from: 'sm', $until: 'xxl') {
         margin-right: -22vw;
       }
       @include media($until: 'sm') {
@@ -83,13 +84,12 @@
       &:last-child {
         .carousel {
           margin: auto 15px;
-          @include media($until: 'sm') {
-            margin: 0;
-            padding-left: 15px;
-            padding-right: 3px;
-            .carousel-inner {
-              width: 267vw;
-            }
+
+          margin: 0;
+          padding-left: 15px;
+          padding-right: 3px;
+          .carousel-inner {
+            width: 267vw;
           }
         }
       }
@@ -97,30 +97,15 @@
   }
   .carousel-item {
     background-color: $gaedi-beige;
-    //border-right: toRem(30) solid transparent;
     .wp-block-group__inner-container {
+      width: toRem(405);
       border-right: toRem(30) solid transparent;
-      @include media($until: 'md') {
+      @include media($until: 'lg') {
         border-right: toRem(15) solid transparent;
       }
 
-      img {
-        //border-right: toRem(30) solid transparent;
-        //height: toRem(305);
-        width: toRem(305);
-        //object-fit: cover;
-      }
-      p,
-      figcaption {
-        width: toRem(305);
-        //margin-top: toRem(10);
-        //font-size: toRem(17);
-        // display: none;
-      }
-      .wp-block-cover {
-        // border-right: toRem(30) solid transparent;
-        // min-height: toRem(360);
-        // min-width: toRem(360);
+      @include media($until: 'sm') {
+        width: 21.0625rem;
       }
     }
   }
@@ -144,35 +129,7 @@
       transform: translateX(0);
     }
   }
-  .carousel-nav {
-    position: absolute;
-    width: 90%;
-    right: 0;
-    margin-top: toRem(90);
-    .carousel-control-prev,
-    .carousel-control-next {
-      left: inherit;
-      top: -61px;
-      @include media($until: 'sm') {
-        top: -50px;
-      }
-      bottom: inherit;
-      opacity: 1;
-      width: 33px;
-    }
-    .carousel-control-prev {
-      right: toRem(70);
-      .carousel-control-prev-icon {
-        background-image: escape-svg($arrow-left-black);
-      }
-    }
-    .carousel-control-next {
-      right: toRem(30);
-      .carousel-control-next-icon {
-        background-image: escape-svg($arrow-right-black);
-      }
-    }
-  }
+  @include gaedi-carousel-nav();
 
   + .wp-block-group {
     margin-top: toRem(120);
