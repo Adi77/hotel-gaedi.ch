@@ -17,7 +17,7 @@
           height: toRem(80);
         }
       }
-      @include media($until: 'lg') {
+      @include media($until: 'sm') {
         &:not(:first-child) {
           margin-top: toRem(60);
         }

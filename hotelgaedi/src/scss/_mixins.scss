@@ -126,7 +126,7 @@ $breakpoints: (
 
 @mixin gaedi-carousel-nav() {
   .carousel-nav {
-    @include media($until: 'md') {
+    @include media($until: 'lg') {
       display: none;
     }
     position: absolute;
@@ -158,7 +158,7 @@ $breakpoints: (
     }
   }
   .carousel-dotsNav {
-    @include media($from: 'md') {
+    @include media($from: 'lg') {
       display: none;
     }
     margin-top: toRem(40);

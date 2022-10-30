@@ -8,6 +8,9 @@
   }
   .wp-block-columns {
     .wp-block-column {
+      h2 {
+        margin-bottom: toRem(30);
+      }
       .wp-block-columns {
         .wp-block-column {
           &:first-child {
