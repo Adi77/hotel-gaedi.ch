@@ -88,3 +88,19 @@
     }
   }
 }
+
+// Stop iOS from rounding corners and adding drop-shadows to Mobile Forms
+
+textarea,
+input.plain-text, /* this is a class */
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+input[type=”email”],
+input[type=”tel”],
+input[type=”number”],
+.input-radio-checkbox {
+  /* this is a class */
+  -webkit-appearance: none;
+  border-radius: 0;
+}

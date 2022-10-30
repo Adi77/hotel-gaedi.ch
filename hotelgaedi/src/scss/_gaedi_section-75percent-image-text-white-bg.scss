@@ -54,7 +54,7 @@
           }
 
           @include media($until: 'sm') {
-            margin-top: 20vh;
+            margin-top: 24vh;
           }
           @include media($until: 'lg') {
             p {

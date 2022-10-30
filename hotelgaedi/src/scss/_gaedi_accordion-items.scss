@@ -46,5 +46,8 @@
   }
   + .wp-block-group {
     margin-top: toRem(140);
+    @include media($until: 'md') {
+      margin-top: toRem(60);
+    }
   }
 }
