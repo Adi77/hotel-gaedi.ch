@@ -1,5 +1,7 @@
 .image-text-grid-3-col {
-  @include make-container(5%);
+  @include media($from: 'lg') {
+    @include make-container(5%);
+  }
   .wp-block-columns {
     .wp-block-column {
       h4 {

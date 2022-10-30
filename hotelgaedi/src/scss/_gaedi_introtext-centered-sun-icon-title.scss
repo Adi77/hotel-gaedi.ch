@@ -3,6 +3,7 @@
 
   @include media($until: 'sm') {
     padding-bottom: 0;
+    @include make-container(5%);
   }
   text-align: center;
   h1 {

@@ -3,6 +3,9 @@
     margin-top: toRem(160);
     @include media($until: 'sm') {
       margin-top: toRem(60);
+      .carousel-inner {
+        width: 440vw !important;
+      }
     }
     @include media($until: 'lg') {
       .carousel-inner {
@@ -12,15 +15,25 @@
   }
 
   &.three-items-fullwidth {
+    @include media($until: 'md') {
+      padding: 0;
+    }
     .carousel-nav {
       margin-top: 0;
     }
-    .carousel {
-      padding: 0;
-      .carousel-item {
-        background-color: transparent;
-        .wp-block-group__inner-container {
-          width: inherit;
+    .wp-block-group__inner-container {
+      .wp-block-columns {
+        @include media($until: 'md') {
+          margin: 0 toRem(-15) 0 0;
+        }
+        .carousel {
+          padding: 0;
+          .carousel-item {
+            background-color: transparent;
+            .wp-block-group__inner-container {
+              width: inherit;
+            }
+          }
         }
       }
     }

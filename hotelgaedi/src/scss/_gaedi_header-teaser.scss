@@ -102,9 +102,7 @@
               &:first-child {
                 .wp-block-group {
                   @include media($until: 'lg') {
-                    margin-top: toRem(-140);
-                    margin-left: 10%;
-                    margin-right: 10%;
+                    margin-top: toRem(0);
                     p {
                       padding-bottom: 0;
                     }

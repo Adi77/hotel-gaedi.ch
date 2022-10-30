@@ -119,6 +119,9 @@ $breakpoints: (
   @include media($until: 'md') {
     @include make-container(30px);
   }
+  @include media($until: 'sm') {
+    @include make-container(0);
+  }
 }
 
 @mixin gaedi-carousel-nav() {
@@ -151,6 +154,29 @@ $breakpoints: (
       right: toRem(30);
       .carousel-control-next-icon {
         background-image: escape-svg($arrow-right-black);
+      }
+    }
+  }
+  .carousel-dotsNav {
+    @include media($from: 'md') {
+      display: none;
+    }
+    margin-top: toRem(40);
+    width: 100vw;
+    .carousel-indicators {
+      position: relative;
+      button {
+        &[data-bs-target] {
+          background-color: transparent;
+          border: toRem(1) solid $gaedi-black;
+          border-radius: 50%;
+          height: toRem(10);
+          width: toRem(10);
+          opacity: 1;
+          &.active {
+            background-color: $gaedi-black;
+          }
+        }
       }
     }
   }

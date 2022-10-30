@@ -146,10 +146,14 @@ $.fn.teasersCarousel = function () {
       .querySelector('#' + carousel.id + ' .carousel-inner')
       .classList.add(carousel.id);
 
-    let navigation = document.createElement('div');
-    navigation.classList.add('carousel-nav');
+    /*
+     * Arrow Navigation
+     */
 
-    navigation.innerHTML =
+    let arrowNav = document.createElement('div');
+    arrowNav.classList.add('carousel-nav');
+
+    arrowNav.innerHTML =
       `
       <a class="carousel-control-prev bg-transparent w-aut" href="#` +
       carousel.id +
@@ -166,13 +170,48 @@ $.fn.teasersCarousel = function () {
     document
       .getElementById(carousel.id)
       .closest('.wp-block-group')
-      .prepend(navigation);
+      .prepend(arrowNav);
+
+    /*
+     * Dots Navigation
+     */
+
+    let itemsLength = items.length,
+      dotsNavButtons = '<div class="carousel-indicators">';
+
+    for (var i = 0; i < itemsLength; i++) {
+      if (i === 0) {
+        dotsNavButtons +=
+          `<button type="button" data-bs-target="#` +
+          carousel.id +
+          `" data-bs-slide-to="0" aria-label="Slide 1" aria-current="true" class="active"></button>`;
+      } else {
+        dotsNavButtons +=
+          `<button type="button" data-bs-target="#` +
+          carousel.id +
+          `" data-bs-slide-to="` +
+          i +
+          `" aria-label="Slide ` +
+          (i + 1) +
+          `" ></button>`;
+      }
+    }
+
+    dotsNavButtons += '</div>';
+
+    let dotsNav = document.createElement('div');
+    dotsNav.classList.add('carousel-dotsNav');
+    dotsNav.innerHTML = dotsNavButtons;
+
+    document.getElementById(carousel.id).appendChild(dotsNav);
+
+    /*
+     * CSS
+     */
 
     let style = document.createElement('style');
     style.innerHTML =
-      `
- 
-      .` +
+      `.` +
       carousel.id +
       ` .carousel-item-end.active { transform: translateX(` +
       translateX +

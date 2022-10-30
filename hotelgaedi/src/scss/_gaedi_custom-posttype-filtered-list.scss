@@ -36,6 +36,12 @@
             .excludeCurrent {
               display: none;
             }
+
+            @include media($until: 'sm') {
+              .wp-block-group {
+                width: 24%;
+              }
+            }
             .wp-block-group__inner-container {
               margin-right: toRem(20);
 

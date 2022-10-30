@@ -80,6 +80,9 @@
         }
         .spacerBig {
           height: toRem(180);
+          @include media($until: 'lg') {
+            height: toRem(60);
+          }
         }
       }
     }

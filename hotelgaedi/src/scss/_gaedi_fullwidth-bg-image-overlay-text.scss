@@ -1,7 +1,6 @@
 .fullwidth-bg-image-overlay-text {
-  @include make-container();
-  @include media($until: 'sm') {
-    @include make-container(0);
+  @include media($from: 'lg') {
+    @include make-container(5%);
   }
   .wp-block-cover {
     @include media($until: 'xl') {

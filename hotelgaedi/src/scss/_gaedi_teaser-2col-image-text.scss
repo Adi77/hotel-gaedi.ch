@@ -146,7 +146,7 @@
           padding-right: 5%;
         }
         @include media($until: 'lg') {
-          padding-bottom: toRem(30);
+          padding: 0 toRem(5) toRem(30);
         }
       }
       .col-xl-5 {
