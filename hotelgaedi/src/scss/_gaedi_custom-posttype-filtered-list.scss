@@ -33,9 +33,6 @@
         .wp-block-post {
           &.carousel-item {
             background-color: $gaedi-beige;
-            .excludeCurrent {
-              display: none;
-            }
 
             @include media($until: 'sm') {
               .wp-block-group {

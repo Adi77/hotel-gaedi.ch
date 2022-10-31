@@ -1,6 +1,16 @@
 .gaedi-carousel {
   &.teaser-image-text {
     margin-top: toRem(160);
+    @include media($from: 'xxl') {
+      .carousel-inner {
+        .wp-block-group__inner-container {
+          width: inherit;
+          .wp-block-image {
+            width: 24vw;
+          }
+        }
+      }
+    }
     @include media($until: 'sm') {
       margin-top: toRem(60);
       .carousel-inner {

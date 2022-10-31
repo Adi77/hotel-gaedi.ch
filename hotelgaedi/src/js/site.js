@@ -124,13 +124,6 @@ $.fn.datePicker = function () {
 $.fn.teasersCarousel = function () {
   const pathname = $(location).attr('pathname');
 
-  $('.carousel-item')
-    .find($("a[href$='" + pathname + "']"))
-    .parent()
-    .parent()
-    .parent()
-    .addClass('excludeCurrent');
-
   const carousels = document.querySelectorAll('.carousel');
   for (const carousel of carousels.values()) {
     let items = document.querySelectorAll(
