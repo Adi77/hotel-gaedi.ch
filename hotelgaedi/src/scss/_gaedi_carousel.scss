@@ -156,7 +156,7 @@
 
   + .wp-block-group {
     margin-top: toRem(120);
-    @include media($until: 'sm') {
+    @include media($until: 'lg') {
       margin-top: toRem(60);
     }
   }

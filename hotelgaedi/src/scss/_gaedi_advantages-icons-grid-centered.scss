@@ -5,7 +5,7 @@
   }
   text-align: center;
   .icons-row {
-    @include gaedi-container();
+    // @include gaedi-container();
     &:nth-child(2) {
       margin-top: toRem(60);
     }

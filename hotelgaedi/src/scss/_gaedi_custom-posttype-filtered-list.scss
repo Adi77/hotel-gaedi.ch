@@ -56,6 +56,9 @@
     @include media($until: 'sm') {
       width: 359vw;
     }
+    @include media($from: 'sm', $until: 'lg') {
+      width: 180vw;
+    }
     .carousel-item {
       &.active {
         display: flex;

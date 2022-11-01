@@ -52,11 +52,6 @@
           @include media($until: 'sm') {
             margin-top: 40vh;
           }
-          @include media($until: 'xl') {
-            h1 {
-              font-size: toRem(35);
-            }
-          }
           @include media($until: 'lg') {
             p {
               padding-top: toRem(20);
