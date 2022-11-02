@@ -235,7 +235,7 @@ class StarterSite extends Timber\Site
     /** This is where you can register custom taxonomies. */
     public function register_taxonomies()
     {
-/*         register_taxonomy(
+        register_taxonomy(
             'zimmer-categories',
             'zimmer',
             array(
@@ -250,7 +250,7 @@ class StarterSite extends Timber\Site
                 'label' => __( 'Packages Kategorien' ),
                 'hierarchical' => true,
             )
-        ); */
+        );
     }
 
     /** This is where you add some context
