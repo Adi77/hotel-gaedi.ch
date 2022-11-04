@@ -96,6 +96,12 @@
             .col-lg-6 {
               &:first-child {
                 .wp-block-group {
+                  .facebook {
+                    width: toRem(50);
+                  }
+                  .insta {
+                    width: toRem(37);
+                  }
                   @include media($until: 'lg') {
                     margin-top: toRem(0);
                     p {
