@@ -134,6 +134,11 @@
     }
   }
   @include gaedi-carousel-nav();
+  .carousel-indicators {
+    @include media($until: 'xl') {
+      margin-right: 5%;
+    }
+  }
   + .wp-block-group {
     margin-top: toRem(100);
     @include media($until: 'lg') {

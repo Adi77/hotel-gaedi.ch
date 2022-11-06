@@ -39,6 +39,11 @@
     .carousel-nav {
       margin-top: 0;
     }
+    .carousel-indicators {
+      @include media($until: 'xl') {
+        margin-right: 0;
+      }
+    }
     .wp-block-group__inner-container {
       .wp-block-columns {
         @include media($until: 'md') {
