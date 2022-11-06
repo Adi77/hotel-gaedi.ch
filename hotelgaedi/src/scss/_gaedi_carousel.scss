@@ -1,5 +1,6 @@
 .gaedi-carousel {
   &.teaser-image-text {
+    overflow-x: hidden;
     margin-top: toRem(160);
     @include media($from: 'xxl') {
       .carousel-inner {
