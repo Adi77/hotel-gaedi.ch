@@ -257,22 +257,41 @@ $.fn.postTypeCategoriesNavigation = function () {
   $('.wp-block-categories .cat-item:first-child a').addClass('active');
   $('.wp-block-categories .cat-item a').click(function (e) {
     e.preventDefault();
-    let category = $(this).text().toLowerCase();
+    let category = $.fn
+      .replaceUmlautsSpecialCharsAndSpaces($(this).text())
+      .toLowerCase();
+
     $('.wp-block-categories .cat-item a').removeClass('active');
     $(this).addClass('active');
+    if (category === 'alle') {
+      $(this).parents(2).next().find('li.wp-block-post').show();
+    } else {
+      $(this)
+        .parents(2)
+        .next()
+        .find('li.wp-block-post:not([class*="category-' + category + '"])')
+        .hide();
 
-    $(this)
-      .parents(2)
-      .next()
-      .find('li.wp-block-post:not(.category-' + category + ')')
-      .hide();
-
-    $(this)
-      .parents(2)
-      .next()
-      .find('li.wp-block-post.category-' + category)
-      .show();
+      $(this)
+        .parents(2)
+        .next()
+        .find('[class*="category-' + category + '"]')
+        .show();
+    }
   });
+};
+
+$.fn.replaceUmlautsSpecialCharsAndSpaces = function (str) {
+  return str
+    .replace(/\u00e4/g, 'ae')
+    .replace(/\u00f6/g, 'oe')
+    .replace(/\u00fc/g, 'ue')
+    .replace(/\u00c4/g, 'Ae')
+    .replace(/\u00d6/g, 'Oe')
+    .replace(/\u00dc/g, 'Ue')
+    .replace(/[^a-z0-9\s]/gi, '')
+    .replace(/[_\s]/g, '-')
+    .replace(/--/g, '-');
 };
 
 $.fn.showNavOnScrollUp = function () {

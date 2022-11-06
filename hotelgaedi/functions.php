@@ -144,7 +144,7 @@ class StarterSite extends Timber\Site
             'description'           => __('Zimmer information.', 'text_domain'),
             'labels'                => $labels,
             'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'excerpt' ),
-            'taxonomies'            => array( 'category', 'post_tag', 'location', 'type' ),
+            'taxonomies'            => array( 'zimmer-category', 'post_tag', 'location', 'type' ),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
@@ -200,7 +200,7 @@ class StarterSite extends Timber\Site
             'description'           => __('Package information.', 'text_domain'),
             'labels'                => $labels,
             'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'excerpt' ),
-            'taxonomies'            => array( 'category', 'post_tag', 'location', 'type' ),
+            'taxonomies'            => array( 'packages-category', 'post_tag', 'location', 'type' ),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
@@ -236,7 +236,7 @@ class StarterSite extends Timber\Site
     public function register_taxonomies()
     {
         register_taxonomy(
-            'zimmer-categories',
+            'zimmer-category',
             'zimmer',
             array(
                 'label' => __( 'Zimmer Kategorien' ),
@@ -244,7 +244,7 @@ class StarterSite extends Timber\Site
             )
         );
         register_taxonomy(
-            'packages-categories',
+            'packages-category',
             'packages',
             array(
                 'label' => __( 'Packages Kategorien' ),
