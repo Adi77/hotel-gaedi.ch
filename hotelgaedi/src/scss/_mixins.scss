@@ -165,6 +165,9 @@ $breakpoints: (
     width: 100vw;
     .carousel-indicators {
       position: relative;
+      @include media($until: 'xl') {
+        margin-left: 0;
+      }
       button {
         &[data-bs-target] {
           background-color: transparent;
