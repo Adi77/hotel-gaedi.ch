@@ -17,10 +17,18 @@
           height: toRem(80);
         }
       }
-      @include media($until: 'sm') {
+      @include media($until: 'lg') {
         &:not(:first-child) {
           margin-top: toRem(60);
         }
+      }
+    }
+    @include media($until: 'lg') {
+      &.gx-6.pt-5 {
+        padding: 0 !important;
+      }
+      &:not(:first-child) {
+        margin-top: toRem(60);
       }
     }
   }
@@ -30,7 +38,7 @@
     @include media($until: 'lg') {
       .wp-block-column {
         &:not(:last-child) {
-          margin-bottom: toRem(48);
+          //  margin-bottom: toRem(48);
         }
       }
     }
