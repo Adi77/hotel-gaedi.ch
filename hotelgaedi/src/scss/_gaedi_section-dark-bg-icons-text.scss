@@ -35,13 +35,6 @@
   &.noBg {
     background-color: transparent;
     margin-top: 0;
-    @include media($until: 'lg') {
-      .wp-block-column {
-        &:not(:last-child) {
-          //  margin-bottom: toRem(48);
-        }
-      }
-    }
     + .wp-block-group {
       margin-top: 0;
     }

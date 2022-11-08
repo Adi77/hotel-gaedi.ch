@@ -141,7 +141,7 @@
       }
 
       @include media($until: 'sm') {
-        width: 21.0625rem;
+        width: toRem(300);
       }
     }
   }
