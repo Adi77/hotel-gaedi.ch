@@ -64,7 +64,7 @@ $.fn.mobileDropdownToggle = function () {
     let activeDropdownMenuItem = $(
       '.dropdown .dropdown-menu .menu-item.current-menu-item'
     );
-    $(activeDropdownMenuItem).parent().addClass('show');
+    $(activeDropdownMenuItem).parent().addClass('show').prev().addClass('show');
   }
 
   $('a.nav-link.dropdown-toggle').click(function () {
