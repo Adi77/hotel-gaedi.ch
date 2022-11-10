@@ -571,3 +571,41 @@ function enqueuing_admin_scripts(){
     wp_enqueue_style('admin-your-css-file-handle-name', get_template_directory_uri().'/css/gutenberg-backend.css'); 
 }
 add_action( 'admin_enqueue_scripts', 'enqueuing_admin_scripts' );
+
+
+
+
+
+
+/*
+* ADDING ACTIVE CLASS TO CUSTOM POST TYPE MENU ITEM WHEN VISITING ITS SINGLE POST PAGES
+*/
+
+function add_custom_class($classes=array(), $menu_item=false) {
+
+
+
+if (in_array('single-zimmer', get_body_class())) {
+    $postId = '89';
+    $postType = 'zimmer';
+} elseif (in_array('single-post', get_body_class())) {
+    $postId = '98';
+    $postType = 'post';
+}elseif (in_array('single-packages', get_body_class())) {
+    $postId = '98';
+    $postType = 'packages';
+} else {
+    $postId = '';
+    $postType = '';
+}
+
+ /**
+ * 
+ * @var object $menu_item
+ */
+    if ( is_single() && $postType == get_post_type() && $postId == $menu_item->id && !in_array( 'current-menu-item', $classes ) ) {
+        $classes[] = 'current-menu-item'; // setting current menu item      
+    }                         
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_custom_class', 100, 2); 
