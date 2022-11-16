@@ -116,7 +116,7 @@ h4 {
 h1 {
   font-size: 70px;
   @include media($until: 'xxl') {
-    font-size: 30px;
+    font-size: 40px;
   }
 }
 h2 {
