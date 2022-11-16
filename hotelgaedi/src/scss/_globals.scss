@@ -115,19 +115,19 @@ h4 {
 /* sizes */
 h1 {
   font-size: 70px;
-  @include media($until: 'sm') {
+  @include media($until: 'xxl') {
     font-size: 30px;
   }
 }
 h2 {
   font-size: 55px;
-  @include media($until: 'sm') {
+  @include media($until: 'xxl') {
     font-size: 30px;
   }
 }
 h3 {
   font-size: 40px;
-  @include media($until: 'sm') {
+  @include media($until: 'xxl') {
     font-size: 20px;
   }
 }
@@ -136,7 +136,7 @@ h4 {
   @include media($until: 'sm') {
     font-size: 20px;
   }
-  @include media($from: 'sm', $until: 'xl') {
+  @include media($from: 'sm', $until: 'xxl') {
     font-size: 30px;
   }
 }
