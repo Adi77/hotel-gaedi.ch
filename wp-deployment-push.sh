@@ -170,7 +170,7 @@ wp-git_deploy() {
         Yes)
             SCRIPT="cd ${webRootRelativeRemote}/${repoLocationRemote}; 
             cp -rf $WP_THEME ../../../httpdocs/wp-content/themes/"
-            ssh ${prodServerSsh} "${SCRIPT}"
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             if [ $? -eq 0 ]; then
                 echo "******* theme Folder deployment done ******************"
             else
