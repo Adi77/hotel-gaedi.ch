@@ -5,7 +5,8 @@ header {
       @include media($until: 'xl') {
         padding-top: toRem(30);
       }
-      .current-menu-item {
+      .current-menu-item,
+      .current-menu-parent {
         > a {
           color: $gaedi-brown !important;
         }

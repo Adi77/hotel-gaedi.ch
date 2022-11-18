@@ -164,6 +164,23 @@ wp-git_deploy() {
     else
         echo "******* Repo deployment failed ****************"
     fi
+    echo "******* Do you wish to sync the theme Folder to Live Website?"
+    select yn in "Yes" "No"; do
+        case $yn in
+        Yes)
+            SCRIPT="cd ${webRootRelativeRemote}/${repoLocationRemote}; 
+            cp -rf $WP_THEME ../../../httpdocs/wp-content/themes/"
+            ssh ${prodServerSsh} "${SCRIPT}"
+            if [ $? -eq 0 ]; then
+                echo "******* theme Folder deployment done ******************"
+            else
+                echo "******* theme Folder deployment failed ****************"
+            fi
+            break
+            ;;
+        No) break ;;
+        esac
+    done
 }
 
 echo "******* Do you wish to sync Database?"
