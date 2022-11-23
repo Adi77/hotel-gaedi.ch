@@ -20,6 +20,7 @@ header {
     padding: toRem(15) !important;
     color: white;
     margin-left: toRem(27);
+    appearance: button;
     @include media($until: 'lg') {
       margin-left: toRem(30);
     }
