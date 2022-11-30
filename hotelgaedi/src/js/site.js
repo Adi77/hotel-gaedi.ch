@@ -257,9 +257,8 @@ $.fn.postTypeCategoriesNavigation = function () {
   $('.wp-block-categories .cat-item:first-child a').addClass('active');
   $('.wp-block-categories .cat-item a').click(function (e) {
     e.preventDefault();
-    let category = $.fn
-      .replaceUmlautsSpecialCharsAndSpaces($(this).text())
-      .toLowerCase();
+
+    let category = $(this).attr('data-roomfilter');
 
     $('.wp-block-categories .cat-item a').removeClass('active');
     $(this).addClass('active');
@@ -279,19 +278,6 @@ $.fn.postTypeCategoriesNavigation = function () {
         .show();
     }
   });
-};
-
-$.fn.replaceUmlautsSpecialCharsAndSpaces = function (str) {
-  return str
-    .replace(/\u00e4/g, 'ae')
-    .replace(/\u00f6/g, 'oe')
-    .replace(/\u00fc/g, 'ue')
-    .replace(/\u00c4/g, 'Ae')
-    .replace(/\u00d6/g, 'Oe')
-    .replace(/\u00dc/g, 'Ue')
-    .replace(/[^a-z0-9\s]/gi, '')
-    .replace(/[_\s]/g, '-')
-    .replace(/--/g, '-');
 };
 
 $.fn.showNavOnScrollUp = function () {

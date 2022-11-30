@@ -4,25 +4,25 @@ source .env
 set +o allexport
 
 # local
-wpContentFolderLocationLocal=www/wp-content
 migrationDbDumpFolderLocationLocal=www
+wpContentFolderLocationLocal=www/wp-content
 
 # remote
-prodServerSsh=monikazi@wink.ch
-serverRootRemote=/home/monikazi
-domainNameStaging=https://www.wink.ch/staging2
-webRootRelativeRemote=www/www.wink.ch/staging2
-migrationDbDumpFolderLocationRemote=${serverRootRemote}/${webRootRelativeRemote}/migration
+prodServerSsh=sshhotelgaedi@hotel-gaedi.ch
+sshPort=2121
+webServerRoot=httpdocs
+migrationDbDumpFolderLocationRemote=/${webServerRoot}/migration
+domainNameProduction=https://hotel-gaedi.ch
 
 wp-files_sync_plugins() {
 
     echo "******* Do you wish to create Zip Archive from plugins Folder and download it?"
-    SCRIPT="cd ${webRootRelativeRemote}/wp-content; zip -r plugins.zip plugins"
+    SCRIPT="cd ${webServerRoot}/wp-content; zip -r plugins.zip plugins"
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
-            scp ${prodServerSsh}:${serverRootRemote}/${webRootRelativeRemote}/wp-content/plugins.zip ${wpContentFolderLocationLocal}
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
+            scp -P ${sshPort} ${prodServerSsh}:/${webServerRoot}/wp-content/plugins.zip ${wpContentFolderLocationLocal}
             break
             ;;
         No) break ;;
@@ -40,11 +40,11 @@ wp-files_sync_plugins() {
 wp-files_sync_uploads() {
 
     echo "******* Do you wish to create Zip Archive from uploads Folder on Server?"
-    SCRIPT="cd ${webRootRelativeRemote}/wp-content; zip -r uploads.zip uploads"
+    SCRIPT="cd ${webServerRoot}/wp-content; zip -r uploads.zip uploads"
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             break
             ;;
         No) break ;;
@@ -52,12 +52,12 @@ wp-files_sync_uploads() {
     done
 
     echo "******* Do you wish to download the uploads.zip Archive?"
-    SCRIPT="cd ${webRootRelativeRemote}/wp-content"
+    SCRIPT="cd ${webServerRoot}/wp-content"
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
-            scp ${prodServerSsh}:${serverRootRemote}/${webRootRelativeRemote}/wp-content/uploads.zip ${wpContentFolderLocationLocal}
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
+            scp -P ${sshPort} ${prodServerSsh}:/${webServerRoot}/wp-content/uploads.zip ${wpContentFolderLocationLocal}
             break
             ;;
         No) break ;;
@@ -101,12 +101,13 @@ wp-files_sync() {
 wp-database_sync() {
     echo "******* Do you wish to export db-dump to ${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz File and download it?"
     SCRIPT="cd ${migrationDbDumpFolderLocationRemote}
-            php ${serverRootRemote}/wp-cli.phar db export --add-drop-table - | gzip >${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz"
+            
+            wp db export --add-drop-table - | gzip >${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz"
     select yn in "Yes" "No"; do
         case $yn in
         Yes)
-            ssh ${prodServerSsh} "${SCRIPT}"
-            scp ${prodServerSsh}:${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz ${migrationDbDumpFolderLocationLocal}
+            ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
+            scp -P ${sshPort} ${prodServerSsh}:${migrationDbDumpFolderLocationRemote}/$DB_NAME.sql.gz ${migrationDbDumpFolderLocationLocal}
 
             break
             ;;
@@ -122,7 +123,7 @@ wp-database_sync() {
             Yes)
                 gunzip -k ${migrationDbDumpFolderLocationLocal}/$DB_NAME.sql.gz
                 docker-compose run --rm wpcli db import <${migrationDbDumpFolderLocationLocal}/$DB_NAME.sql
-                docker-compose run --rm wpcli search-replace ${domainNameStaging} 'http://'$VIRTUAL_HOST --skip-columns=guid --skip-tables=wp_users
+                docker-compose run --rm wpcli search-replace ${domainNameProduction} 'http://'$VIRTUAL_HOST --skip-columns=guid --skip-tables=wp_users
                 rm ${migrationDbDumpFolderLocationLocal}/$DB_NAME.sql
                 break
                 ;;

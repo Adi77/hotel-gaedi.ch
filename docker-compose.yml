@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  dbtest:
+  dbgaedi:
     container_name: $DB_CONTAINER
     image: mariadb:latest
     restart: unless-stopped
@@ -17,7 +17,7 @@ services:
     container_name: $WP_CONTAINER
     build: .
     depends_on:
-      - dbtest
+      - dbgaedi
       - cp
     restart: unless-stopped
     volumes:
@@ -38,13 +38,13 @@ services:
   phpmyadmin:
     container_name: $PMA_CONTAINER
     depends_on:
-      - dbtest
+      - dbgaedi
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
     environment:
       VIRTUAL_HOST: pma.$VIRTUAL_HOST
       VIRTUAL_PORT: $VIRTUAL_PORT
-      PMA_HOST: dbtest
+      PMA_HOST: dbgaedi
       MYSQL_ROOT_PASSWORD: wordpress
       UPLOAD_LIMIT: 64M
 
@@ -54,7 +54,7 @@ services:
     volumes_from:
       - wp
     links:
-      - dbtest
+      - dbgaedi
     entrypoint: wp
     command: '--info'
     environment:
