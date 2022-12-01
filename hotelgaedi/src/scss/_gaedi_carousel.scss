@@ -40,7 +40,7 @@
   }
 
   &.three-items-fullwidth {
-    @include media($until: 'md') {
+    @include media($until: 'lg') {
       padding: 0;
     }
     .carousel-nav {
@@ -58,10 +58,14 @@
           margin: 0 toRem(-30) 0 0;
         }
         .carousel {
+          overflow: hidden;
           .carousel-inner {
             @include media($from: 'sm', $until: 'lg') {
               margin-left: -50vw;
-              min-width: 205%;
+              width: 205%;
+            }
+            .carousel-item {
+              background-color: inherit;
             }
           }
         }
