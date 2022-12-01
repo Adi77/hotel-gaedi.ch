@@ -137,6 +137,9 @@ $breakpoints: (
     .carousel-control-next {
       left: inherit;
       top: -61px;
+      @include media($from: 'lg', $until: 'xxl') {
+        top: -83px;
+      }
       @include media($until: 'sm') {
         top: -50px;
       }
@@ -163,6 +166,9 @@ $breakpoints: (
     }
     margin-top: toRem(40);
     width: 100vw;
+    @include media($from: 'md', $until: 'lg') {
+      width: 94vw;
+    }
     .carousel-indicators {
       position: relative;
       @include media($until: 'xl') {

@@ -30,6 +30,13 @@
         width: 150%;
       }
     }
+    @include media($from: 'md', $until: 'lg') {
+      .carousel-inner {
+        .wp-block-group__inner-container {
+          width: 200%;
+        }
+      }
+    }
   }
 
   &.three-items-fullwidth {
@@ -44,17 +51,17 @@
         margin-right: 0;
       }
     }
+
     .wp-block-group__inner-container {
       .wp-block-columns {
-        @include media($until: 'md') {
-          margin: 0 toRem(-15) 0 0;
+        @include media($from: 'sm', $until: 'lg') {
+          margin: 0 toRem(-30) 0 0;
         }
         .carousel {
-          padding: 0;
-          .carousel-item {
-            background-color: transparent;
-            .wp-block-group__inner-container {
-              width: inherit;
+          .carousel-inner {
+            @include media($from: 'sm', $until: 'lg') {
+              margin-left: -50vw;
+              min-width: 205%;
             }
           }
         }
@@ -133,6 +140,7 @@
   }
   .carousel-item {
     background-color: $gaedi-beige;
+
     .wp-block-group__inner-container {
       width: toRem(405);
       border-right: toRem(30) solid transparent;
@@ -142,6 +150,9 @@
 
       @include media($until: 'sm') {
         width: toRem(300);
+      }
+      @include media($from: 'md', $until: 'lg') {
+        width: inherit;
       }
     }
   }

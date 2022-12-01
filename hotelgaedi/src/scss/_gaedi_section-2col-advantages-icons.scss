@@ -31,6 +31,10 @@
   }
   + .wp-block-group {
     margin-top: toRem(140);
+    @include media($from: 'sm', $until: 'lg') {
+      margin-top: toRem(80);
+      margin-bottom: toRem(120);
+    }
     @include media($until: 'sm') {
       margin-top: toRem(60);
     }

@@ -15,7 +15,7 @@
   figure {
     img {
       margin-bottom: toRem(45);
-      @include media($until: 'xl') {
+      @include media($until: 'md') {
         margin-top: toRem(30);
       }
       @include media($until: 'sm') {

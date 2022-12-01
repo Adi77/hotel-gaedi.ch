@@ -112,9 +112,9 @@
           content: '';
           position: absolute;
           z-index: -1;
-          height: toRem(200);
-          @include media($until: 'lg') {
-            height: toRem(134);
+          height: toRem(134);
+          @include media($from: 'md', $until: 'lg') {
+            height: toRem(198);
           }
           left: 0;
           right: 0;
