@@ -43,6 +43,11 @@
     @include media($until: 'lg') {
       padding: 0;
     }
+    @include media($from: 'xl') {
+      .carousel {
+        padding: 0;
+      }
+    }
     .carousel-nav {
       margin-top: 0;
     }
@@ -53,6 +58,9 @@
     }
 
     .wp-block-group__inner-container {
+      @include media($from: 'xl') {
+        width: 100% !important;
+      }
       .wp-block-columns {
         @include media($from: 'sm', $until: 'lg') {
           margin: 0 toRem(-30) 0 0;
