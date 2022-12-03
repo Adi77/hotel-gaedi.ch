@@ -167,7 +167,7 @@ $breakpoints: (
     margin-top: toRem(40);
     width: 100vw;
     @include media($from: 'md', $until: 'lg') {
-      width: 94vw;
+      //width: 94vw;
     }
     .carousel-indicators {
       position: relative;

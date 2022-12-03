@@ -1,7 +1,4 @@
 .section-2col-advantages-icons {
-  @include media($from: 'lg') {
-    @include make-container(5%);
-  }
   @include media($until: 'sm') {
     padding-right: 5%;
     padding-left: 5%;

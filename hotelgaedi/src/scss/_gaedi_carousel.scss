@@ -1,39 +1,35 @@
 .gaedi-carousel {
   &.teaser-image-text {
-    overflow-x: hidden;
+    //overflow-x: hidden;
     margin-right: 0;
+    margin-left: toRem(85);
     margin-top: toRem(160);
+    @include media($until: 'sm') {
+      margin-top: toRem(60);
+    }
     @include media($until: 'lg') {
-      max-width: 94%;
+      max-width: 90%;
+      margin-left: 10%;
     }
     @include media($from: 'lg', $until: 'xl') {
       max-width: 90%;
     }
-    @include media($from: 'xxl') {
-      .carousel-inner {
-        .wp-block-group__inner-container {
-          width: inherit;
-          .wp-block-image {
-            width: 24vw;
-          }
-        }
-      }
-    }
-    @include media($until: 'sm') {
-      margin-top: toRem(60);
-      .carousel-inner {
+    .carousel-inner {
+      @include media($until: 'sm') {
         width: 440vw !important;
       }
-    }
-    @include media($until: 'lg') {
-      .carousel-inner {
-        width: 150%;
+      @include media($until: 'lg') {
+        width: 187%;
       }
-    }
-    @include media($from: 'md', $until: 'lg') {
-      .carousel-inner {
-        .wp-block-group__inner-container {
-          width: 200%;
+      > .wp-block-group__inner-container {
+        @include media($from: 'md', $until: 'lg') {
+          width: 161%;
+        }
+        @include media($from: 'xxl') {
+          width: inherit;
+          .wp-block-image {
+            // width: 24vw;
+          }
         }
       }
     }
@@ -43,11 +39,7 @@
     @include media($until: 'lg') {
       padding: 0;
     }
-    @include media($from: 'xl') {
-      .carousel {
-        padding: 0;
-      }
-    }
+
     .carousel-nav {
       margin-top: 0;
     }
@@ -58,7 +50,7 @@
     }
 
     .wp-block-group__inner-container {
-      @include media($from: 'xl') {
+      @include media($from: 'lg') {
         width: 100% !important;
       }
       .wp-block-columns {
@@ -67,10 +59,13 @@
         }
         .carousel {
           overflow: hidden;
+          @include media($from: 'md') {
+            padding: 0;
+          }
           .carousel-inner {
             @include media($from: 'sm', $until: 'lg') {
-              margin-left: -50vw;
-              width: 205%;
+              margin-left: -75vw;
+              width: 244%;
             }
             .carousel-item {
               background-color: inherit;
@@ -123,6 +118,9 @@
       @include media($until: 'sm') {
         margin-right: initial;
       }
+      @include media($from: 'xxl') {
+        margin-right: -22vw;
+      }
     }
   }
 
@@ -165,6 +163,9 @@
       }
       @include media($from: 'md', $until: 'lg') {
         width: inherit;
+      }
+      @include media($from: 'xxl') {
+        width: toRem(440);
       }
     }
   }
