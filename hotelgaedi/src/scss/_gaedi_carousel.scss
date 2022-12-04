@@ -6,10 +6,11 @@
     margin-top: toRem(160);
     @include media($until: 'sm') {
       margin-top: toRem(60);
+      margin-left: 5%;
     }
     @include media($until: 'lg') {
       max-width: 90%;
-      margin-left: 10%;
+      margin-left: 0;
     }
     @include media($from: 'lg', $until: 'xl') {
       max-width: 90%;
@@ -18,7 +19,8 @@
       @include media($until: 'sm') {
         width: 440vw !important;
       }
-      @include media($until: 'lg') {
+      @include media($from: 'sm', $until: 'md') {
+        // needs to be until:md !!
         width: 187%;
       }
       > .wp-block-group__inner-container {
@@ -50,6 +52,9 @@
     }
 
     .wp-block-group__inner-container {
+      @include media($until: 'sm') {
+        width: initial !important;
+      }
       @include media($from: 'lg') {
         width: 100% !important;
       }
@@ -63,6 +68,10 @@
             padding: 0;
           }
           .carousel-inner {
+            @include media($until: 'sm') {
+              margin-left: -69vw;
+              width: 245%;
+            }
             @include media($from: 'sm', $until: 'lg') {
               margin-left: -75vw;
               width: 244%;
