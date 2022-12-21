@@ -2,8 +2,6 @@ import $ from 'jquery';
 import 'bootstrap';
 import { Modal } from 'bootstrap';
 
-import 'flickity';
-
 import './../scss/style.scss';
 import { TempusDominus } from '@eonasdan/tempus-dominus';
 
