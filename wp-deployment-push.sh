@@ -169,6 +169,7 @@ wp-git_deploy() {
         case $yn in
         Yes)
             SCRIPT="cd ${webRootRelativeRemote}/${repoLocationRemote}; 
+            zip -r ../../../httpdocs/wp-content/themes/$WP_THEME.zip ../../../httpdocs/wp-content/themes/$WP_THEME
             cp -rf $WP_THEME ../../../httpdocs/wp-content/themes/"
             ssh ${prodServerSsh} -p${sshPort} "${SCRIPT}"
             if [ $? -eq 0 ]; then
