@@ -211,3 +211,45 @@ section {
     right: 0;
   }
 }
+
+.wpml-ls-legacy-list-vertical {
+  &.wpml-ls-statics-footer {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    ul {
+      li {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s ease;
+        display: none;
+
+        &.wpml-ls-current-language {
+          visibility: visible;
+          opacity: 1;
+          display: inline-block;
+        }
+        a {
+          color: white;
+          background-color: transparent;
+          text-transform: uppercase;
+          &:hover {
+            background-color: transparent;
+            color: white;
+            border-bottom: 1px solid white;
+          }
+        }
+      }
+      &:hover {
+        li {
+          visibility: visible;
+          opacity: 1;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
