@@ -238,8 +238,7 @@ section {
           text-transform: uppercase;
           &:hover {
             background-color: transparent;
-            color: white;
-            border-bottom: 1px solid white;
+            color: $gaedi-black;
           }
         }
       }
