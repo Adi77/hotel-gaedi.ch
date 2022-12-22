@@ -5,21 +5,10 @@
   */
 
 /*!
- * Flickity v3.0.0
- * Touch, responsive, flickable carousels
- *
- * Licensed GPLv3 for open source use
- * or Flickity Commercial License for commercial use
- *
- * https://flickity.metafizzy.co
- * Copyright 2015-2022 Metafizzy
- */
-
-/*!
- * Infinite Scroll v2.0.4
- * measure size of elements
- * MIT license
- */
+  * Tempus Dominus v6.2.4 (https://getdatepicker.com/)
+  * Copyright 2013-2022 Jonathan Peterson
+  * Licensed under MIT (https://github.com/Eonasdan/tempus-dominus/blob/master/LICENSE)
+  */
 
 /*!
  * Sizzle CSS Selector Engine v2.3.6
@@ -30,18 +19,6 @@
  * https://js.foundation/
  *
  * Date: 2021-02-16
- */
-
-/*!
- * Unidragger v3.0.1
- * Draggable base class
- * MIT license
- */
-
-/*!
- * imagesLoaded v5.0.0
- * JavaScript is all like "You images are done yet or what?"
- * MIT License
  */
 
 /*!

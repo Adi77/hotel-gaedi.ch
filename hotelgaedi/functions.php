@@ -502,7 +502,7 @@ class T5_Richtext_Excerpt
         remove_meta_box(
             'postexcerpt' // ID
         ,   'post'            // Screen, empty to support all post types
-        ,   'normal'      // Context
+        ,   'side'      // Context
         );
 
         add_meta_box(
