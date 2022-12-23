@@ -269,6 +269,8 @@ class StarterSite extends Timber\Site
         $context['footerwidgetcol3'] = Timber::get_widgets('footerwidgetcol3');
         $context['copyrightrow'] = Timber::get_widgets('copyrightrow');
         $context['teasermodalbox'] = Timber::get_widgets('teasermodalbox');
+        $context['teasermodalboxen'] = Timber::get_widgets('teasermodalboxen');
+        $context['teasermodalboxfr'] = Timber::get_widgets('teasermodalboxfr');
         $context['site']  = $this;
         return $context;
     }
@@ -434,6 +436,28 @@ function hotel_gaedi_widgets_init()
         array(
             'name'          => __('Teaser Modal Box', 'hotel_gaedi'),
             'id'            => 'teasermodalbox',
+            'description'   => __('Teaser Modal Box', 'hotel_gaedi'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => __('Teaser Modal Box English', 'hotel_gaedi'),
+            'id'            => 'teasermodalboxen',
+            'description'   => __('Teaser Modal Box', 'hotel_gaedi'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => __('Teaser Modal Box Français', 'hotel_gaedi'),
+            'id'            => 'teasermodalboxfr',
             'description'   => __('Teaser Modal Box', 'hotel_gaedi'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
